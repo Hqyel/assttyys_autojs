@@ -28,17 +28,19 @@ export class Func315 implements IFuncOrigin {
 	operator: IFuncOperatorOrigin[] = [{ // 0 准备的预设
 		desc: [1280, 720,
 			[
-				[right, 1124, 698, 0xd0af86],
 				[right, 1240, 702, 0xcead83],
-				[right, 1191, 596, 0xa46149],
 				[right, 1182, 586, 0xf7e6c3],
+				[center, 360, 699, 0x241818],
+				[left, 32, 23, 0xdbb48b],
+				[right, 1122, 698, 0xddbb8f],
 				[center, 40, 678, 0xe08673],
 				[left, 32, 23, 0xdbb48b]
 			]
 		],
 		oper: [
 			[center, 1280, 720, 42, 662, 74, 703, 1000],
-		]
+		],
+		retest: 1000
 	}, { // 1  准备预设里界面
 		desc: [
 			1280, 720,
@@ -46,8 +48,8 @@ export class Func315 implements IFuncOrigin {
 				[left, 70, 226, 0x77522d],
 				[center, 688, 277, 0x5a4536],
 				[center, 580, 254, 0xdfc9b6],
-				[center, 580, 614, 0xdfc9b6],
-				[left, 174, 614, 0x76512c],
+				[center, 609, 256, 0xdfc9b6],
+				[left, 81, 225, 0x241c1a],
 			]
 		]
 	}, { // 2  预设组
@@ -71,33 +73,37 @@ export class Func315 implements IFuncOrigin {
 	]
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
 		const thisConf = thisScript.scheme.config['315'];
-		if (thisScript.global.shangyushe) {
-			if (thisScript.oper({
-				name: '准备的预设',
-				operator: [thisOperator[0]]
-			})) {
-				return true;
+		if (thisScript.global.shangyushe && thisScript.oper({
+			name: '准备的预设',
+			operator: [thisOperator[0]]
+		})) {
+			return true;
+		}
+		if (thisScript.oper({
+			name: '准备预设里界面',
+			operator: [thisOperator[1]]
+		})) {
+			if (!thisScript.global.preset_once_team_groupNum) {
+				thisScript.global.preset_once_team_groupNum = Number(thisConf.groupNum) - 1;
 			}
-			if (thisScript.oper({
-				name: '准备预设里界面',
-				operator: [thisOperator[1]]
-			})) {
-				const tureGroupNum = Number(thisConf.groupNum) - 1
-				const trueDefaultNum = Number(thisConf.defaultNum) - 1;
-				const oper = [[
-					thisOperator[2].oper[0][0],
-					thisOperator[2].oper[0][1] + (thisOperator[2].oper[0][4] * tureGroupNum),
-					thisOperator[2].oper[0][2],
-					thisOperator[2].oper[0][3] + (thisOperator[2].oper[0][4] * tureGroupNum),
-					500
-				]];
-				thisScript.regionClick(oper);
-				const opertwo = thisOperator[3].oper[trueDefaultNum];
-				thisScript.regionClick([opertwo]);
-				thisScript.regionClick(thisOperator[4].oper);
-				thisScript.global.shangyushe = false;
-				return true;
+			if (!thisScript.global.preset_once_team_defaultNum) {
+				thisScript.global.preset_once_team_defaultNum = Number(thisConf.defaultNum) - 1;
 			}
+			const oper = [[
+				thisOperator[2].oper[0][0],
+				thisOperator[2].oper[0][1] + (thisOperator[2].oper[0][4] * thisScript.global.preset_once_team_groupNum),
+				thisOperator[2].oper[0][2],
+				thisOperator[2].oper[0][3] + (thisOperator[2].oper[0][4] * thisScript.global.preset_once_team_groupNum),
+				500
+			]];
+			thisScript.regionClick(oper);
+			const opertwo = thisOperator[3].oper[thisScript.global.preset_once_team_defaultNum];
+			thisScript.regionClick([opertwo]);
+			thisScript.regionClick(thisOperator[4].oper);
+			thisScript.global.shangyushe = false;
+			thisScript.global.preset_once_team_groupNum = null;
+			thisScript.global.preset_once_team_defaultNum = null;
+			return true;
 		}
 		return false;
 	}

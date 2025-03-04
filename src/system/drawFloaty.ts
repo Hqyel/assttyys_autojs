@@ -28,6 +28,7 @@ const drawFloaty = {
             </frame>
         `);
 		ui.post(() => {
+			self.instacne.board.getRootView().getLayoutParams().alpha = 0.8; // alpha设置0.8，在安卓12以上实现悬浮窗穿透
 			self.instacne.setTouchable(false);
 			self.instacne.setSize(-1, -1);
 		});
@@ -76,7 +77,7 @@ const drawFloaty = {
 		paintLine.setStyle(android.graphics.Paint.Style.STROKE);
 		paintLine.setColor(colors.parseColor('#FF963200'));
 
-		self.instacne.board.on('draw', function(canvas) {
+		self.instacne.board.on('draw', function (canvas) {
 			canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
 			const toDraw = self.toDraw || [];
 			// if (toDraw.length) {
@@ -95,18 +96,18 @@ const drawFloaty = {
 				let paint = null;
 				let textPaint = null;
 				switch (color) {
-				case 'green':
-					paint = paintGreen;
-					textPaint = textPaintGreen;
-					break;
-				case 'red':
-					paint = paintRed;
-					textPaint = textPaintRed;
-					break;
-				case 'orange':
-					paint = paintOrange;
-					textPaint = textPaintOrange;
-					break;
+					case 'green':
+						paint = paintGreen;
+						textPaint = textPaintGreen;
+						break;
+					case 'red':
+						paint = paintRed;
+						textPaint = textPaintRed;
+						break;
+					case 'orange':
+						paint = paintOrange;
+						textPaint = textPaintOrange;
+						break;
 				}
 				if (!paint) return;
 				// console.log(`绘制：${JSON.stringify(item)}`);
@@ -121,16 +122,16 @@ const drawFloaty = {
 		});
 		this.thread = threads.start(function () {
 			// 设置一个空的定时来保持线程的运行状态
-			setInterval(function () {}, 1000);
+			setInterval(function () { }, 1000);
 		});
 	},
 
 	/**
-     * 绘制数组
-     * @param {*} arr
-     * @param {*} time
-     */
-	draw: function(arr, time) {
+	 * 绘制数组
+	 * @param {*} arr
+	 * @param {*} time
+	 */
+	draw: function (arr, time) {
 		arr.forEach(i => {
 			i.region[1] = i.region[1] - this.option.statusBarHeight;
 			i.region[3] = i.region[3] - this.option.statusBarHeight;

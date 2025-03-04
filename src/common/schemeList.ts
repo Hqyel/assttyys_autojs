@@ -72,12 +72,12 @@ const SchemeList: IScheme[] = [
 	{
 		id: 5,
 		schemeName: '个突_9退4_进攻',
-		groupName: '个突9退4',
+		groupNames: ['个突9退4'],
 		star: true,
-		list: [0, 1, 2, 3, 8, 9, 10],
+		list: [51, 0, 1, 2, 3, 8, 9, 10],
 		config: {
 			'0': {
-				scheme_switch_enabled: true,
+				after_operation: '切换方案',
 				next_scheme: '个突_9退4_退出',
 			},
 			'3': { type: '关闭' },
@@ -87,10 +87,13 @@ const SchemeList: IScheme[] = [
 				type: '个人突破',
 			},
 			'9': {
-				priority: '4->5->3->2->1->0',
-				scheme_switch_enabled: true,
+				after_operation: '切换方案',
 			},
 			'10': { type: '个人突破' },
+			'51': {
+				greenType: '自定义坐标',
+				'preSearch': true
+			},
 		},
 		commonConfig: {
 			// 通用参数
@@ -100,23 +103,23 @@ const SchemeList: IScheme[] = [
 	{
 		id: 5,
 		schemeName: '个突_9退4_退出',
-		groupName: '个突9退4',
+		groupNames: ['个突9退4'],
 		list: [0, 1, 2, 3, 8, 9, 10],
 		config: {
 			'0': {
 				jspd_enabled_2: true,
 				jspd_times_2: '4',
-				scheme_switch_enabled: true,
-				next_scheme: '个突_9退4_进攻',
+				after_operation: '切换方案',
+				next_scheme: '__返回上个方案__',
 			},
 			'1': { exitBeforeReady: true },
 			'2': { rechallenge: true },
 			'8': {
 				count: '2',
-				afterCountOper: '停止脚本',
+				afterCountOper: '九退四_切换方案',
+				next_scheme: '__返回上个方案__',
 				type: '个人突破',
 			},
-			'9': { priority: '0->1->2->3->4->5' },
 			'10': { type: '个人突破' },
 		},
 		commonConfig: {
@@ -144,7 +147,7 @@ const SchemeList: IScheme[] = [
 		id: 7,
 		schemeName: '个人探索',
 		star: true,
-		list: [0, 15, 1, 2, 3, 13, 14, 29],
+		list: [0, 1, 2, 3, 13, 14, 29],
 		config: {
 			'0': {
 				next_scheme: '关闭BUFF',
@@ -155,23 +158,13 @@ const SchemeList: IScheme[] = [
 		id: 8,
 		schemeName: '组队探索_队长',
 		star: false,
-		list: [0, 15, 1, 2, 3, 5, 14],
-		config: {
-			'15': {
-				type: '队长',
-			},
-		},
+		list: [0, 1, 2, 3, 5, 14],
 	},
 	{
 		id: 8,
 		schemeName: '组队探索_打手',
 		star: false,
-		list: [0, 15, 1, 2, 3, 4, 25],
-		config: {
-			'15': {
-				type: '打手',
-			},
-		},
+		list: [0, 1, 2, 3, 4, 25],
 	},
 	{
 		id: 9,
@@ -193,7 +186,7 @@ const SchemeList: IScheme[] = [
 	{
 		id: 11,
 		schemeName: '百鬼夜行',
-		list: [3, 17, 18, 19, 20, 21],
+		list: [3, 17],
 	},
 	{
 		id: 12,
@@ -202,22 +195,22 @@ const SchemeList: IScheme[] = [
 	},
 	{
 		id: 13,
-		groupName: '切换方案样例',
+		groupNames: ['切换方案样例'],
 		schemeName: '例_个人探索30次_转个人突破',
 		star: true,
-		list: [0, 15, 1, 2, 3, 13, 14],
+		list: [0, 1, 2, 3, 13, 14],
 		config: {
 			'0': {
 				jspd_enabled_2: true,
 				jspd_times_2: 30,
-				scheme_switch_enabled: true,
+				after_operation: '切换方案',
 				next_scheme: '例_个人突破_结束后转寮突破',
 			},
 		},
 	},
 	{
 		id: 14,
-		groupName: '切换方案样例',
+		groupNames: ['切换方案样例'],
 		schemeName: '例_个人突破_结束后转寮突破',
 		star: true,
 		list: [0, 1, 2, 3, 7, 10, 8, 9, 11, 25],
@@ -263,7 +256,7 @@ const SchemeList: IScheme[] = [
 	{
 		id: 22,
 		schemeName: '秘闻',
-		list: [0, 51, 1, 2, 3, 34],
+		list: [0, 51, 1, 2, 3, 34, 308],
 		star: true,
 		config: {
 			'0': {
@@ -281,23 +274,22 @@ const SchemeList: IScheme[] = [
 		id: 23,
 		schemeName: '悬赏',
 		star: true,
-		list: [0, 1, 2, 3, 52, 29, 41, 42, 43, 44, 45, 46, 47, 48, 49],
-		config: {
-			'52': {
-				scheme_switch_enabled: false,
-			},
-		},
+		list: [0, 1, 2, 3, 18, 29],
 	},
 	{
 		id: 24,
 		schemeName: '金币妖怪',
-		list: [0, 1, 2, 3, 35, 37, 38],
+		list: [0, 50, 1, 2, 3, 35, 37, 38],
 		config: {
 			'37': {
 				target: '金币妖怪',
 				createMode: '创建队伍',
 				next_scheme: '关闭BUFF',
 			},
+			'50': {
+				ready_once_buff: true,
+				buff_type: '金币',
+			}
 		},
 	},
 	{
@@ -314,25 +306,20 @@ const SchemeList: IScheme[] = [
 	{
 		id: 26,
 		schemeName: '关闭BUFF',
-		list: [502, 1, 2, 3, 29, 40, 501],
+		list: [502, 1, 2, 3, 501, 29, 40],
 	},
 	{
 		id: 27,
 		schemeName: '开启BUFF_打探索',
 		list: [501, 50],
 	},
-	//  {
-	//     id: 28,
-	//     schemeName: '悬赏_庭院打开悬赏界面',
-	//     list: [52],
-	// },
 	{
 		id: 29,
 		schemeName: '返回庭院',
 		list: [3, 503],
 		config: {
 			'503': {
-				scheme_switch_enabled: false,
+				after_operation: '停止脚本',
 				next_scheme: '通用准备退出',
 				afterCountOper: '停止脚本',
 			},
@@ -342,23 +329,25 @@ const SchemeList: IScheme[] = [
 		id: 30,
 		schemeName: '式神寄养',
 		star: true,
-		groupName: '式神寄养',
-		list: [3, 999, 998, 997, 994, 995],
+		groupNames: ['式神寄养'],
+		list: [0, 3, 999, 998, 997, 994, 995],
 		config: {
+			'0': {
+				jspd_times_longtime_nodo: 20,
+			},
 			'3': {
 				type: '关闭',
 			},
 			'994': {
 				count: '6',
-				maxTimeForwait: '10',
 				afterCountOper: '停止脚本',
 				next_scheme: '通用准备退出',
 			},
 			'995': {
-				next_scheme: '返回庭院',
+				maxTimeForwait: '10',
 				afterCountOper: '停止脚本',
 				isAutoFosterCare: true,
-				maxTimeForwait: '10',
+				next_scheme: '返回庭院',
 			},
 			'997': {
 				priority: '太鼓6->太鼓5->太鼓4->太鼓3->斗鱼6->斗鱼5->斗鱼4',
@@ -369,7 +358,7 @@ const SchemeList: IScheme[] = [
 		id: 31,
 		schemeName: '定时任务-启动游戏-式神寄养',
 		star: true,
-		groupName: '式神寄养',
+		groupNames: ['式神寄养'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -390,7 +379,7 @@ const SchemeList: IScheme[] = [
 		id: 32,
 		schemeName: '式神指定寄养',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [3, 999, 998, 996, 994, 995],
 		config: {
 			'3': {
@@ -427,28 +416,17 @@ const SchemeList: IScheme[] = [
 				gateOfHades_switch: false,
 			},
 			'516': {
-				count: '40',
+				count: '10',
 				afterCountOper: '停止脚本',
 				next_scheme: '通用准备退出',
 			},
 		},
 	},
 	{
-		id: 35,
-		schemeName: '六道萤草',
-		list: [0, 1, 2, 3, 24, 201, 202, 203, 207, 204, 205, 206, 208, 209],
-		commonConfig: {
-			loopDelay: 200,
-			afterClickDelayRandom: 200,
-			colorSimilar: 93,
-			multiColorSimilar: 95,
-		},
-	},
-	{
 		id: 36,
 		schemeName: '定时任务-启动游戏-每日寮活动',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -470,7 +448,7 @@ const SchemeList: IScheme[] = [
 		id: 40,
 		schemeName: '定时任务-启动游戏-每日逢魔',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -486,7 +464,7 @@ const SchemeList: IScheme[] = [
 	{
 		id: 41,
 		schemeName: '实例-更换式神预设御魂',
-		groupName: '切换方案样例',
+		groupNames: ['切换方案样例'],
 		list: [509, 510, 511],
 		config: {
 			'510': {
@@ -523,7 +501,7 @@ const SchemeList: IScheme[] = [
 		id: 46,
 		schemeName: '定时任务-启动游戏-喂猫喂狗',
 		star: false,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -537,36 +515,23 @@ const SchemeList: IScheme[] = [
 		},
 	},
 	{
-		id: 47,
-		groupName: '御魂奉纳',
-		schemeName: '奉纳御魂_贪食鬼吃经验',
-		list: [0, 301, 303],
-		star: true,
-	},
-	{
 		id: 48,
-		groupName: '御魂奉纳',
+		groupNames: ['御魂奉纳'],
 		schemeName: '奉纳御魂_开始奉纳',
 		list: [0, 2, 302],
 	},
 	{
 		id: 49,
-		groupName: '绘卷进度检测',
+		groupNames: ['绘卷进度检测'],
 		schemeName: '绘卷进度_检测并提醒',
 		list: [0, 304],
 		star: true,
 	},
 	{
-		id: 50,
-		groupName: '绘卷进度检测',
-		schemeName: '绘卷进度_持续查询进度',
-		list: [0, 305],
-	},
-	{
 		id: 51,
 		schemeName: '定时任务-启动游戏-寮突',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -583,7 +548,7 @@ const SchemeList: IScheme[] = [
 		id: 52,
 		schemeName: '定时任务-启动游戏-地鬼',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -606,7 +571,7 @@ const SchemeList: IScheme[] = [
 				gateOfHades_switch: true,
 			},
 			'516': {
-				count: '40',
+				count: '10',
 				afterCountOper: '停止脚本',
 				next_scheme: '通用准备退出',
 			},
@@ -622,7 +587,7 @@ const SchemeList: IScheme[] = [
 				gateOfHades_switch: false,
 			},
 			'516': {
-				count: '40',
+				count: '10',
 				afterCountOper: '停止脚本',
 				next_scheme: '通用准备退出',
 			},
@@ -632,7 +597,7 @@ const SchemeList: IScheme[] = [
 		id: 55,
 		schemeName: '定时任务-启动游戏-庭院进入寮每日活动(包含阴门)',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -649,7 +614,7 @@ const SchemeList: IScheme[] = [
 		id: 56,
 		schemeName: '定时任务-启动游戏-庭院进入寮每日活动(不包含阴门)',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -664,7 +629,7 @@ const SchemeList: IScheme[] = [
 	},
 	{
 		id: 57,
-		groupName: '组队循环示例',
+		groupNames: ['组队循环示例'],
 		schemeName: '组队队长创建和邀请',
 		list: [0, 27, 306],
 		commonConfig: {
@@ -673,7 +638,7 @@ const SchemeList: IScheme[] = [
 	},
 	{
 		id: 58,
-		groupName: '组队循环示例',
+		groupNames: ['组队循环示例'],
 		schemeName: '组队队员接受邀请',
 		list: [4],
 		config: {
@@ -700,7 +665,7 @@ const SchemeList: IScheme[] = [
 		id: 60,
 		schemeName: '定时任务-启动游戏-悬赏',
 		star: false,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -750,7 +715,7 @@ const SchemeList: IScheme[] = [
 		id: 65,
 		schemeName: '定时任务-启动游戏-每日签到与收取邮件',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -791,7 +756,7 @@ const SchemeList: IScheme[] = [
 		id: 68,
 		schemeName: '定时任务-启动游戏-庭院进入寮每日活动(狭间)',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
@@ -810,41 +775,19 @@ const SchemeList: IScheme[] = [
 		list: [0, 1, 316, 2, 3, 24],
 	},
 	{
-		id: 70,
-		schemeName: '开启经验BUFF_经验妖怪',
-		list: [501, 50],
-		config: {
-			'50': {
-				scheme_switch_enabled: true,
-				next_scheme: '经验妖怪',
-				buff_type: '经验',
-				ready_once_buff: false,
-			},
-		},
-	},
-	{
-		id: 71,
-		schemeName: '开启金币BUFF_金币妖怪',
-		list: [501, 50],
-		config: {
-			'50': {
-				scheme_switch_enabled: true,
-				next_scheme: '金币',
-				buff_type: '金币',
-				ready_once_buff: false,
-			},
-		},
-	},
-	{
 		id: 72,
 		schemeName: '经验妖怪',
-		list: [0, 1, 2, 3, 35, 37, 38],
+		list: [0, 50, 1, 2, 3, 35, 37, 38],
 		config: {
 			'37': {
-				target: '经验',
+				target: '经验妖怪',
 				createMode: '创建队伍',
 				next_scheme: '关闭BUFF',
 			},
+			'50': {
+				ready_once_buff: true,
+				buff_type: '经验',
+			}
 		},
 	},
 	{
@@ -863,13 +806,13 @@ const SchemeList: IScheme[] = [
 		id: 74,
 		schemeName: '定时任务-启动游戏-金币妖怪',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
 				area: '',
 				is_shutdown_the_game_before: true,
-				next_scheme: '开启金币BUFF_金币妖怪',
+				next_scheme: '金币妖怪',
 			},
 			'503': {
 				afterCountOper: '不进行任何操作',
@@ -880,18 +823,45 @@ const SchemeList: IScheme[] = [
 		id: 75,
 		schemeName: '定时任务-启动游戏-经验妖怪',
 		star: true,
-		groupName: '定时任务',
+		groupNames: ['定时任务'],
 		list: [1, 2, 3, 503, 993],
 		config: {
 			'993': {
 				area: '',
 				is_shutdown_the_game_before: true,
-				next_scheme: '开启经验BUFF_经验妖怪',
+				next_scheme: '经验妖怪',
 			},
 			'503': {
 				afterCountOper: '不进行任何操作',
 			},
 		},
+	},
+	{
+		id: 76,
+		schemeName: '僵尸寮自动攻打道馆',
+		list: [311, 32, 519, 505, 51, 0, 1, 2],
+		config: {
+			'32': {
+				after_fail_operation: '再战道馆',
+				exit_second: true,
+			},
+			'51': {
+				greenType: '自定义坐标',
+				preSearch: true
+			},
+			'311': {
+				redType: '神荒',
+			},
+			'519': {
+				defense: 1,
+				coefficient: 5,
+				day: true
+			},
+		},
+	}, {
+		id: 77,
+		schemeName: '宴会筹备',
+		list: [0, 2, 520, 29],
 	},
 	{
 		id: 99,
@@ -902,41 +872,55 @@ const SchemeList: IScheme[] = [
 		id: 100,
 		schemeName: '缘结趣游',
 		list: [0, 24, 319],
+	}, {
+		id: 101,
+		schemeName: '对弈竞猜',
+		list: [0, 2, 401],
+		config: {
+			'0': {
+				jspd_times_longtime_nodo: '1',
+			}
+		}
+	}, {
+		id: 102,
+		schemeName: '超鬼王_刷票',
+		list: [50, 0, 1, 2, 3, 402],
+		config: {
+			'50': { buff_type: '御魂', ready_once_buff: true }
+		}
+	}
+	, {
+		id: 103,
+		schemeName: '超鬼王_低星',
+		list: [0, 1, 2, 3, 403, 24],
 	}
 	// , {
 	// 	id: 102,
-	// 	schemeName: '活动_破晓之时',
-	// 	list: [0, 1, 2, 3, 24, 317],
-	// 	groupName: '活动',
+	// 	schemeName: '定时任务-启动游戏-对弈竞猜',
 	// 	star: true,
+	// 	groupNames: ['定时任务'],
+	// 	list: [1, 2, 3, 503, 993],
 	// 	config: {
-	// 		'0': { // key为功能的ID（1表示准备）
-	// 			jspd_enabled_longtime_nodo: true,
-	// 			jspd_times_longtime_nodo: 3,
+	// 		'993': {
+	// 			area: '',
+	// 			is_shutdown_the_game_before: true,
+	// 			next_scheme: '对弈竞猜',
+	// 		},
+	// 		'503': {
+	// 			afterCountOper: '不进行任何操作',
+	// 		},
+	// 	},
+	// }, {
+	// 	id: 101,
+	// 	schemeName: '对弈竞猜',
+	// 	list: [0, 2, 401],
+	// 	config: {
+	// 		'0': {
+	// 			jspd_times_longtime_nodo: '1',
 	// 		}
 	// 	},
 	// }
-	// , {
-	//   id: 102,
-	//   schemeName: '活动_守缘合战',
-	//   list: [0, 1, 2, 3, 24, 133],
-	//   star: true,
-	// }
-	// , {
-	//     id: 101,
-	//     groupName: '活动',
-	//     schemeName: '银之绮都_妖塔燃战',
-	//     star: true,
-	//     list: [0, 1, 2, 3, 128]
-	// }
-	// , {
-	//     id: 102,
-	//     groupName: '活动',
-	//     schemeName: '夏日游园会_消消乐',
-	//     star: true,
-	//     list: [0, 3, 129, 130],
-	//     commonConfig: { multiColorSimilar: 95 }
-	// }
+	//
 	// 完整demo
 	// , {
 	//     id: 2,
@@ -1005,3 +989,8 @@ SchemeList.forEach((item, id) => {
 
 export const schemeNameMap = innerSchemeListName;
 export default SchemeList;
+export type GroupSchemeName = {
+	groupName: string,
+	hidden: boolean,
+	schemeNames: string[]
+}

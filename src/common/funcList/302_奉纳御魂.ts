@@ -36,23 +36,28 @@ export class Func302 implements IFuncOrigin {
 			[center, 1280, 720, 1164, 212, 1211, 273, 1000]
 		]
 	}, {  // 1,第一排一行御魂+0
-		desc: [1280, 720, [
-			[left, 49, 134, 0x4a5de9],
-			[left, 108, 252, 0xe7e2d0],
-			[left, 112, 245, 0xf0ebd8],
-			[left, 116, 251, 0xe9e4d2],
-			[left, 175, 255, 0xffffff]]
+		desc: [
+			1280, 720,
+			[
+				[left, 100, 252, 0xe8e2d0],
+				[left, 105, 252, 0xe8e2d0],
+				[left, 110, 247, 0xede8d6],
+				[left, 117, 251, 0xe1dbc9],
+				[left, 112, 245, 0xf7f2df],
+			]
 		],
 		oper: [
 			[center, 1280, 720, 820, 644, 922, 688, 1000]
 		]
 	}, {  // 2,开始奉纳
-		desc: [1280, 720, [
-			[left, 49, 134, 0x4a5de9],
-			[left, 108, 252, 0xa5dde5],
-			[left, 112, 245, 0xb6e5e9],
-			[left, 116, 251, 0xa7dfe6],
-			[left, 173, 252, 0x0685aa]]
+		desc: [
+			1280, 720,
+			[
+				[left, 49, 134, 0x4a5de9],
+				[left, 173, 252, 0x0685aa],
+				[left, 100, 252, 0xa9dee6],
+				[left, 117, 252, 0xa0d8e1],
+			]
 		],
 		oper: [
 			[center, 1280, 720, 820, 644, 922, 688, 1700]
@@ -93,89 +98,166 @@ export class Func302 implements IFuncOrigin {
 		]
 	}, { // 7,神赐三排
 		desc: [1280, 720,
-			[[center, 368, 314, 0x906b41],
+			[
+				[center, 368, 314, 0x906b41],
 				[center, 920, 313, 0x8c6940],
 				[center, 616, 188, 0xddcc77],
-				[center, 666, 187, 0xdcb85b]]
+				[center, 666, 187, 0xdcb85b]
+			]
 		],
 		oper: [
 			[center, 1280, 720, 580, 604, 702, 668, 1000]
 		]
 	}, { // 8,更改排序方式
-		desc: [1280, 720,
-			[[center, 393, 130, 0xcdc7b6],
-				[center, 428, 142, 0xe9e4d1],
-				[center, 443, 136, 0xb4ad9e],
-				[center, 461, 138, 0xf4efdc],
-				[center, 485, 139, 0xe7e1cf]]
+		desc: [
+			1280, 720,
+			[
+				[center, 400, 135, 0xe3ddcb],
+				[center, 420, 135, 0xd1cbba],
+				[center, 444, 135, 0xb1aa9b],
+				[center, 461, 138, 0xe6e1cf],
+				[center, 490, 142, 0xdbd6c4],
+			]
 		],
 		oper: [
 			[center, 1280, 720, 366, 118, 526, 152, 500],
 			[center, 1280, 720, 380, 284, 541, 330, 1500],
 		]
+	}, { // 9,右下角贪食鬼
+		desc: [
+			1280, 720,
+			[
+				[left, 154, 45, 0xaf8c56],
+				[left, 192, 41, 0x593716],
+				[right, 1182, 524, 0xc99b1c],
+				[right, 1188, 648, 0xdf394a],
+			]
+		],
+		oper: [
+			[center, 1280, 720, 1158, 621, 1213, 669, 1000],
+		]
+	}, {  // 10,进食习惯
+		desc: [1280, 720, [
+			[center, 363, 294, 0x332725],
+			[center, 949, 230, 0xebdac9],
+			[center, 902, 565, 0xf4b25f],
+			[center, 750, 278, 0x2c3244]
+		]
+		],
+		oper: [
+			[center, 1280, 720, 820, 532, 978, 588, 3000]
+		]
+	}, {  // 11,贪食鬼
+		desc: [1280, 720, [
+			[right, 1012, 491, 0xece3d3],
+			[right, 1016, 537, 0xe3d5c3],
+			[center, 818, 243, 0xb34a1d],
+			[center, 813, 591, 0xf4b25f]]
+		],
+		oper: [
+			[center, 1280, 720, 940, 608, 990, 645, 1000]
+		]
+	}, {  // 12.不再提示
+		desc: [1280, 720, [
+			[center, 519, 422, 0xdf6851],
+			[center, 759, 421, 0xf4b25f],
+			[center, 559, 357, 0x715e4f],
+			[center, 637, 288, 0xA82F2D]
+		]
+		],
+		oper: [
+			[center, 1280, 720, 677, 408, 834, 453, 1000]
+		]
+	}, {  // 13,进食完毕或无进食御魂
+		desc: [1280, 720, [
+			[right, 1018, 497, 0x4b322e],
+			[right, 1012, 539, 0x241a1c],
+			[center, 866, 249, 0xb54f23],
+			[center, 813, 591, 0xf4b25f]]
+		],
+		oper: [
+			[center, 1280, 720, 1038, 299, 1115, 406, 1000],
+			[center, 1280, 720, 939, 217, 960, 243, 1000]
+		]
 	}
 	];
 
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
-		if (!thisScript.oper({
-			name: '排序方式',
-			operator: [{
-				desc: thisOperator[8].desc,
-			}]
-		}) && thisScript.oper({
-			name: '背景墙，灰奉纳',
-			operator: [{
-				desc: thisOperator[5].desc
-			}]
-		})) {
-			thisScript.oper({
-				name: '切换排序',
-				operator: [{
-					oper: thisOperator[8].oper
-				}]
-			})
-			return true;
-		}
-
-		if (thisScript.oper({
-			name: '奉纳',
-			operator: [thisOperator[0], thisOperator[2], thisOperator[3],
-				thisOperator[4], thisOperator[7],
+		if (!thisScript.global.fengNa && thisScript.oper({
+			name: '贪食鬼',
+			operator: [thisOperator[9], thisOperator[10], thisOperator[11], thisOperator[12],
 			]
 		})) {
-			sleep(500)
 			return true;
 		}
-
-		if (thisScript.oper({
-			name: '第一排一行御魂',
-			operator: [{
-				desc: thisOperator[1].desc,
-			}]
+		if (!thisScript.global.fengNa && thisScript.oper({
+			name: '进食完毕或无进食御魂',
+			operator: [thisOperator[13]]
 		})) {
-			thisScript.regionClick([[...thisOperator[6].oper[0], 1000]]);
-			return true;
+			thisScript.global.fengNa = true;
+			return true
 		}
+		if (thisScript.global.fengNa) {
+			if (!thisScript.oper({
+				name: '排序方式',
+				operator: [{
+					desc: thisOperator[8].desc,
+				}]
+			}) && thisScript.oper({
+				name: '背景墙，灰奉纳',
+				operator: [{
+					desc: thisOperator[5].desc
+				}]
+			})) {
+				thisScript.oper({
+					name: '切换排序',
+					operator: [{
+						oper: thisOperator[8].oper
+					}]
+				})
+				return true;
+			}
 
-		if (!thisScript.oper({
-			name: '第一排第一个御魂+0',
-			operator: [{
-				desc: thisOperator[1].desc,
-			}]
-		}) && thisScript.oper({
-			name: '背景墙，灰奉纳',
-			operator: [thisOperator[5]]
-		})) {
-			const thisconf = thisScript.scheme.config['302'];
-			if (thisconf && thisconf.scheme_switch_enabled) {
-				thisScript.rerun(thisconf.next_scheme);
-				sleep(3000);
-				return;
-			} else {
-				thisScript.doPush(thisScript, { text: '奉纳结束或未正确使用，请查看。', before() { thisScript.myToast('脚本即将停止，正在上传数据'); } });
-				thisScript.stop();
-				sleep(3000);
-				return;
+			if (thisScript.oper({
+				name: '奉纳',
+				operator: [thisOperator[0], thisOperator[2], thisOperator[3]
+					, thisOperator[4], thisOperator[7]
+				]
+			})) {
+				sleep(500)
+				return true;
+			}
+
+			if (thisScript.oper({
+				name: '第一排一行御魂',
+				operator: [{
+					desc: thisOperator[1].desc,
+				}]
+			})) {
+				thisScript.regionClick([[...thisOperator[6].oper[0], 1000]]);
+				return true;
+			}
+
+			if (!thisScript.oper({
+				name: '第一排第一个御魂+0',
+				operator: [{
+					desc: thisOperator[1].desc,
+				}]
+			}) && thisScript.oper({
+				name: '背景墙，灰奉纳',
+				operator: [thisOperator[5]]
+			})) {
+				const thisconf = thisScript.scheme.config['302'];
+				if (thisconf && thisconf.scheme_switch_enabled) {
+					thisScript.rerun(thisconf.next_scheme);
+					sleep(3000);
+					return;
+				} else {
+					thisScript.doPush(thisScript, { text: '奉纳结束或未正确使用，请查看。', before() { thisScript.myToast('脚本即将停止，正在上传数据'); } });
+					thisScript.stop();
+					sleep(3000);
+					return;
+				}
 			}
 		}
 		return false;

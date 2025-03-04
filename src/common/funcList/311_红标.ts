@@ -7,7 +7,7 @@ import { Script } from '@/system/script';
 // const normal = -1; //定义常量
 // const left = 0;
 const center = 1;
-// const right = 2;
+const right = 2;
 
 export class Func311 implements IFuncOrigin {
 	id = 311;
@@ -21,7 +21,7 @@ export class Func311 implements IFuncOrigin {
 					name: 'redType',
 					desc: '红标类型',
 					type: 'list',
-					data: ['PVE顶部BOSS血条固定红标', '自定义坐标'],
+					data: ['PVE顶部BOSS血条固定红标', '自定义坐标', '神荒'],
 					default: 'PVE顶部BOSS血条固定红标',
 				},
 				{
@@ -29,7 +29,7 @@ export class Func311 implements IFuncOrigin {
 					desc: '红标坐标，仅红标类型为自定义坐标时生效，(格式x(横轴),y(纵轴)左上角为0,0)，实际点击时xy坐标会在±20内随机点击，如625,220',
 					type: 'text',
 					default: '625,220',
-				},
+				}
 			],
 		},
 	];
@@ -66,11 +66,44 @@ export class Func311 implements IFuncOrigin {
 					[center, 337, 4, 0x1e110c],
 				],
 			],
-		},
+		}, { // 3 站位区域
+			desc: [
+				1280, 720,
+				[
+					[center, 806, 85, 0x676a97],
+				]
+			],
+			oper: [
+				[center, 1280, 720, 341, 176, 378, 208, 1000], // 左一
+				[center, 1280, 720, 470, 216, 501, 243, 1000],
+				[center, 1280, 720, 626, 217, 662, 246, 1000],
+				[center, 1280, 720, 763, 193, 809, 227, 1000],
+				[center, 1280, 720, 903, 175, 946, 208, 1000], // 右一
+			]
+		}, { // 4 行动条红色
+			desc: [
+				1280, 720,
+				[
+					[right, 1210, 480, 0xef5252],
+					[right, 1276, 480, 0xd7312e],
+					[right, 1243, 447, 0xdc3939],
+					[right, 1243, 513, 0xef383a],
+				]
+			]
+		}, { // 5 行动条黄色
+			desc: [
+				1280, 720,
+				[
+					[right, 1210, 480, 0xf8ec82],
+					[right, 1276, 480, 0xd4b758],
+					[right, 1243, 447, 0xeac45b],
+					[right, 1243, 513, 0xf9f18f],
+				]
+			]
+		}
 	];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
 		const thisconf = thisScript.scheme.config['311'];
-
 		// 已点击 需要准备方案重置
 		if (thisScript.global.redFlag) {
 			return false;
@@ -78,7 +111,6 @@ export class Func311 implements IFuncOrigin {
 
 		if (
 			thisScript.oper({
-				id: 311,
 				name: '红标-战斗界面检测',
 				operator: [
 					{
@@ -139,9 +171,39 @@ export class Func311 implements IFuncOrigin {
 					thisScript.global.redFlag = true;
 					return true;
 				}
+			} else if (thisconf.redType === '神荒') {
+				if (thisScript.oper({
+					name: '红标-行动条检测',
+					operator: [thisOperator[4], thisOperator[5]],
+				})) {
+					const point = thisScript.findMultiColor('神荒')
+					if (point) {
+						console.log('开局查找到神荒');
+						const point_blood = thisScript.findMultiColorEx('红标_血条')
+						const operList = [];
+						for (const flagPoint of point_blood) {
+							if (flagPoint.x < point.x + 60 && flagPoint.x > point.x - 60) {
+								operList.push(flagPoint);
+							}
+						}
+						operList.sort((a, b) => b.y - a.y);
+						if (operList.length > 0) {
+							const firstFlagPoint = operList[0];
+							const oper = [
+								firstFlagPoint.x - 15,
+								firstFlagPoint.y + 60,
+								firstFlagPoint.x - 5,
+								firstFlagPoint.y + 80,
+								1000
+							];
+							thisScript.regionClick([oper]);
+						}
+						thisScript.global.redFlag = true;
+						return true;
+					}
+				}
 			}
+			return false;
 		}
-
-		return false;
 	}
 }

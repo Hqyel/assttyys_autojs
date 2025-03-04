@@ -1,6 +1,10 @@
 runtime.unloadDex('./assets/lib/scriptlib.dex');
 runtime.loadDex('./assets/lib/scriptlib.dex');
 
+runtime.unloadDex('./assets/lib/nlp-hanzi-similar-1.3.0.dex');
+runtime.loadDex('./assets/lib/nlp-hanzi-similar-1.3.0.dex');
+
+import { isDebugPlayerRunning } from '@/common/toolAuto';
 import core, { closeForeground, setSystemUiVisibility } from '@auto.pro/core'
 import { run } from '@auto.pro/webview'
 
@@ -25,12 +29,13 @@ console.log(`autojs version: ${app.autojs.versionCode}`);
 
 let url = 'https://assttyys.zzliux.cn/static/webview/'
 // 调试模式，可能存在有人用run.js运行脚本，这时就得用运行路径判断了
-if (context.packageName.match(/^org.autojs.autojs(pro)?$/) && files.cwd().indexOf(context.getExternalFilesDir(null).getAbsolutePath()) === -1) {
-	url = 'file://' + files.path('dist/index.html');
-}
+// if (context.packageName.match(/^org.autojs.autojs(pro)?$/) && files.cwd().indexOf(context.getExternalFilesDir(null).getAbsolutePath()) === -1) {
+// 	url = 'file://' + files.path('dist/index.html');
+// }
 // aj彻底废了。。
-if (context.packageName.match(/debugplayer/)) {
+if (isDebugPlayerRunning()) {
 	url = 'file://' + files.path('dist/index.html');
+	// url = 'https://assttyys.zzliux.cn/new/'
 }
 
 export const webview = run(url, {
@@ -46,32 +51,39 @@ export const webview = run(url, {
 			console.log(msg.message());
 		}
 	},
-	// webviewClientOption: {
-	//     shouldInterceptRequest(webView, webResourceRequest) {
-	//         let input;
-	//         const url = webResourceRequest.getUrl().toString();
-	//         const key = 'https://local_resources';
-	//         /*如果请求包含约定的字段 说明是要拿本地的图片*/
-	//         if (url.contains(key)) {
-	//             const filePath = url.replace(new RegExp(`^${key.replace('/', '\\/')}\/`), '');
-	//             console.log(filePath);
-	//             try {
-	//                 /*重新构造WebResourceResponse  将数据已流的方式传入*/
-	//                 input = new java.io.FileInputStream(new java.io.File(filePath));
-	//                 let response = new android.webkit.WebResourceResponse('text/plain', 'UTF-8', input);
-	//                 if (key === 'https://local_resources_image_png') {
-	//                     response = new android.webkit.WebResourceResponse('image/png', 'UTF-8', input);
-	//                 }
+	webviewClientOption: {
+		shouldOverrideUrlLoading: function (view, url) {
+			if (url) {
+				console.log(`[shouldOverrideUrlLoading]: 跳转至${url.getUrl()}`);
+				view.loadUrl(url.getUrl());
+			}
+			return true;
+		},
+		//     shouldInterceptRequest(webView, webResourceRequest) {
+		//         let input;
+		//         const url = webResourceRequest.getUrl().toString();
+		//         const key = 'https://local_resources';
+		//         /*如果请求包含约定的字段 说明是要拿本地的图片*/
+		//         if (url.contains(key)) {
+		//             const filePath = url.replace(new RegExp(`^${key.replace('/', '\\/')}\/`), '');
+		//             console.log(filePath);
+		//             try {
+		//                 /*重新构造WebResourceResponse  将数据已流的方式传入*/
+		//                 input = new java.io.FileInputStream(new java.io.File(filePath));
+		//                 let response = new android.webkit.WebResourceResponse('text/plain', 'UTF-8', input);
+		//                 if (key === 'https://local_resources_image_png') {
+		//                     response = new android.webkit.WebResourceResponse('image/png', 'UTF-8', input);
+		//                 }
 
-	//                 /*返回WebResourceResponse*/
-	//                 return response;
-	//             } catch (e) {
-	//                 console.error($debug.getStackTrace(e));
-	//             }
-	//         }
-	//         return this$super.shouldInterceptRequest(webView, webResourceRequest);
-	//     }
-	// }
+		//                 /*返回WebResourceResponse*/
+		//                 return response;
+		//             } catch (e) {
+		//                 console.error($debug.getStackTrace(e));
+		//             }
+		//         }
+		//         return this$super.shouldInterceptRequest(webView, webResourceRequest);
+		//     }
+	}
 });
 webview.webviewObject.clearCache(true);
 // webview.webviewObject.getSettings().setCacheMode(android.webkit.WebSettings.LOAD_NO_CACHE);

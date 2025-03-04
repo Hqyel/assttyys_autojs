@@ -1,9 +1,8 @@
 import { webview } from '@/system';
 import script from '@/system/script';
-import store from '@/system/store';
+import store from '@/system/Store/store';
 import ScheduleDefaultList from '@/common/scheduleList';
-import schedule, { Job, JobOptions } from '@/system/Schedule'
-import { setCurrentScheme } from '@/common/tool';
+import schedule, { Job, JobOptions, mergeOffsetTime } from '@/system/Schedule'
 import { getNextByCron } from '@/common/toolCron';
 // // import schedule from 'node-schedule';
 
@@ -20,47 +19,56 @@ import { getNextByCron } from '@/common/toolCron';
 
 export default function webviewSchedule() {
 
-	// cron的定时任务更新下次运行时间
-	let savedScheduleList = store.get('scheduleList', ScheduleDefaultList);
-	if (!Array.isArray(savedScheduleList)) {
+	// 3. 初始化scheduleList
+	let savedScheduleList = store.get('scheduleList');
+	if (!savedScheduleList) {
+		console.log('初始化scheduleList', ScheduleDefaultList);
+		store.put('scheduleList', ScheduleDefaultList);
 		savedScheduleList = ScheduleDefaultList;
 	}
-	savedScheduleList.forEach(item => {
-		if (item.repeatMode === 3) {
-			item.nextDate = getNextByCron(item.interval);
+	// 3.1 cron更新下次执行时间，时间字段转回date类型
+	savedScheduleList.forEach((item: JobOptions) => {
+		['lastRunTime', 'nextDate', 'lastStopTime'].forEach(keyName => {
+			try {
+				const dtstr = item[keyName as keyof JobOptions] as string;
+				if (dtstr) {
+					item[keyName as 'lastRunTime' | 'nextDate' | 'lastStopTime'] = new Date(dtstr);
+				}
+			} catch (e) {
+				console.log(`${item.name}中${keyName}转换失败：${item[keyName as keyof JobOptions]}`)
+				item[keyName as 'lastRunTime' | 'nextDate' | 'lastStopTime'] = null;
+			}
+		})
+		if (item.repeatMode === 3 && item.checked) {
+			const nextDate = getNextByCron(item.interval);
+			if (!nextDate) return; // cron表达式解析失败，跳过该任务
+			item.nextDate = mergeOffsetTime(nextDate, item.nextOffset);
 		}
-		jobToSchedule(item);
+		jobToSchedule(item); // autojs端特有，用于将job加入schedule，mock做不到该逻辑，先注释
 	});
-
-	// savedScheduleList.forEach(item => item.checked = false);
 	store.put('scheduleList', savedScheduleList);
 
 
-	// 返回已保存的方案列表，如果未保存过，返回common中的scheduleList
+	// 返回已保存的定时任务列表，如果未保存过，返回common中的scheduleList
 	webview.on('getScheduleList').subscribe(([_param, done]) => {
-		const savedScheduleList = store.get('scheduleList', ScheduleDefaultList);
-
-		// if (Array.isArray(savedScheduleList)) {
-		//     savedScheduleList.forEach(item => {
-		//         item.job = script.getScheduleJobInstance(item.id);
-		//         item.checked = item.job ? item.checked : false;
-		//     });
-		// }
-
+		const savedScheduleList = store.get('scheduleList');
 		done(savedScheduleList);
 	});
 
-	// 保存方案列表
+	// 保存定时任务列表
 	webview.on('saveScheduleList').subscribe(([scheduleList, done]) => {
-		store.put('scheduleList', scheduleList);
-		// if (Array.isArray(scheduleList)) {
-		//     scheduleList.forEach(item => {
-		//         item.job && script.setScheduleJobInstance(item.id, item.job);
-		//     });
-		// }
+		// store.put('scheduleList', scheduleList);
+		// // if (Array.isArray(scheduleList)) {
+		// //     scheduleList.forEach(item => {
+		// //         item.job && script.setScheduleJobInstance(item.id, item.job);
+		// //     });
+		// // }
 
-		console.log('scheduleList已保存');
-		done('success');
+		// console.log('scheduleList已保存');
+		// done('success');
+
+		store.put('scheduleList', scheduleList);
+		done({ error: 0, message: 'success' });
 	});
 
 	webview.on('getScheduleInstance').subscribe(([_param, done]) => {
@@ -70,6 +78,10 @@ export default function webviewSchedule() {
 	webview.on('setScheduleLazyMode').subscribe(([lazyMode, done]) => {
 		schedule.lazyMode = lazyMode;
 		done('success');
+	});
+
+	webview.on('getScheduleLazyMode').subscribe(([_param, done]) => {
+		done(schedule.lazyMode);
 	});
 
 
@@ -86,6 +98,7 @@ export default function webviewSchedule() {
 
 	webview.on('scheduleChange').subscribe(([job, done]) => {
 		jobToSchedule(job);
+		schedule.immediateTimerInterval();
 		done();
 	});
 
@@ -96,7 +109,8 @@ export default function webviewSchedule() {
 				nextDate: new Date(job.nextDate),
 				runningCallback() {
 					updateJobStore(this);
-					setCurrentScheme(job.config.scheme, store);
+					script.setCurrentScheme(job.config.scheme);
+					script.launchRelatedApp();
 					script.rerunWithJob(this);
 				}
 			});

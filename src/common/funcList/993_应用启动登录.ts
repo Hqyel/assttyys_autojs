@@ -21,17 +21,22 @@ export class Func993 implements IFuncOrigin {
 					value: '',
 				},
 				{
-					name: 'is_shutdown_the_game_before',
-					desc: '启动前是否先关闭游戏',
+					name: 'scheme_switch_enabled',
+					desc: '是否切换方案(不切换则只运行一次)',
 					type: 'switch',
-					default: false,
-					value: false,
+					default: true,
 				},
 				{
 					name: 'next_scheme',
 					desc: '下一个方案',
 					type: 'scheme',
 					default: '式神寄养',
+				},
+				{
+					name: 'close_game',
+					desc: '长时间未识别也不重启游戏(关闭则会重启)',
+					type: 'switch',
+					default: false,
 				},
 				{
 					name: 'account_index',
@@ -53,21 +58,25 @@ export class Func993 implements IFuncOrigin {
 	operator: IFuncOperatorOrigin[] = [
 		{
 			// 0 是否为登录页
-			desc: [
-				1280,
-				720,
+			desc: [1280, 720,
 				[
+					// 进入游戏按钮
 					[center, 704, 602, 0xffffff],
 					[center, 713, 611, 0xffffff],
 					[center, 623, 597, 0xfffefe],
 					[center, 630, 601, 0xfdfdfd],
 					[center, 590, 611, 0xffffff],
 					[center, 588, 592, 0xfefdfd],
+					// 右上角用户协议与隐私政策
+					[right, 1163, 29, 0xbdb39c],
+					[right, 1135, 25, 0xbdb39c],
+					[right, 1261, 27, 0xbaaf98],
+					[right, 1096, 25, 0x928168],
 				],
 			],
 			oper: [
 				[center, 1280, 720, 562, 574, 722, 617, 1200], // 点击开始游戏
-				[center, 1280, 720, 424, 456, 660, 578, 5000], // 游戏区区域
+				[center, 1280, 720, 425, 456, 686, 575, 1000], // 游戏区区域
 			],
 		},
 		{
@@ -122,16 +131,16 @@ export class Func993 implements IFuncOrigin {
 		{
 			// 4 是否为选择游戏区域
 			desc: [
-				1280,
-				720,
+				1280, 720,
 				[
-					[left, 161, 149, 0xcc9955],
-					[center, 643, 74, 0xdab883],
-					[right, 1050, 592, 0xffe5be],
-				],
+					[left, 162, 149, 0xd9a756],
+					[center, 643, 74, 0xe1bf80],
+					[right, 1050, 592, 0xffe1bd],
+				]
 			],
 			oper: [
 				[center, 1280, 720, 706, 507, 770, 539, 1200], // 切换按钮 区域
+				[center, 1280, 720, 539, 656, 691, 701, 1000], // 关闭选择区域
 			],
 		},
 		{
@@ -140,7 +149,7 @@ export class Func993 implements IFuncOrigin {
 				1280,
 				720,
 				[
-					[left, 161, 149, 0xcc9955],
+					[left, 162, 149, 0xd9a756],
 					[center, 643, 74, 0xdab883],
 					[right, 1050, 592, 0xffe5be],
 					[center, 382, 568, 0x433b34],
@@ -173,7 +182,7 @@ export class Func993 implements IFuncOrigin {
 			// 7
 			desc: '页面是否为庭院_菜单未展开_只支持默认庭院皮肤与默认装饰',
 			oper: [
-				[right, 1280, 720, 1168, 592, 1230, 690, 5000], // 在首页打开菜单
+				[right, 1280, 720, 1168, 592, 1230, 690, 1200], // 在首页打开菜单
 			],
 		},
 		{
@@ -393,303 +402,346 @@ export class Func993 implements IFuncOrigin {
 			oper: [
 				[center, 1280, 720, 844, 144, 872, 173, 1000],
 			]
+		}, { // 23 开屏的zen动画
+			desc: [1280, 720,
+				[
+					[left, 156, 611, 0xfffeff],
+					[right, 1034, 139, 0xfffeff],
+					[right, 1087, 579, 0xfffeff],
+					[right, 783, 332, 0x010001],
+					[right, 696, 335, 0x010001],
+					[right, 641, 350, 0x010001],
+				]
+			],
+			oper: [
+				[center, 1280, 720, 637, 574, 834, 660, 1000],
+			]
+		}, { // 24 加载进度条
+			desc: [
+				1280, 720,
+				[
+					[left, 57, 655, 0x815930],
+					[left, 73, 654, 0xc0a77a],
+					[left, 86, 654, 0xa68454],
+					[left, 100, 653, 0x7f5b32],
+					[left, 100, 658, 0x835b34],
+				]
+			]
+		}, { // 25 更新进度条
+			desc: [
+				1280, 720,
+				[
+					[left, 84, 712, 0x835b34],
+					[left, 107, 707, 0x835a31],
+					[left, 122, 706, 0xc4ad81],
+					[left, 137, 705, 0xc7a674],
+					[left, 122, 710, 0x885f36],
+				]
+			]
 		}
 	];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
 		const thisConf = thisScript.scheme.config['993'];
-		if (typeof thisScript.global.app_is_open_flag === 'undefined') {
-			thisScript.global.app_is_open_flag = 0;
+		if (thisConf.close_game) {
+			thisScript.global.app_is_open_flag = false;
 		}
+		if (!thisScript.global.open_only_once) {
+			if (thisScript.oper({
+				id: 993,
+				name: '登录时不看CG、应用宝公告关闭',
+				operator: [thisOperator[19], thisOperator[22]],
+			})) {
+				return true;
+			}
 
-		if (thisScript.oper({
-			id: 993,
-			name: '登录时不看CG、应用宝公告关闭',
-			operator: [thisOperator[19], thisOperator[22]],
-		})) {
-			return true;
-		}
-
-		if (
-			thisScript.oper({
+			if (thisScript.oper({
 				id: 993,
 				name: '是否为庭院(未展开菜单)',
 				operator: [thisOperator[7]],
-			})
-		) {
-			console.log('展开庭院菜单');
-			return true;
-		}
+			})) {
+				console.log('展开庭院菜单');
+				return true;
+			}
 
-		if (
-			thisScript.oper({
+			// 做延时检测 防止登陆后的弹窗
+			let curCnt = 0;
+			const maxCount = 6;
+			while (thisScript.oper({
 				id: 993,
 				name: '是否为庭院',
 				operator: [thisOperator[8], thisOperator[13], thisOperator[16]],
-			})
-		) {
-			// 做延时检测 防止登陆后的弹窗
-			if (
-				(thisScript.global.app_is_open_flag >= 3 &&
-					thisScript.global.checked_yard_count >= 10) ||
-				thisScript.global.app_is_open_flag < 3
-			) {
-				thisScript.global.checked_yard_count = 0;
-				thisScript.rerun(thisConf.next_scheme);
-				sleep(3000);
-				return true;
-			} else {
-				sleep(1500);
-				if (!thisScript.global.checked_yard_count) {
-					thisScript.global.checked_yard_count = 1;
-				} else {
-					thisScript.global.checked_yard_count += 1;
+			})) {
+				curCnt++;
+				thisScript.keepScreen();
+				if (curCnt >= maxCount) {
+					thisScript.global.checked_yard_count = 0;
+					// 后面新增的配置，如果未定义的话默认值给true
+					if (typeof thisConf.scheme_switch_enabled === 'undefined') {
+						thisConf.scheme_switch_enabled = true;
+					}
+					if (thisConf.scheme_switch_enabled) {
+						thisScript.rerun(thisConf.next_scheme);
+						sleep(3000);
+						return true;
+					} else {
+						thisScript.global.open_only_once = true;
+						return true;
+					}
 				}
-				return false;
+				sleep(500);
 			}
-		}
 
-		if (
-			thisScript.global.app_is_open_flag >= 3 &&
-			thisScript.global.app_is_open_flag !== 99
-		) {
-			if (thisConf.is_shutdown_the_game_before) {
-				// $shell(`am force-stop ${packageName}`, true);
+			const { lastFuncDateTime, currentDate, runDate } = thisScript;
+
+			// 有开屏代表从新启动游戏了
+			if (thisScript.oper({
+				name: '开屏的zen动画',
+				operator: [thisOperator[23], thisOperator[24], thisOperator[25]],
+			})) {
+				thisScript.global.app_is_open_flag = false;
+				return true;
+			}
+
+			// 10秒钟未执行过任何操作，杀应用重启
+			if (thisScript.global.app_is_open_flag &&
+				(new Date()).getTime() - Math.max(lastFuncDateTime?.getTime() || 0, currentDate?.getTime() || 0, runDate?.getTime() || 0) > 10000
+			) {
 				thisScript.stopRelatedApp();
-				sleep(5000);
+				sleep(2000);
+				thisScript.launchRelatedApp();
+				thisScript.global.game_area = '';
+				thisScript.global.app_is_open_flag = false;
+				return true;
 			}
-			thisScript.launchRelatedApp();
-			thisScript.global.game_area = '';
-			thisScript.global.app_is_open_flag = 99;
-		} else if (thisScript.global.app_is_open_flag < 3) {
-			sleep(2000);
-			thisScript.global.app_is_open_flag++;
-		}
 
-		if (
-			thisScript.oper({
+			if (thisScript.oper({
+				id: 993,
 				name: '是否为登录页',
 				operator: [{
 					desc: thisOperator[0].desc,
 				}],
-			})
-		) {
-			const toDetectAreaBmp = thisScript.helperBridge.helper.GetBitmap(
-				...thisOperator[0].oper[1].slice(0, 4)
-			);
-			console.time('ocr.detect.area');
-			const resultArea = thisScript.getOcrDetector().loadImage(toDetectAreaBmp);
-			console.timeEnd('ocr.detect.area');
-			toDetectAreaBmp.recycle();
+			})) {
+				if (thisConf.area != '') {
+					const toDetectAreaBmp = thisScript.helperBridge.helper.GetBitmap(
+						...thisOperator[0].oper[1].slice(0, 4)
+					);
+					console.time('ocr.detect.area');
+					const resultArea = thisScript.getOcrDetector().loadImage(toDetectAreaBmp);
+					console.timeEnd('ocr.detect.area');
+					toDetectAreaBmp.recycle();
 
-			if (
-				Array.isArray(resultArea) &&
-				resultArea.length > 0 &&
-				resultArea[0].label
-			) {
-				console.log('识别成功，识别结果为:', resultArea);
-				thisScript.global.game_area = resultArea[0].label;
-				if (thisConf.area) {
-					for (const resultItem of resultArea) {
-						if (resultItem && resultItem.label) {
-							console.log('当前区域为' + resultItem.label);
-							if (!resultItem.label.includes(String(thisConf.area))) {
-								return thisScript.oper({
-									name: '切换区域',
-									operator: [{
-										oper: thisOperator[4].oper,
-									}],
-								});
+					if (
+						Array.isArray(resultArea) &&
+						resultArea.length > 0 &&
+						resultArea[0].label
+					) {
+						console.log('识别成功，识别结果为:', resultArea);
+						thisScript.global.game_area = resultArea[0].label;
+						for (const resultItem of resultArea) {
+							if (resultItem && resultItem.label) {
+								console.log('当前区域为' + resultItem.label);
+								if (!resultItem.label.includes(String(thisConf.area))) {
+									return thisScript.oper({
+										name: '切换区域',
+										operator: [{
+											oper: [thisOperator[4].oper[0]],
+										}],
+									});
+								}
 							}
 						}
+					} else {
+						console.log('识别游戏区域失败，识别结果为:', resultArea);
+						return false;
 					}
+				} else {
+					thisScript.global.game_area = 'findMultiColor_皮肤广告关闭按钮';
 				}
-
 				return thisScript.oper({
 					name: '点击开始游戏',
 					operator: [{
 						oper: [thisOperator[0].oper[0]],
 					}],
 				});
-			} else {
-				console.log('识别游戏区域失败，识别结果为:', resultArea);
-				return false;
 			}
-		}
-
-		if (
-			thisScript.global.game_area &&
-			thisScript.oper({
+			if (thisScript.global.game_area == 'findMultiColor_皮肤广告关闭按钮' && thisScript.oper({
+				name: '切换区域',
+				operator: [{ desc: thisOperator[4].desc }],
+			})) {
+				thisScript.regionClick([thisOperator[4].oper[1]]);
+				return true;
+			}
+			if (thisScript.oper({
+				id: 993,
 				name: '是否为同区多账号',
 				operator: [{
 					desc: thisOperator[18].desc,
 				}],
-			})
-		) {
-			if (thisConf.account_index) {
-				const index = parseInt(thisConf.account_index as string, 10);
-				if (index > 3 || index < 1) {
-					console.log('993 ==> 账号序号有误，大于3小于1，请检查账号序号!');
-					thisScript.stop();
-					return false;
-				}
-				return thisScript.oper({
-					name: `点击第${thisConf.account_index}个同区账号`,
-					operator: [
-						{
-							oper: [thisOperator[18].oper[index], thisOperator[0].oper[0]],
-						},
-					],
-				});
-			} else if (thisConf.account_name) {
-				const toDetectAreaBmp = thisScript.helperBridge.helper.GetBitmap(
-					...thisOperator[18].oper[0].slice(0, 4)
-				);
-				console.time('ocr.detect.area');
-				const resultArea = thisScript.getOcrDetector().loadImage(toDetectAreaBmp);
-				console.timeEnd('ocr.detect.area');
-				toDetectAreaBmp.recycle();
+			})) {
+				if (thisConf.account_index) {
+					const index = parseInt(thisConf.account_index as string, 10);
+					if (index > 3 || index < 1) {
+						console.log('993 ==> 账号序号有误，大于3小于1，请检查账号序号!');
+						thisScript.stop();
+						return false;
+					}
+					return thisScript.oper({
+						name: `点击第${thisConf.account_index}个同区账号`,
+						operator: [
+							{
+								oper: [thisOperator[18].oper[index], thisOperator[0].oper[0]],
+							},
+						],
+					});
+				} else if (thisConf.account_name) {
+					const toDetectAreaBmp = thisScript.helperBridge.helper.GetBitmap(
+						...thisOperator[18].oper[0].slice(0, 4)
+					);
+					console.time('ocr.detect.area');
+					const resultArea = thisScript.getOcrDetector().loadImage(toDetectAreaBmp);
+					console.timeEnd('ocr.detect.area');
+					toDetectAreaBmp.recycle();
 
-				if (
-					Array.isArray(resultArea) &&
-					resultArea.length > 0 &&
-					resultArea[0].label
-				) {
-					console.log('识别成功，识别结果为:', resultArea);
-					if (thisConf.account_name) {
-						for (const resultItem of resultArea) {
-							if (resultItem && resultItem.label) {
-								console.log('当前账号为' + resultItem.label);
-								if (resultItem.label.includes(String(thisConf.account_name))) {
-									const p = {
-										x:
-											(resultItem.points[0].x + resultItem.points[1].x) / 2 +
-											thisOperator[18].oper[0][0], // 补位
-										y:
-											(resultItem.points[0].y + resultItem.points[3].y) / 2 +
-											thisOperator[18].oper[0][1],
-									};
+					if (Array.isArray(resultArea) &&
+						resultArea.length > 0 &&
+						resultArea[0].label
+					) {
+						console.log('识别成功，识别结果为:', resultArea);
+						if (thisConf.account_name) {
+							for (const resultItem of resultArea) {
+								if (resultItem && resultItem.label) {
+									console.log('当前账号为' + resultItem.label);
+									if (resultItem.label.includes(String(thisConf.account_name))) {
+										const p = {
+											x:
+												(resultItem.points[0].x + resultItem.points[1].x) / 2 +
+												thisOperator[18].oper[0][0], // 补位
+											y:
+												(resultItem.points[0].y + resultItem.points[3].y) / 2 +
+												thisOperator[18].oper[0][1],
+										};
 
-									const lx = p.x - 10;
-									const ly = p.y - 10;
-									const rx = p.x + 10;
-									const ry = p.y + 10;
+										const lx = p.x - 10;
+										const ly = p.y - 10;
+										const rx = p.x + 10;
+										const ry = p.y + 10;
 
-									const toClick = [
-										lx > 0 ? lx : 0,
-										ly > 0 ? ly : 0,
-										rx,
-										ry,
-										1200,
-									];
-									console.log('识别成功, 点击坐标为', toClick);
+										const toClick = [
+											lx > 0 ? lx : 0,
+											ly > 0 ? ly : 0,
+											rx,
+											ry,
+											1200,
+										];
+										console.log('识别成功, 点击坐标为', toClick);
 
-									thisScript.regionClick([toClick]);
+										thisScript.regionClick([toClick]);
 
-									return thisScript.oper({
-										name: '点击开始游戏',
-										operator: [{
-											oper: [thisOperator[0].oper[0]],
-										}],
-									});
+										return thisScript.oper({
+											name: '点击开始游戏',
+											operator: [{
+												oper: [thisOperator[0].oper[0]],
+											}],
+										});
+									}
 								}
 							}
 						}
-					}
-				} else {
-					console.log('识别同区账号失败，识别结果为:', resultArea);
-					return false;
-				}
-			}
-		}
-
-		if (
-			thisConf.area &&
-			thisScript.oper({
-				name: '是否为切换区域页',
-				operator: [{
-					desc: thisOperator[4].desc,
-				}],
-			})
-		) {
-			thisScript.oper({
-				name: '点击展开角色区域',
-				operator: [{
-					desc: thisOperator[5].desc,
-					oper: [thisOperator[5].oper[3]],
-				}],
-			});
-			const switchGameAreaBmp = thisScript.helperBridge.helper.GetBitmap(
-				...thisOperator[5].oper[0].slice(0, 4)
-			);
-			console.time('ocr.game.area');
-			const resultGameArea = thisScript.getOcrDetector().loadImage(switchGameAreaBmp);
-			console.timeEnd('ocr.game.area');
-			switchGameAreaBmp.recycle();
-			console.log(resultGameArea);
-			if (
-				Array.isArray(resultGameArea) &&
-				resultGameArea.length > 0 &&
-				resultGameArea[0].label
-			) {
-				for (const resultGameItem of resultGameArea) {
-					if (resultGameItem.label.includes(String(thisConf.area))) {
-						const p = {
-							x:
-								(resultGameItem.points[0].x + resultGameItem.points[1].x) / 2 +
-								thisOperator[5].oper[0][0], // 补位
-							y:
-								(resultGameItem.points[0].y + resultGameItem.points[3].y) / 2 +
-								thisOperator[5].oper[0][1],
-						};
-
-						const lx = p.x - thisOperator[5].oper[1][2] / 2;
-						const ly = thisOperator[5].oper[1][1];
-						const rx = p.x + thisOperator[5].oper[1][2] / 2;
-						const ry = thisOperator[5].oper[1][3];
-
-						const toClick = [
-							lx > 0 ? lx : 0,
-							ly > 0 ? ly : 0,
-							rx < thisOperator[5].oper[2][2] ? rx : thisOperator[5].oper[2][2],
-							ry < thisOperator[5].oper[2][3] ? ry : thisOperator[5].oper[2][3],
-							1000,
-						];
-						console.log('识别成功, 点击坐标为', toClick);
-
-						thisScript.regionClick([toClick]);
-						return true;
+					} else {
+						console.log('识别同区账号失败，识别结果为:', resultArea);
+						return false;
 					}
 				}
 			}
-		}
 
-		if (
-			thisScript.oper({
+			if (thisConf.area &&
+				thisScript.oper({
+					id: 993,
+					name: '是否为切换区域页',
+					operator: [{
+						desc: thisOperator[4].desc,
+					}],
+				})) {
+				thisScript.oper({
+					name: '点击展开角色区域',
+					operator: [{
+						desc: thisOperator[5].desc,
+						oper: [thisOperator[5].oper[3]],
+					}],
+				});
+				const switchGameAreaBmp = thisScript.helperBridge.helper.GetBitmap(
+					...thisOperator[5].oper[0].slice(0, 4)
+				);
+				console.time('ocr.game.area');
+				const resultGameArea = thisScript.getOcrDetector().loadImage(switchGameAreaBmp);
+				console.timeEnd('ocr.game.area');
+				switchGameAreaBmp.recycle();
+				console.log(resultGameArea);
+				if (
+					Array.isArray(resultGameArea) &&
+					resultGameArea.length > 0 &&
+					resultGameArea[0].label
+				) {
+					for (const resultGameItem of resultGameArea) {
+						if (resultGameItem.label.includes(String(thisConf.area))) {
+							const p = {
+								x:
+									(resultGameItem.points[0].x + resultGameItem.points[1].x) / 2 +
+									thisOperator[5].oper[0][0], // 补位
+								y:
+									(resultGameItem.points[0].y + resultGameItem.points[3].y) / 2 +
+									thisOperator[5].oper[0][1],
+							};
+
+							const lx = p.x - thisOperator[5].oper[1][2] / 2;
+							const ly = thisOperator[5].oper[1][1];
+							const rx = p.x + thisOperator[5].oper[1][2] / 2;
+							const ry = thisOperator[5].oper[1][3];
+
+							const toClick = [
+								lx > 0 ? lx : 0,
+								ly > 0 ? ly : 0,
+								rx < thisOperator[5].oper[2][2] ? rx : thisOperator[5].oper[2][2],
+								ry < thisOperator[5].oper[2][3] ? ry : thisOperator[5].oper[2][3],
+								1000,
+							];
+							console.log('识别成功, 点击坐标为', toClick);
+
+							thisScript.regionClick([toClick]);
+							return true;
+						}
+					}
+				}
+			}
+
+			if (thisScript.oper({
 				id: 993,
 				name: '登陆后是否有弹窗',
 				operator: [
 					thisOperator[1], thisOperator[2], thisOperator[3], thisOperator[6],
-					thisOperator[9], thisOperator[10], thisOperator[11], thisOperator[12],
+					thisOperator[9], thisOperator[10], thisOperator[11], /* thisOperator[12],*/
 					thisOperator[14], thisOperator[15], thisOperator[17], thisOperator[20],
-					thisOperator[21],
+					thisOperator[21]
 				],
-			})
-		) {
-			return true;
-		}
-
-		//	游戏区域状态不为空
-		if (thisScript.global.game_area) {
-			// 检测是否有皮肤广告	误触太多了，关了
-			const point = thisScript.findMultiColor('皮肤广告关闭按钮');
-			if (point) {
-				console.log('识别广告关闭按钮成功');
-				const oper = [[point.x - 10, point.y - 10, point.x, point.y, 3000]];
-				thisScript.regionClick(oper);
+			})) {
 				return true;
 			}
-		}
 
-		return false;
+			//	游戏区域状态不为空
+			if (thisScript.global.game_area) {
+				// 检测是否有皮肤广告	误触太多了，关了
+				const point = thisScript.findMultiColor('皮肤广告关闭按钮');
+				if (point) {
+					console.log('识别广告关闭按钮成功');
+					const oper = [[point.x - 10, point.y - 10, point.x, point.y, 3000]];
+					thisScript.regionClick(oper);
+					return true;
+				}
+			}
+
+			return false;
+		} else {
+			return false;
+		}
 	}
 }

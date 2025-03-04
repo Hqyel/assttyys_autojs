@@ -4,6 +4,9 @@ import { IMultiFindColorsOrigin } from '@/interface/IMultiColor';
 const left = 0;
 const center = 1;
 const right = 2;
+// const top = 3;
+// const middle = 4;
+// const bottom = 5;
 
 const multiFindColors: IMultiFindColorsOrigin = {
 	'结界_进攻': {
@@ -68,22 +71,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	},
 	'结界_5勋章': {
 		region: [center, 1280, 720, 124, 125, 1152, 545],
-		// desc: [
-		//     [1280, 720,
-		//         [
-		//             [center, 576, 291, 0xdacbbc],
-		//             [center, 787, 295, 0xdacbbc],
-		//             [center, 785, 397, 0xa39087],
-		//             [center, 590, 369, 0x88817d],
-		//             [center, 629, 369, 0x88827d],
-		//             [center, 669, 369, 0x88827d],
-		//             [center, 708, 369, 0x88827d],
-		//             [center, 748, 369, 0x89837e],
-		//             [center, 608, 381, 0xdcc7b9],
-		//             [center, 610, 360, 0xddc5b6]
-		//         ]
-		//     ]
-		// ]
 		desc: [
 			[1280, 720,
 				[
@@ -104,23 +91,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	},
 	'结界_4勋章': {
 		region: [center, 1280, 720, 124, 125, 1152, 545],
-		// desc: [
-		//     [1280, 720,
-		//         [
-		//             [center, 907, 294, 0xdacebc],
-		//             [right, 1120, 295, 0xdaccbc],
-		//             [center, 922, 369, 0x88827e],
-		//             [center, 962, 369, 0x88837e],
-		//             [center, 1001, 369, 0x87827d],
-		//             [center, 1040, 369, 0x87827d],
-		//             [center, 1081, 369, 0xc9b6a5],
-		//             [right, 1118, 396, 0xa3938a],
-		//             [right, 1102, 284, 0xd4c3b2],
-		//             [right, 1104, 303, 0xdacebc],
-		//             [right, 1088, 300, 0xdacebc]
-		//         ]
-		//     ]
-		// ]
 		desc: [
 			[1280, 720,
 				[
@@ -141,21 +111,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	},
 	'结界_3勋章': {
 		region: [center, 1280, 720, 124, 125, 1152, 545],
-		// desc: [
-		//     [1280, 720,
-		//         [
-		//             [center, 511, 281, 0xd9cabb],
-		//             [center, 726, 289, 0xdacdbc],
-		//             [center, 532, 361, 0x8a847f],
-		//             [center, 572, 361, 0x88827d],
-		//             [center, 611, 361, 0x8a857f],
-		//             [center, 652, 361, 0xc9b6a4],
-		//             [center, 691, 361, 0xc9b6a4],
-		//             [center, 728, 389, 0xa38f86],
-		//             [center, 631, 351, 0xdbc5b5]
-		//         ]
-		//     ]
-		// ]
 		desc: [
 			[1280, 720,
 				[
@@ -176,22 +131,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	},
 	'结界_2勋章': {
 		region: [center, 1280, 720, 124, 125, 1152, 545],
-		// desc: [
-		//     [1280, 720,
-		//         [
-		//             [center, 577, 426, 0xdacbbc],
-		//             [center, 784, 428, 0xdacbbc],
-		//             [center, 785, 532, 0xa49088],
-		//             [center, 590, 504, 0x86807b],
-		//             [center, 629, 504, 0x86817b],
-		//             [center, 668, 504, 0xc9b6a4],
-		//             [center, 708, 504, 0xc9b6a4],
-		//             [center, 748, 504, 0xc9b6a4],
-		//             [center, 610, 494, 0xdbc4b4],
-		//             [center, 608, 518, 0xddcbbd]
-		//         ]
-		//     ]
-		// ]
 		desc: [
 			[1280, 720,
 				[
@@ -212,23 +151,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	},
 	'结界_1勋章': {
 		region: [center, 1280, 720, 124, 125, 1152, 545],
-		// desc: [
-		//     [1280, 720,
-		//         [
-		//             [center, 574, 428, 0xdacbbc],
-		//             [center, 786, 428, 0xdacabc],
-		//             [center, 590, 504, 0x86807b],
-		//             [center, 630, 504, 0xc9b6a4],
-		//             [center, 670, 504, 0xc9b6a4],
-		//             [center, 709, 504, 0xc9b6a4],
-		//             [center, 748, 504, 0xc9b6a4],
-		//             [center, 610, 495, 0xdcc4b5],
-		//             [center, 610, 515, 0xdac9bb],
-		//             [center, 785, 530, 0xa3958a],
-		//             [center, 775, 534, 0x9f9085]
-		//         ]
-		//     ]
-		// ]
 		desc: [
 			[1280, 720,
 				[
@@ -249,22 +171,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	},
 	'结界_0勋章': {
 		region: [center, 1280, 720, 124, 125, 1152, 545],
-		// desc: [
-		//     [1280, 720,
-		//         [
-		//             [center, 904, 155, 0xdacbbc],
-		//             [center, 1116, 161, 0xdacdbc],
-		//             [center, 1118, 262, 0xa38f86],
-		//             [center, 923, 233, 0xc9b4a4],
-		//             [center, 962, 233, 0xc9b6a4],
-		//             [center, 1002, 233, 0xc9b6a4],
-		//             [center, 1041, 233, 0xc9b6a4],
-		//             [center, 1080, 233, 0xc9b6a4],
-		//             [center, 942, 223, 0xd9c3b5],
-		//             [center, 942, 245, 0xdbcbbd]
-		//         ]
-		//     ]
-		// ]
 		desc: [
 			[1280, 720,
 				[
@@ -542,7 +448,22 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 339, 187, 0xd7c9ba],
 					[center, 578, 243, 0xed7610]
 				]
-			]
+			],
+			[1280, 720,
+				[
+					[center, 595, 458, 0x928c8d],
+					[center, 587, 458, 0x928c8d],
+					[center, 579, 458, 0xf28a2a],
+					[center, 571, 458, 0xf28b2b],
+					[center, 563, 458, 0xf28c2b],
+					[center, 555, 458, 0xf28c2b],
+					[center, 555, 440, 0xe8cbaf],
+					[center, 589, 441, 0xd68672],
+					[center, 578, 424, 0xca9580],
+					[center, 596, 407, 0xd6c9b9],
+					[center, 340, 459, 0xd6c9b9],
+				]
+			],
 		]
 	},
 	'结界卡_太鼓3星': {
@@ -603,11 +524,9 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[left, 946, 518, 0x9a2121],
 					[left, 947, 518, 0x98201f],
 					[left, 948, 518, 0x931f1e],
-					// [left,948,518,0x8e1e1d],
 					[left, 946, 519, 0x972221],
 					[left, 947, 519, 0x9a2221],
 					[left, 948, 519, 0x95201f],
-					// [left,949,519,0x901e1d]
 				]
 			]
 		]
@@ -668,7 +587,7 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 1032, 488, 0x31396b],
 					[center, 1040, 508, 0x1a0e05]
 				]
-			]
+			],
 		]
 	},
 	'探索_挑战BOSS': {
@@ -709,13 +628,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 				]
 			]
 		]
-		// desc: [[1280,720,
-		//     [[center,595,247,0x2b1a09],
-		//     [center,628,236,0xf4b2ba],
-		//     [center,616,298,0xf4b2ba],
-		//     [center,658,289,0x2d180c],
-		//     [center,595,277,0x498daf]]
-		// ]]
 	},
 	'准备界面_满级标识': {
 		region: [center, 1280, 720, 6, 257, 866, 640],
@@ -768,130 +680,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]
 	},
-	'绿标_标识_A': {
-		region: [center, 1280, 720, 0, 156, 1279, 650],
-		similar: 90,
-		desc: [
-			[1280, 720,
-				[
-					[center, 59, 308, 0xdcc3b2],
-					[center, 59, 314, 0x8c372f],
-					[center, 59, 319, 0x8b362e],
-					[center, 53, 308, 0x89372d],
-					[center, 64, 308, 0x89372c],
-					[center, 63, 319, 0xd0ae9f],
-					[center, 54, 319, 0xdabeaf]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 59, 308, 0xdcc2b0],
-					[center, 63, 308, 0x8c3423],
-					[center, 55, 308, 0x8c3423],
-					[center, 59, 314, 0x8f3426],
-					[center, 59, 320, 0x8c3424],
-					[center, 54, 319, 0xdabeac],
-					[center, 63, 319, 0xd1ad9c]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 855, 252, 0xdfc7b6],
-					[center, 850, 251, 0x97443b],
-					[center, 860, 251, 0x97423b],
-					[center, 855, 257, 0x97413b],
-					[center, 855, 264, 0x99453d],
-					[center, 850, 263, 0xdabaac],
-					[center, 859, 262, 0xd8b7a9]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 1132, 363, 0xdbc4b0],
-					[center, 1127, 363, 0x863a27],
-					[center, 1138, 363, 0x873f2b],
-					[center, 1132, 369, 0x873827],
-					[center, 1132, 375, 0x853321],
-					[center, 1128, 374, 0xcaa593],
-					[center, 1137, 374, 0xd2b4a2]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 1132, 364, 0xc7aa97],
-					[center, 1126, 364, 0x8a4f3e],
-					[center, 1138, 364, 0x8d5441],
-					[center, 1132, 369, 0x8c4d3e],
-					[center, 1132, 374, 0x894637],
-					[center, 1129, 371, 0xd9c3b2],
-					[center, 1136, 371, 0xd0b5a4]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 370, 304, 0xdbc6b3],
-					[center, 365, 303, 0x8a432f],
-					[center, 375, 303, 0x894330],
-					[center, 370, 310, 0x883b2b],
-					[center, 370, 316, 0x853321],
-					[center, 366, 314, 0xcead9b],
-					[center, 374, 313, 0xcba796]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 370, 304, 0xdbc4b2],
-					[center, 365, 304, 0x843d30],
-					[center, 375, 304, 0x863828],
-					[center, 370, 310, 0x88382b],
-					[center, 370, 314, 0x873629],
-					[center, 366, 314, 0xceae9d],
-					[center, 374, 313, 0xcba898]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 237, 352, 0x8d4139],
-					[center, 244, 353, 0xddc7b7],
-					[center, 244, 365, 0x8b423b],
-					[center, 240, 362, 0xd0b2a4],
-					[center, 248, 362, 0xd1b3a5],
-					[center, 244, 358, 0x8b403b],
-					[center, 249, 354, 0x8b4139]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 239, 352, 0xb15946],
-					[center, 244, 353, 0xe6ccb9],
-					[center, 240, 363, 0xd5b0a0],
-					[center, 248, 362, 0xd8b6a5],
-					[center, 244, 363, 0x9e473a],
-					[center, 249, 353, 0xae5644]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 841, 339, 0x8f3522],
-					[center, 847, 339, 0xdcc1ad],
-					[center, 852, 339, 0x882c17],
-					[center, 847, 351, 0x892d18],
-					[center, 851, 348, 0xd4b29f],
-					[center, 844, 348, 0xb77e6b]
-				]
-			],
-			[1280, 720,
-				[
-					[center, 461, 337, 0x903220],
-					[center, 467, 337, 0xddc1ae],
-					[center, 472, 337, 0x943522],
-					[center, 467, 348, 0x92301e],
-					[center, 463, 347, 0xd6b19f],
-					[center, 472, 347, 0xd5b09e]
-				]
-			]
-		]
-	},
 	'庭院_町中竖牌': {
 		region: [center, 1280, 720, 0, 83, 1279, 412],
 		desc: [
@@ -918,58 +706,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]
 	},
-	// '町中_逢魔之时灯笼': {
-	//     region: [center, 1280, 720, 0, 83, 1279, 412],
-	//     desc: [
-	//         [1280, 720,
-	//             [
-	//                 [center, 645, 180, 0xfff4b0],
-	//                 [center, 643, 185, 0xfbe5a3],
-	//                 [center, 649, 184, 0x0c0808],
-	//                 [center, 653, 148, 0xeeccaa],
-	//                 [center, 640, 181, 0x0c0808],
-	//                 [center, 646, 196, 0xd8a78e]
-	//             ]
-	//         ],
-	//         [   //  画质为极速适配
-	//             1280, 720,
-	//             [
-	//                 [center, 634, 169, 0xf9e8a5],
-	//                 [center, 644, 209, 0xa88787],
-	//                 [center, 619, 173, 0xa81d1b],
-	//                 [center, 640, 194, 0x0c0808],
-	//                 [center, 650, 202, 0xc6a390],
-	//                 [center, 638, 206, 0xb19088],
-	//             ]
-	//         ]
-	//     ]
-	// },
-	// '町中_斗技灯笼': {
-	//     region: [center, 1280, 720, 0, 83, 1279, 412],
-	//     desc: [
-	//         [1280, 720,
-	//             [[center, 760, 151, 0xbb8862],
-	//             [center, 778, 133, 0x5a4233],
-	//             [center, 780, 163, 0x281c0d],
-	//             [center, 780, 186, 0x271c0d],
-	//             [center, 773, 191, 0x20160b],
-	//             [center, 779, 176, 0xffffd8]]
-	//         ],
-	//         [   //  画质为极速适配
-	//             1280, 720,
-	//             [
-	//                 [center, 769, 171, 0xf6e5a8],
-	//                 [center, 778, 202, 0xc5a392],
-	//                 [center, 755, 174, 0xa81f1d],
-	//                 [center, 783, 141, 0xcda483],
-	//                 [center, 781, 183, 0x0c0808],
-	//                 [center, 781, 191, 0x0c0808],
-	//                 [center, 774, 161, 0x0c0808],
-	//                 [center, 771, 153, 0xf2d19e],
-	//             ]
-	//         ]
-	//     ]
-	// },
 	'庭院_探索灯笼': {
 		region: [center, 1280, 720, 0, 83, 1006, 284],
 		desc: [
@@ -1199,72 +935,14 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	'悬赏_宝箱': {
 		region: [left, 1280, 720, 0, 92, 155, 557],
 		desc: [
-			[1280, 720,
+			[
+				1280, 720,
 				[
-					[left, 52, 343, 0xbd3925],
-					[left, 68, 342, 0xd4531d],
-					[left, 85, 342, 0x662608],
-					[left, 62, 355, 0xe6b02a],
-					[left, 50, 362, 0xdb9722],
-					[left, 74, 363, 0xc78523],
-					[left, 64, 369, 0x862b14],
-					[left, 85, 367, 0x400606]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 55, 339, 0xbd431b],
-					[left, 70, 338, 0x652e26],
-					[left, 84, 339, 0xc15a22],
-					[left, 50, 352, 0xa52a1d],
-					[left, 61, 351, 0xecbb2e],
-					[left, 80, 354, 0x500806],
-					[left, 52, 362, 0xd58f1f],
-					[left, 65, 362, 0x891111],
-					[left, 82, 362, 0x70270e]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 50, 342, 0xcf4f35],
-					[left, 61, 341, 0xb64b1d],
-					[left, 73, 341, 0xca4516],
-					[left, 84, 344, 0x773c11],
-					[left, 55, 354, 0x9b1617],
-					[left, 64, 354, 0xc78529],
-					[left, 83, 353, 0x530707],
-					[left, 79, 365, 0x4b0909]
-				]
-			],
-			// 旧
-			[1280, 720,
-				[
-					[left, 70, 337, 0x51252b],
-					[left, 50, 345, 0xb52c19],
-					[left, 85, 344, 0x7f401c],
-					[left, 60, 354, 0xe2aa30],
-					[left, 51, 360, 0xd18d22],
-					[left, 74, 366, 0xe19d26]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 58, 192, 0xbd461f],
-					[left, 70, 194, 0x4a2839],
-					[left, 85, 194, 0xb25922],
-					[left, 59, 206, 0xe0a927],
-					[left, 49, 216, 0xcc8827],
-					[left, 86, 215, 0x682412],
-					[left, 78, 227, 0x460202]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 71, 433, 0x3e1c29],
-					[left, 63, 449, 0xc08d16],
-					[left, 51, 456, 0xd08c1e],
-					[left, 73, 461, 0xd7931c],
-					[left, 83, 458, 0x551105]
+					[left, 53, 347, 0xb02a18],
+					[left, 84, 349, 0x4e0306],
+					[left, 83, 358, 0x4c0605],
+					[left, 73, 349, 0xb7381a],
+					[left, 72, 365, 0xc78521],
 				]
 			]
 		]
@@ -1272,85 +950,20 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	'悬赏_已追踪任务': {
 		region: [left, 1280, 720, 0, 112, 153, 555],
 		desc: [
-			[1280, 720,
+			[
+				1280, 720,
 				[
-					[left, 30, 239, 0xd2cdbd],
-					[left, 24, 247, 0x2f2b26],
-					[left, 109, 243, 0xc5c1b1],
-					[left, 102, 259, 0x282521],
-					[left, 84, 256, 0xeee9d6],
-					[left, 130, 268, 0x2b313d],
-					[left, 130, 277, 0x2a303a]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 30, 384, 0xc7c3b3],
-					[left, 56, 383, 0xd2cebd],
-					[left, 61, 402, 0xe0dcca],
-					[left, 84, 402, 0xd8d3c2],
-					[left, 102, 402, 0xbab6a7],
-					[left, 130, 414, 0x272e3d],
-					[left, 130, 422, 0x29303d]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 31, 245, 0xbfbaab],
-					[left, 57, 245, 0x656259],
-					[left, 75, 245, 0xa8a496],
-					[left, 108, 246, 0xd7d2c2],
-					[left, 51, 257, 0xa6a295],
-					[left, 84, 255, 0xe6e1d0],
-					[left, 103, 253, 0xbcb8a9],
-					[left, 130, 270, 0x28303d],
-					[left, 130, 276, 0x28303d]
-				]
-			],
-			// 旧
-			[1280, 720,
-				[
-					[left, 130, 418, 0x28303c],
-					[left, 36, 383, 0x989488],
-					[left, 60, 402, 0xa9a598],
-					[left, 83, 400, 0x79756b],
-					[left, 102, 402, 0xbab6a7]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 36, 238, 0x9d998d],
-					[left, 26, 256, 0x8b877c],
-					[left, 61, 259, 0x33302b],
-					[left, 49, 259, 0x292622],
-					[left, 83, 256, 0xeae5d3],
-					[left, 84, 238, 0xafaa9d],
-					[left, 103, 259, 0x312e2a],
-					[left, 128, 272, 0x27303c]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 85, 406, 0xb2904c],
-					[left, 70, 405, 0x7a5529],
-					[left, 56, 405, 0x6d4e21],
-					[left, 28, 431, 0x472e2e],
-					[left, 106, 429, 0x493131],
-					[left, 106, 467, 0x312020],
-					[left, 26, 462, 0x352424],
-					[left, 128, 513, 0x27303c]
-				]
-			],
-			[1280, 720,
-				[
-					[left, 85, 406, 0xbc5993a],
-					[left, 70, 405, 0x7a5529],
-					[left, 56, 405, 0x6d4e21],
-					[left, 28, 431, 0x472e2e],
-					[left, 106, 429, 0x493131],
-					[left, 106, 467, 0x312020],
-					[left, 26, 462, 0x352424],
-					[left, 128, 513, 0x27303c]
+					[left, 24, 160, 0xe9dabf],
+					[left, 129, 273, 0x28303d],
+					[left, 113, 215, 0x3c2826],
+					[left, 124, 203, 0xddcba9],
+					[left, 122, 237, 0xe2d2b2],
+					[left, 121, 249, 0xe4d4b4],
+					[left, 120, 262, 0xe4d4b5],
+					[left, 107, 231, 0x2a1c1b],
+					[left, 128, 276, 0x28303c],
+					[left, 128, 269, 0x262d3b],
+					[left, 120, 276, 0x272f3b],
 				]
 			]
 		]
@@ -1382,10 +995,7 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[right, 1176, 212, 0x754420],
 					[right, 1169, 270, 0xe0be58],
 					[right, 1180, 427, 0xe7d6b2],
-					// [right, 1103, 556, 0xb1937b],
 					[right, 1105, 611, 0xe1d8c0],
-					// [right, 1088, 620, 0xf48a37],
-					[right, 1153, 79, 0x533b23],
 					[right, 1192, 328, 0xfef2c2]
 				]
 			],
@@ -1403,7 +1013,79 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[right, 1192, 328, 0xfef2c2]
 				]
 			],
-
+		]
+	},
+	'悬赏_金币协作': {
+		region: [left, 1280, 720, 100, 75, 1188, 636],
+		desc: [
+			[
+				1280, 720,
+				[
+					[center, 370, 522, 0xa6917d],
+					[left, 148, 374, 0xbc2925],
+					[left, 167, 394, 0xb4302b],
+					[left, 227, 541, 0xf9f2df],
+					[left, 233, 550, 0xf7f3df],
+					[left, 257, 522, 0xf9e8cb],
+					[left, 247, 525, 0xf3dbbd],
+					[left, 308, 544, 0xe3c873],
+					[center, 340, 541, 0xedd7b1],
+				]
+			]
+		]
+	},
+	'悬赏_体力协作': {
+		region: [left, 1280, 720, 100, 75, 1188, 636],
+		desc: [
+			[
+				1280, 720,
+				[
+					[center, 370, 522, 0xa6917d],
+					[left, 148, 374, 0xbc2925],
+					[left, 167, 394, 0xb4302b],
+					[left, 227, 541, 0xf9f2df],
+					[left, 233, 550, 0xf7f3df],
+					[left, 257, 522, 0xf9e8cb],
+					[left, 247, 525, 0xf3dbbd],
+					[left, 311, 553, 0x0b0c0a],
+					[center, 328, 543, 0xff9932],
+				]
+			]
+		]
+	},
+	'悬赏_狗粮协作': {
+		region: [left, 1280, 720, 100, 75, 1188, 636],
+		desc: [
+			[
+				1280, 720,
+				[
+					[center, 370, 522, 0xa6917d],
+					[left, 148, 374, 0xbc2925],
+					[left, 167, 394, 0xb4302b],
+					[left, 308, 544, 0xe3c873],
+					[center, 340, 541, 0xedd7b1],
+					[left, 218, 580, 0xf29530],
+					[left, 229, 580, 0xf29831],
+					[left, 240, 580, 0xf29b33],
+				]
+			]
+		]
+	},
+	'悬赏_勾玉协作': {
+		region: [left, 1280, 720, 100, 75, 1188, 636],
+		desc: [
+			[
+				1280, 720,
+				[
+					[center, 370, 522, 0xa6917d],
+					[left, 145, 374, 0xbc2925],
+					[left, 166, 391, 0xb52e2a],
+					[left, 233, 550, 0xf7f3df],
+					[left, 227, 541, 0xfef5e1],
+					[center, 321, 553, 0xc8a98b],
+					[center, 338, 548, 0xe9361d],
+				]
+			]
 		]
 	},
 	'探索界面_检测左边是否有追踪任务的悬浮列表': {
@@ -1492,7 +1174,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 854, 654, 0x9f5018]
 				]
 			]
-
 		]
 	},
 	'悬赏_庭院检测悬赏图标': {
@@ -1544,6 +1225,15 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[left, 273, 342, 0xfcefba],
 					[left, 265, 348, 0xe8d4ab],
 					[left, 263, 354, 0xf4deb2]
+				]
+			],
+			[1280, 720, // 封
+				[
+					[center, 249, 346, 0xffe9c7],
+					[center, 262, 348, 0xfee8bd],
+					[center, 253, 372, 0xb39c77],
+					[center, 264, 373, 0xa52e2c],
+					[center, 274, 341, 0xd4d4d4],
 				]
 			],
 			// 旧
@@ -1951,54 +1641,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]
 	},
-	'开号_剧情更多按钮': {
-		region: [center, 1280, 720, 0, 0, 1279, 719],
-		desc: [
-			// 三个点的按钮
-			[1280, 720,
-				[
-					[right, 1216, 332, 0x0f100c],
-					[right, 1217, 353, 0xffecec],
-					[right, 1236, 353, 0xffe9e9],
-					[right, 1253, 353, 0xffe9e9],
-					[right, 1235, 375, 0x10100c],
-					[right, 1236, 390, 0x211d19],
-					[right, 1265, 351, 0x1f140e],
-				]
-			],
-			// 眼睛按钮
-			[1280, 720,
-				[
-					[center, 640, 169, 0xffffff],
-					[center, 661, 201, 0x443b44],
-					[center, 681, 185, 0x423942],
-					[center, 680, 211, 0xccaa11],
-					[center, 640, 227, 0xe3c106],
-					[center, 678, 184, 0x433a43],
-				]
-			],
-			// 探索挑战图标1
-			[1280, 720,
-				[
-					[center, 1000, 442, 0xffffed],
-					[center, 1016, 450, 0xeeacb4],
-					[center, 1011, 473, 0x404879],
-					[center, 1032, 488, 0x31396b],
-					[center, 1040, 505, 0xfffbe2]
-				]
-			],
-			// 探索挑战图标2
-			[1280, 720,
-				[
-					[center, 1000, 447, 0x422918],
-					[center, 1016, 450, 0xf8b6be],
-					[center, 1011, 473, 0x424a7b],
-					[center, 1032, 488, 0x31396b],
-					[center, 1040, 508, 0x1a0e05]
-				]
-			]
-		]
-	},
 	'绿标': {
 		region: [center, 1280, 720, 33, 58, 1243, 597],
 		desc: [
@@ -2032,459 +1674,9 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			],
 			[1280, 720,
 				[
-					[left, 217, 345, 0x4bbd71],
-					[left, 217, 343, 0x49b56e],
-					[left, 218, 344, 0x62cf87],
-				]
-			]
-		]
-	},
-	'六道萤草_腐草为萤': {
-		region: [center, 1280, 720, 62, 471, 1068, 684],
-		desc: [
-			// 打怪后选择的腐草为萤
-			[1280, 720,
-				[
-					[center, 267, 559, 0x25363d],
-					[center, 308, 177, 0x60b52d],
-					[center, 302, 219, 0xf4ff77],
-					[center, 322, 197, 0xdfef95],
-					[center, 350, 192, 0x2a5424],
-					[center, 324, 233, 0xa04d45],
-					[center, 288, 202, 0x263e1f],
-				]
-			],
-			// 开局的腐草为萤
-			[1280, 720,
-				[
-					[center, 267, 559, 0x25363d],
-					[center, 308, 177, 0x60b52d],
-					[center, 302, 219, 0xf4ff77],
-					[center, 322, 197, 0xdfef95],
-					[center, 350, 192, 0x2a5424],
-					[center, 324, 233, 0xa04d45],
-					[center, 288, 202, 0x263e1f],
-				]
-			],
-		]
-	},
-	'六道萤草_妖力化身': {
-		region: [center, 1280, 720, 62, 471, 1068, 684],
-		desc: [
-			[1280, 720,
-				[
-					[center, 708, 560, 0x253639],
-					[center, 735, 216, 0xffffb2],
-					[center, 795, 222, 0xffffa0],
-					[center, 775, 178, 0xffffa4],
-					[center, 766, 192, 0x3d1c0b],
-					[center, 742, 175, 0x462514],
-				]
-			]
-		]
-	},
-	'六道萤草_六道净化': {
-		region: [center, 1280, 720, 62, 471, 1068, 684],
-		desc: [
-			[1280, 720,
-				[
-					[center, 434, 560, 0x253639],
-					[center, 479, 186, 0xafc0f9],
-					[center, 496, 184, 0xb5c6fa],
-					[center, 459, 199, 0xb8c9ff],
-					[center, 516, 226, 0x060639],
-					[center, 504, 172, 0x1a2e6e],
-				]
-			]
-		]
-	},
-	'六道萤草_萤火之光': {
-		region: [center, 1280, 720, 62, 471, 1068, 684],
-		desc: [
-			[1280, 720,
-				[
-					[center, 436, 558, 0x27383c],
-					[center, 491, 185, 0x4e9002],
-					[center, 489, 227, 0x334a12],
-					[center, 491, 234, 0xa3508a],
-					[center, 509, 202, 0xd5ffa1],
-					[center, 468, 191, 0xffffce],
-					[center, 455, 200, 0x071117],
-				]
-			]
-		]
-	},
-	'六道萤草_鏖战': {
-		region: [center, 1280, 720, 38, 154, 1269, 630],
-		desc: [
-			// 两个时的右
-			[1280, 720,
-				[
-					[center, 903, 370, 0xc3ad9a],
-					[center, 925, 361, 0xc65f48],
-					[center, 943, 366, 0xfaf3ea],
-					[center, 942, 411, 0xcb6d57],
-					[center, 854, 459, 0x75ab79],
-					[center, 958, 480, 0x619269],
-				]
-			],
-			// 两个时的右
-			[1280, 720,
-				[
-					[center, 907, 372, 0xf5f1e9],
-					[center, 943, 370, 0xf9f1e9],
-					[center, 937, 391, 0xde8260],
-					[center, 953, 486, 0x67966d],
-					[center, 932, 523, 0x4d5555],
-				]
-			],
-			// 两个时的左
-			[1280, 720,
-				[
-					[center, 372, 366, 0xf8f0e8],
-					[center, 414, 364, 0xf9f1e9],
-					[center, 405, 380, 0xd77a5d],
-					[center, 406, 505, 0x73ad7a],
-					[center, 408, 540, 0x495553],
-				]
-			],
-			// 一个时的中
-			[1280, 720,
-				[
-					[center, 645, 354, 0xf7f0e9],
-					[center, 684, 354, 0xf9f1e9],
-					[center, 673, 358, 0xd97358],
-					[center, 683, 402, 0xce745c],
-					[center, 688, 476, 0x619069],
-					[center, 596, 448, 0x75a675],
-				]
-			],
-			// 三个时的左
-			[1280, 720,
-				[
-					[center, 286, 265, 0xf7f0e7],
-					[center, 302, 267, 0xd16a51],
-					[center, 319, 266, 0xf9f1e9],
-					[center, 326, 296, 0xe1906e],
-					[center, 318, 357, 0x5b8a63],
-					[center, 313, 391, 0x495757],
-				]
-			],
-			// 三个时的右
-			[1280, 720,
-				[
-					[center, 1040, 291, 0xf5f0e8],
-					[center, 1068, 292, 0xfaf4ea],
-					[center, 1056, 294, 0xd06d54],
-					[center, 1068, 328, 0xc57459],
-					[center, 1091, 394, 0x79ac79],
-					[center, 1099, 413, 0x414c4d],
-				]
-			],
-			// TODO 三个时的中
-
-		]
-	},
-	'六道萤草_混沌': {
-		region: [center, 1280, 720, 38, 154, 1269, 630],
-		desc: [
-			// 两个时的左
-			[1280, 720,
-				[
-					[center, 355, 395, 0xa95e53],
-					[center, 339, 464, 0xa46a59],
-					[center, 411, 459, 0x9b5d51],
-					[center, 380, 537, 0x84ae7b],
-					[center, 292, 583, 0x7da482],
-				]
-			],
-			// 两个时的右
-			[1280, 720,
-				[
-					[center, 891, 407, 0xa75e53],
-					[center, 939, 464, 0x8f5649],
-					[center, 902, 520, 0x759f8a],
-					[center, 881, 561, 0x474d50],
-				]
-			],
-			// 三个时的中
-			[1280, 720,
-				[
-					[center, 695, 367, 0xa75e53],
-					[center, 757, 399, 0xa55e55],
-					[center, 649, 505, 0x82ac7d],
-					[center, 646, 501, 0x8bb586],
-					[center, 624, 541, 0x576165],
-				]
-			],
-			// 一个时的中
-			[1280, 720,
-				[
-					[center, 631, 370, 0xa75d52],
-					[center, 612, 431, 0xa66559],
-					[center, 684, 440, 0x9e6055],
-					[center, 599, 550, 0x7ca584],
-					[center, 607, 523, 0x4d5455],
-				]
-			],
-			// 一个时的中
-			[1280, 720,
-				[
-					[center, 624, 355, 0xa75b53],
-					[center, 680, 410, 0x8d5148],
-					[center, 667, 488, 0x7eac79],
-					[center, 597, 531, 0x7da584],
-					[center, 599, 549, 0x707070],
-				]
-			]
-		]
-	},
-	'六道萤草_神秘': {
-		region: [center, 1280, 720, 38, 154, 1269, 630],
-		desc: [
-			// 一个时的中
-			[1280, 720,
-				[
-					[center, 631, 448, 0xfbf8f3],
-					[center, 622, 449, 0xedebe8],
-					[center, 645, 513, 0x6f9f75],
-					[center, 617, 544, 0x4c5757],
-					[center, 704, 517, 0x6c9770],
-				]
-			]
-		]
-	},
-	'六道萤草_宁息': {
-		region: [center, 1280, 720, 38, 154, 1269, 630],
-		desc: [
-			// 一个时的中
-			[1280, 720,
-				[
-					[center, 642, 432, 0x8f8169],
-					[center, 649, 483, 0x739f86],
-					[center, 648, 522, 0x495355],
-					[center, 630, 451, 0xd5ccb1],
-					[center, 716, 460, 0x86856d],
-					[center, 777, 469, 0x78a183],
-				]
-			],
-			// 两个时的右
-			[1280, 720,
-				[
-					[center, 899, 472, 0xa19884],
-					[center, 899, 514, 0x85a68f],
-					[center, 925, 554, 0x747c79],
-					[center, 939, 563, 0x6e7777],
-					[center, 969, 584, 0x76957a],
-					[center, 1025, 510, 0x8fb194],
-					[center, 849, 602, 0x858884],
-				]
-			]
-		]
-	},
-	'六道萤草_仿造_腐草为萤': {
-		region: [right, 1280, 720, 794, 68, 1243, 636],
-		desc: [
-			[1280, 720,
-				[
-					[center, 831, 191, 0x3a2415],
-					[center, 864, 203, 0xdff0a4],
-					[center, 884, 206, 0x2e5c23],
-					[center, 868, 257, 0x9f4a4a],
-					[center, 848, 227, 0xf6ff79],
-					[center, 885, 205, 0x2b5521],
-				]
-			],
-			[1280, 720,
-				[
-					[center, 835, 111, 0x3e2917],
-					[center, 868, 119, 0xe0efaf],
-					[center, 852, 145, 0xf2ff7c],
-					[center, 870, 157, 0xa04d45],
-					[center, 881, 138, 0x478f2c],
-					[center, 841, 138, 0x2a4422],
-				]
-			]
-		]
-	},
-	'六道萤草_仿造_妖力化身': {
-		region: [right, 1280, 720, 794, 68, 1243, 636],
-		desc: [
-			[1280, 720,
-				[
-					[center, 1100, 281, 0x382715],
-					[center, 1131, 276, 0x442211],
-					[center, 1155, 294, 0xffffdf],
-					[center, 1155, 321, 0xffff9b],
-					[center, 1144, 328, 0xbe7a25],
-				]
-			],
-			[1280, 720,
-				[
-					[center, 1124, 209, 0x3b2615],
-					[center, 1156, 212, 0xffff99],
-					[center, 1173, 222, 0xfcfcea],
-					[center, 1172, 248, 0xffff9e],
-					[center, 1147, 255, 0xc07c34],
-					[center, 1145, 271, 0xc5782d],
-				]
-			]
-		]
-	},
-	'六道萤草_仿造_六道净化': {
-		region: [right, 1280, 720, 794, 68, 1243, 636],
-		desc: [
-			[1280, 720,
-				[
-					[center, 1101, 191, 0x372214],
-					[center, 1126, 202, 0xb3c4fd],
-					[center, 1148, 202, 0x2b2b65],
-					[center, 1153, 235, 0x07043d],
-					[center, 1117, 244, 0x735ba5],
-				]
-			],
-			[1280, 720,
-				[
-					[center, 1124, 111, 0x372213],
-					[center, 1158, 116, 0xb5cafe],
-					[center, 1158, 122, 0xb3c4fd],
-					[center, 1172, 166, 0x7562a4],
-					[center, 1156, 157, 0x755ca3],
-					[center, 1174, 153, 0x00002d],
-				]
-			],
-			[1280, 720,
-				[
-					[center, 1028, 209, 0x372213],
-					[center, 1062, 220, 0xb3c4fd],
-					[center, 1050, 219, 0xb2c2fc],
-					[center, 1076, 257, 0x7463a5],
-					[center, 1072, 217, 0x28285d],
-				]
-			]
-		]
-	},
-	'六道萤草_仿造_萤火之光': {
-		region: [right, 1280, 720, 794, 68, 1243, 636],
-		desc: [
-			[1280, 720,
-				[
-					[center, 921, 281, 0x402817],
-					[center, 979, 290, 0x081116],
-					[center, 969, 304, 0xd5ffa1],
-					[center, 950, 298, 0x7ec001],
-					[center, 955, 323, 0x2f4610],
-					[center, 956, 330, 0x9c588b],
-				]
-			],
-			[1280, 720,
-				[
-					[left, 1027, 209, 0x3f2a17],
-					[center, 1083, 219, 0x041118],
-					[center, 1076, 256, 0xa15287],
-					[center, 1059, 256, 0xa3508a],
-					[center, 1059, 247, 0x2e4610],
-					[center, 1059, 235, 0x2b4e09],
-					[center, 1062, 214, 0x418500],
-				]
-			]
-		]
-	},
-	'六道萤草_宁息_腐草为萤': {
-		region: [right, 1280, 720, 708, 63, 1137, 570],
-		desc: [
-			[1280, 720,
-				[
-					[center, 1056, 346, 0x454b4d],
-					[center, 1109, 349, 0x313f42],
-					[center, 1056, 398, 0x383f44],
-					[center, 1107, 395, 0x4c4e4f],
-					[center, 1070, 380, 0xf2ff77],
-					[center, 1081, 369, 0xdfee8b],
-					[center, 1096, 364, 0x326722],
-					[center, 1069, 356, 0x529d3a],
-					[center, 1083, 389, 0xa04d46],
-				]
-			],
-			[1280, 720,
-				[
-					[center, 734, 581, 0x41494d],
-					[center, 786, 583, 0x394448],
-					[center, 734, 635, 0x384245],
-					[center, 786, 630, 0x4e5453],
-					[center, 758, 604, 0xe0f091],
-					[center, 748, 615, 0xf2ff7a],
-					[center, 761, 625, 0xa04d45],
-					[center, 771, 600, 0x3f7d25],
-				]
-			]
-		]
-	},
-	'六道萤草_宁息_妖力化身': {
-		region: [right, 1280, 720, 708, 63, 1137, 570],
-		desc: [
-			[1280, 720,
-				[
-					[center, 1056, 584, 0x42494b],
-					[center, 1106, 580, 0x333e41],
-					[center, 1088, 624, 0xbe7a25],
-					[center, 1065, 617, 0xffffbf],
-					[center, 1082, 614, 0xffffff],
-					[center, 1096, 600, 0xfffff3],
-					[center, 1074, 583, 0x3e2615],
-				]
-			]
-		]
-	},
-	'六道萤草_宁息_六道净化': {
-		region: [right, 1280, 720, 708, 63, 1137, 570],
-		desc: [
-			[1280, 720,
-				[
-					[center, 896, 347, 0x3c4349],
-					[center, 945, 345, 0x313a3f],
-					[center, 896, 396, 0x303a40],
-					[center, 944, 398, 0x464b51],
-					[center, 912, 357, 0xb2c5ff],
-					[center, 923, 357, 0xbfd0ff],
-					[center, 931, 358, 0x26275e],
-					[center, 922, 388, 0x77609e],
-				]
-			],
-			[1280, 720,
-				[
-					[center, 1057, 347, 0x3c4248],
-					[center, 1105, 346, 0x3a4046],
-					[center, 1083, 389, 0x755ca7],
-					[center, 1096, 386, 0x07043e],
-					[center, 1083, 357, 0xbfd0ff],
-					[center, 1074, 359, 0xb0c1fa],
-				]
-			]
-		]
-	},
-	'六道萤草_宁息_萤火之光': {
-		region: [right, 1280, 720, 708, 63, 1137, 570],
-		desc: [
-			[1280, 720,
-				[
-					[center, 735, 580, 0x3e464a],
-					[center, 785, 579, 0x313e43],
-					[center, 760, 625, 0x9f548a],
-					[center, 762, 591, 0x428601],
-					[center, 773, 597, 0x043130],
-					[center, 746, 612, 0x1e411e],
-					[center, 758, 619, 0x314812],
-				]
-			],
-			[1280, 720,
-				[
-					[center, 897, 579, 0x404a4e],
-					[center, 946, 582, 0x40484c],
-					[center, 925, 592, 0x498d03],
-					[center, 921, 619, 0x2d4511],
-					[center, 907, 612, 0x1f421f],
-					[center, 921, 625, 0xa0538a],
+					[left, 217, 342, 0x36b866],
+					[left, 220, 342, 0x71ec9b],
+					[left, 219, 346, 0x6ddb92],
 				]
 			]
 		]
@@ -2716,100 +1908,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]
 	},
-	'鬼城岐事_判定': {
-		// 优先上次选择
-		region: [right, 1280, 720, 787, 185, 1250, 620],
-		desc: [
-			// 上次选择
-			[
-				1280, 720,
-				[
-					[center, 871, 267, 0x7d3533],
-					[center, 1142, 332, 0x5a71aa],
-					[center, 1216, 333, 0x38496b],
-					[center, 912, 267, 0x913e3a],
-					[center, 877, 328, 0xbc5349],
-				]
-			],
-			// 没有上次选择
-			[
-				1280, 720,
-				[
-					[center, 868, 369, 0x7c3433],
-					[center, 940, 367, 0xde9895],
-					[center, 950, 373, 0xdf9996],
-					[center, 877, 430, 0xbc5449],
-					[center, 903, 430, 0xdb8683],
-				]
-			]
-		]
-	},
-	'言灵活动_对弈': {
-		region: [right, 1280, 720, 12, 358, 824, 574],
-		desc: [
-			[1280, 720,
-				[
-					[left, 246, 523, 0xf9b274],
-					[left, 259, 525, 0xf9b274],
-					[left, 257, 529, 0x272420],
-					[left, 258, 538, 0xf8b173],
-					[left, 251, 536, 0x312b1b],
-					[left, 270, 542, 0xcd9462]]
-			]
-		]
-	},
-	'消消乐_红': {
-		region: [center, 1280, 720, 0, 0, 1279, 719],
-		desc: [
-			[1280, 720,
-				[
-					[center, 341, 67, 0xf6a1b9],
-					[center, 354, 68, 0xf6a3bb],
-					[center, 341, 76, 0xf8b8c9],
-					[center, 355, 76, 0xf8bac9]
-				]
-			]
-		]
-	},
-	'消消乐_黑': {
-		region: [center, 1280, 720, 0, 0, 1279, 719],
-		desc: [
-			[1280, 720,
-				[
-					[center, 565, 235, 0x45464a],
-					[center, 584, 236, 0x4a4d50],
-					[center, 584, 232, 0x242c32],
-					[center, 564, 232, 0x2d313a]
-				]
-			]
-		]
-	},
-	'消消乐_蓝': {
-		region: [center, 1280, 720, 0, 0, 1279, 719],
-		desc: [
-			[1280, 720,
-				[
-					[center, 494, 62, 0x7abfda],
-					[center, 503, 62, 0x80c1dc],
-					[center, 494, 69, 0x85cfe3],
-					[center, 506, 69, 0x8fd4e6]
-				]
-			]
-		]
-	},
-	'消消乐_黄': {
-		region: [center, 1280, 720, 0, 0, 1279, 719],
-		desc: [
-			[1280, 720,
-				[
-					[center, 566, 129, 0xeaae35],
-					[center, 586, 130, 0xe6b433],
-					[center, 570, 132, 0xdfa734],
-					[center, 580, 132, 0xdfa736]
-				]
-			]
-		]
-	},
 	'勾协判定': {
 		region: [center, 1280, 720, 648, 456, 720, 528],
 		similar: 98,
@@ -2869,23 +1967,15 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			[
 				1280, 720,
 				[
-					[left, 71, 247, 0x381a12],
-					[left, 71, 267, 0x341d14],
-					[left, 60, 257, 0x3a2416],
-					[left, 113, 218, 0xf9c682],
-					[left, 77, 265, 0xf7d54d],
+					[left, 68, 256, 0xe4b52f],
+					[left, 140, 258, 0x4d2d1e],
+					[left, 109, 205, 0x4e4e4e],
+					[left, 114, 461, 0x454545],
+					[left, 114, 450, 0xf8c67f],
+					[left, 69, 391, 0x6f6054],
+					[left, 163, 390, 0x6f6054],
 				]
 			],
-			[
-				1280, 720,
-				[
-					[center, 713, 247, 0x381911],
-					[center, 713, 267, 0x321b13],
-					[center, 751, 429, 0xf7d78b],
-					[center, 758, 231, 0xf6d388],
-					[center, 719, 265, 0xf7d54d],
-				]
-			]
 		]
 	},
 	'寄养狗粮_空': {
@@ -2994,25 +2084,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]]
 	},
-	// '契灵_连线_推荐': {
-	//     region: [center, 1280, 720, 355, 26, 975, 627],
-	//     desc: [[
-	//         1280, 720,
-	//         [
-	//             [center, 786, 489, 0xfbae14],
-	//             [center, 798, 501, 0xf7d708],
-	//             [center, 818, 498, 0xffba17],
-	//             [center, 814, 489, 0xfeae14],
-	//         ]
-	//     ], [1280, 720,
-	//         [
-	//             [center, 450, 248, 0xfbae14],
-	//             [center, 456, 247, 0xffae14],
-	//             [center, 482, 256, 0xfdbd15],
-	//             [center, 475, 243, 0xff9922],
-	//         ]
-	//     ]],
-	// },
 	'右下角锁定阵容': {
 		region: [center, 1280, 720, 734, 530, 1279, 719],
 		desc: [
@@ -3038,6 +2109,14 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 483, 169, 0xffe1a2],
 					[center, 481, 170, 0xffdd94],
 				]
+			], [
+				1280, 720,
+				[
+					[center, 207, 166, 0xffebc1],
+					[center, 208, 168, 0xffe4a6],
+					[center, 208, 170, 0xffdf9b],
+					[center, 210, 166, 0xf4e6b2],
+				]
 			]
 		],
 	},
@@ -3056,63 +2135,37 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		],
 	},
-	'破晓之时_放弃': {
-		region: [center, 1280, 720, 783, 172, 1259, 584],
+	'六道椒图_事件': {
+		region: [left, 1280, 720, 79, 86, 1020, 631],
 		desc: [
-			[
+			[ // 神秘
 				1280, 720,
 				[
-					[center, 874, 468, 0xffe8b3],
-					[center, 896, 469, 0xffe7b4],
-					[center, 903, 484, 0xfeecca],
-					[center, 896, 497, 0xfdf1de],
-					[center, 874, 498, 0xfdf2df],
-					[center, 955, 483, 0xf9eeda],
-					[right, 976, 480, 0xfaefdb],
+					[center, 643, 408, 0xf2e4c9],
+					[center, 643, 409, 0xf0e2c7],
+					[center, 643, 410, 0xeadcc2],
+					[center, 643, 411, 0xe9dcc1],
 				]
-			]
-		],
-	},
-	'破晓之时_游走的雷光': {
-		region: [center, 1280, 720, 356, 519, 938, 653],
-		desc: [[
-			1280, 720,
-			[
-				[center, 430, 580, 0xf1d0af],
-				[center, 548, 599, 0xcfae87],
-				[center, 476, 337, 0xebda83],
-				[center, 491, 383, 0x3d314f],
-				[center, 508, 284, 0x2b1f2f],
-				[center, 471, 394, 0xae56b3],
-			]
-		]],
-	},
-	'破晓之时_初始式神选择_谎言': {
-		region: [center, 1280, 720, 191, 564, 1244, 686],
-		desc: [[
-			1280, 720,
-			[
-				[center, 863, 607, 0xf6efb2],
-				[center, 683, 411, 0x232324],
-				[center, 708, 412, 0x29292b],
-				[center, 696, 406, 0x2a2b2e],
-				[center, 908, 622, 0x413222],
-				[center, 892, 639, 0xe0cd8b],
-				[center, 710, 412, 0x242524],
-			]
-		],
-		[
-			1280, 720,
-			[
-				[center, 247, 607, 0xf6efb2],
-				[center, 293, 622, 0x413222],
-				[center, 275, 639, 0xe0cd8b],
-				[center, 64, 472, 0x232323],
-				[center, 69, 464, 0x262627],
-				[center, 80, 460, 0x2a2b2e],
-				[center, 93, 464, 0x232324],
-			]
-		]],
+			],
+			[ // 混沌
+				1280, 720,
+				[
+					[center, 724, 427, 0xf2e4c9],
+					[center, 725, 427, 0xf2e4c9],
+					[center, 725, 428, 0xf2e4c9],
+					[center, 724, 428, 0xf1e3c8],
+				]
+			],
+			[ // 鏖战
+				1280, 720,
+				[
+					[center, 915, 482, 0xf4e9d3],
+					[center, 916, 482, 0xf4e9d3],
+					[center, 916, 481, 0xf3e8d2],
+					[center, 915, 481, 0xf4e9d3],
+				]
+			],
+		]
 	},
 	'返回图标': {
 		region: [left, 1280, 720, 0, 0, 253, 145],
@@ -3159,7 +2212,393 @@ const multiFindColors: IMultiFindColorsOrigin = {
 				[center, 40, 9, 0x291a10],
 			]
 		]]
+	},
+	'右边侧栏下一页图标': {
+		region: [center, 1280, 720, 1150, 145, 1261, 513],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1204, 479, 0xfde894],
+				[right, 1204, 483, 0xfde995],
+				[right, 1213, 486, 0xffe995],
+				[right, 1217, 471, 0xffea95],
+				[right, 1215, 467, 0xffe694],
+				[right, 1203, 464, 0xffec97],
+			]
+		]]
+
+	},
+	'对弈竞猜': {
+		region: [center, 1280, 720, 1169, 143, 1253, 456],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1204, 263, 0x69121b],
+				[right, 1210, 256, 0xa5d42a],
+				[right, 1196, 252, 0xfefeff],
+				[right, 1218, 252, 0xffffff],
+				[right, 1208, 278, 0xd8e3ba],
+				[right, 1206, 241, 0xe09d1f],
+			]
+		], [
+			1280, 720,
+			[
+				[right, 1201, 415, 0x72151c],
+				[right, 1219, 403, 0xffffff],
+				[right, 1193, 397, 0xe3a129],
+				[right, 1212, 423, 0xd34053],
+				[right, 1222, 431, 0xd2cdc8],
+				[right, 1187, 413, 0x6cb623],
+			]
+		], [
+			1280, 720,
+			[
+				[right, 1201, 415, 0x75151f],
+				[right, 1219, 403, 0xe4e4e4],
+				[right, 1193, 397, 0xe3a129],
+				[right, 1212, 423, 0xcd414e],
+				[right, 1222, 431, 0xa4a19d],
+				[right, 1187, 413, 0x9bc467],
+			]
+		], [
+			1280, 720,
+			[
+				[center, 1195, 325, 0xf3f3f3],
+				[right, 1217, 325, 0xffffff],
+				[right, 1221, 335, 0xdc698c],
+				[right, 1250, 310, 0xd8d8c4],
+				[right, 1242, 315, 0xd2d0bd],
+				[right, 1209, 308, 0x110e0c],
+				[right, 1184, 315, 0xdbd4c6],
+				[right, 1185, 336, 0x67b61e],
+			]
+		]]
+	},
+	'经营_箱子': { // 领箱子
+		region: [center, 1280, 720, 107, 81, 1210, 444],
+		desc: [[
+			1280, 720,
+			[
+				[center, 607, 341, 0xe1a928],
+				[center, 600, 337, 0xa82518],
+				[center, 616, 337, 0xb73619],
+				[center, 625, 337, 0x4d0305],
+				[center, 609, 341, 0xf3c436],
+			]
+		]]
+	},
+	'经营_加号': { // 点+号
+		region: [center, 1280, 720, 107, 81, 1210, 444],
+		desc: [[
+			1280, 720,
+			[
+				[left, 182, 204, 0xeef7f7],
+				[left, 168, 182, 0x485a9f],
+				[left, 200, 189, 0x4962a5],
+				[left, 167, 204, 0xeef7f7],
+				[left, 183, 204, 0xeef7f7],
+				[left, 178, 245, 0xd9d1c3],
+			]
+		]]
+	},
+	'经营_选取店长': {
+		region: [center, 1280, 720, 153, 616, 1150, 719],
+		desc: [[
+			1280, 720,
+			[
+				[center, 596, 690, 0xe5ca9f],
+				[center, 617, 690, 0x4e5a7f],
+				[center, 660, 691, 0x535f81],
+				[center, 705, 693, 0x4b526d],
+			]
+		]]
+	},
+	'敌方道馆_挑战': {
+		region: [center, 1280, 720, 15, 94, 965, 707,],
+		desc: [[
+			1280, 720,
+			[
+				[center, 699, 474, 0xf2e19a],
+				[center, 748, 521, 0xe7c765],
+				[center, 739, 487, 0x413123],
+				[center, 712, 512, 0x36291c],
+				[center, 723, 499, 0xecd27e],
+				[center, 409, 417, 0xca6c41],
+				[center, 413, 402, 0xc54c19],
+			]]
+		]
+	},
+	'神荒': {
+		region: [center, 1280, 720, 0, 0, 1279, 719],
+		desc: [[ // 腐血
+			1280, 720,
+			[
+				[center, 719, 203, 0x094084],
+				[center, 740, 209, 0x1466ad],
+				[center, 735, 215, 0x1374d2],
+				[center, 730, 217, 0x1580ea],
+				[center, 721, 221, 0x1867b3],
+				[center, 726, 226, 0x157ddb],
+				[center, 741, 223, 0x49a4ed],
+				[center, 735, 219, 0xffffff],
+			]
+		], [ // 星爆图标_正常取色
+			1280, 720,
+			[
+				[center, 719, 204, 0x000b1f],
+				[center, 729, 205, 0x7cb1e0],
+				[center, 719, 215, 0x3a90d9],
+				[center, 720, 221, 0x1361c0],
+				[center, 721, 224, 0x0976ff],
+				[center, 731, 225, 0x217cd3],
+				[center, 740, 217, 0x296db9],
+				[center, 735, 208, 0xfaeee0],
+			]
+		], [// 星爆图标_下半部分取色
+			1280, 720,
+			[
+				[center, 594, 229, 0x00143d],
+				[center, 596, 232, 0x0a529d],
+				[center, 599, 234, 0x107aff],
+				[center, 606, 234, 0x01408b],
+				[center, 610, 234, 0x003373],
+				[center, 618, 234, 0x00204e],
+				[center, 608, 232, 0xffffff],
+				[center, 601, 237, 0x619edf],
+			]
+		]],
+		similar: 95,
+	},
+	'宴会筹备': {
+		region: [center, 1280, 720, 239, 158, 1264, 646],
+		desc: [[
+			1280, 720, // 狸猫
+			[
+				[left, 286, 290, 0x774f32],
+				[left, 289, 311, 0x302116],
+				[left, 308, 305, 0xf7dca1],
+				[left, 300, 284, 0xbebb3c],
+				[left, 308, 317, 0xcf722f],
+			]
+		], [
+			1280, 720, // 饿鬼
+			[
+				[left, 290, 285, 0xf8dc66],
+				[left, 286, 288, 0xf7d748],
+				[left, 300, 290, 0x6f6565],
+				[left, 306, 320, 0x446693],
+				[left, 312, 310, 0x3b547c],
+			]
+		], [
+			1280, 720, // 河童
+			[
+				[left, 290, 384, 0x5ba29f],
+				[left, 306, 380, 0x296e64],
+				[left, 319, 384, 0x549292],
+				[left, 319, 417, 0x5368df],
+				[left, 292, 421, 0x1c1c32],
+			]
+		]]
+	},
+	'宴会筹备_狸猫': {
+		region: [center, 1280, 720, 1038, 187, 1248, 618],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1172, 398, 0xe9b36f],
+				[right, 1177, 401, 0xe7a962],
+				[right, 1163, 390, 0x764e30],
+				[right, 1183, 389, 0xe7b26e],
+				[right, 1177, 383, 0xb9b73b],
+			]
+		]]
+	},
+	'宴会筹备_饿鬼': {
+		region: [center, 1280, 720, 1038, 187, 1248, 618],
+		similar: 90,
+		desc: [[
+			1280, 720,
+			[
+				[right, 1168, 392, 0xfae695],
+				[right, 1166, 398, 0xffe177],
+				[right, 1169, 408, 0x3b2e2c],
+				[right, 1182, 407, 0xfcfcfc],
+				[right, 1180, 418, 0x4d72a3],
+			]
+		]]
+	},
+	'宴会筹备_河童': {
+		region: [center, 1280, 720, 1038, 187, 1248, 618],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1197, 372, 0x5ba3a0],
+				[right, 1218, 374, 0x5eafa9],
+				[right, 1189, 401, 0x5764bd],
+				[right, 1228, 400, 0x73d4d3],
+				[right, 1211, 385, 0x8b6d73],
+			]
+		]]
+	},
+	'红标_血条': {
+		region: [center, 1280, 720, 0, 0, 1279, 719],
+		desc: [[
+			1280, 720,
+			[
+				[center, 874, 247, 0xe03635],
+				[center, 874, 248, 0xd62e2b],
+				[center, 828, 247, 0xb43431],
+				[center, 828, 248, 0xca3434],
+				[center, 927, 247, 0xc73834],
+				[center, 927, 248, 0xec3b38],
+			]
+		]]
+	},
+	'斗技ban选_面': {
+		region: [center, 1280, 720, 1145, 352, 1246, 447],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1183, 377, 0xaf6326],
+				[right, 1191, 383, 0xf580aa],
+				[right, 1179, 416, 0x00a3d1],
+				[right, 1187, 412, 0xfce8d1],
+				[right, 1202, 410, 0xfff7ed],
+			]
+		]]
+	},
+	'斗技ban选_犬': {
+		region: [center, 1280, 720, 1145, 352, 1246, 447],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1188, 378, 0xe0a864],
+				[right, 1203, 389, 0xba965e],
+				[right, 1188, 395, 0xf8f7f0],
+				[right, 1185, 410, 0xe9e6e4],
+				[right, 1203, 409, 0x627ba3],
+			]
+		]]
+	},
+	'斗技ban选_龙': {
+		region: [center, 1280, 720, 1145, 352, 1246, 447],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1179, 384, 0x3f6671],
+				[right, 1187, 394, 0xfdf6f2],
+				[right, 1198, 382, 0x344147],
+				[right, 1194, 408, 0x609595],
+				[right, 1184, 418, 0x5ca8a8],
+			]
+		]]
+	},
+	'斗技ban选_辉': {
+		region: [center, 1280, 720, 1145, 352, 1246, 447],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1185, 379, 0xfcfaf9],
+				[right, 1176, 407, 0xffffff],
+				[right, 1194, 417, 0xfaebe6],
+				[right, 1197, 399, 0xf9ece8],
+				[right, 1192, 377, 0xa5d3c9],
+			]
+		]]
+	},
+	'斗技ban选_狐': {
+		region: [center, 1280, 720, 1145, 352, 1246, 447],
+		desc: [[
+			1280, 720,
+			[
+				[right, 1183, 384, 0xf1ebe7],
+				[right, 1194, 391, 0xd67461],
+				[right, 1193, 401, 0xd47f76],
+				[right, 1183, 415, 0xfff4f3],
+				[right, 1206, 397, 0xf6f4ed],
+			]
+		]]
+	},
+	'超鬼王_低星': {
+		region: [center, 1280, 720, 277, 275, 995, 430],
+		desc: [[ // 2星
+			1280, 720,
+			[
+				[center, 517, 366, 0xed742a],
+				[center, 526, 366, 0xeb7724],
+				[center, 536, 366, 0x958686],
+				[center, 545, 366, 0x958787],
+				[center, 554, 366, 0x968788],
+				[center, 563, 366, 0x968888],
+			]
+		], [ // 3星
+			1280, 720,
+			[
+				[center, 616, 366, 0xee732b],
+				[center, 625, 366, 0xeb7725],
+				[center, 634, 366, 0xe87a1f],
+				[center, 644, 366, 0x958787],
+				[center, 653, 366, 0x968788],
+				[center, 662, 366, 0x968888],
+			]
+		], [ // 4星
+			1280, 720,
+			[
+				[center, 715, 366, 0xee732b],
+				[center, 724, 366, 0xeb7725],
+				[center, 733, 366, 0xe87a1f],
+				[center, 742, 366, 0xe77b1d],
+				[center, 752, 366, 0x968787],
+			]
+		]]
+	},
+	'寻香行头像': {
+		region: [center, 1280, 720, 668, 588, 1177, 717],
+		desc: [[
+			1280, 720,
+			[
+				[center, 908, 643, 0xd9dfdf],
+				[center, 920, 664, 0xf1f1f1],
+				[center, 940, 647, 0x707373],
+				[center, 907, 682, 0xc8ced9],
+				[center, 920, 686, 0x734040],
+				[center, 947, 690, 0xccdada],
+				[center, 940, 676, 0x5b413a],
+			]
+		]]
+	},
+	'寻香行三层': {
+		region: [left, 1280, 720, 0, 0, 1280, 720],
+		desc: [[
+			1280, 720,
+			[
+				[center, 591, 165, 0xffdede],
+				[center, 600, 165, 0x960000],
+				[center, 602, 156, 0xffffff],
+				[center, 595, 148, 0xffffff],
+				[center, 590, 143, 0x190000],
+				[center, 607, 152, 0xffffff],
+				[center, 615, 147, 0x1f0101],
+				[center, 612, 170, 0x550101],
+			]
+		]]
+	},
+	'寻香行五层': {
+		region: [left, 1280, 720, 0, 0, 1280, 720],
+		desc: [[
+			1280, 720,
+			[
+				[center, 833, 189, 0x490000],
+				[center, 839, 187, 0x470000],
+				[center, 847, 184, 0xfefefe],
+				[center, 848, 178, 0xf3e8d5],
+				[center, 851, 178, 0xc9c9bb],
+				[center, 852, 171, 0xc9bdb3],
+				[center, 847, 171, 0xd7c8ab],
+				[center, 836, 170, 0xffffff],
+				[center, 828, 169, 0x1e0000],
+			]
+		]]
 	}
 }
-
 export default multiFindColors;

@@ -4,7 +4,7 @@ import { Script } from '@/system/script';
 // const normal = -1; //定义常量
 const left = 0;
 const center = 1;
-// const right = 2;
+const right = 2;
 
 export class Func312 implements IFuncOrigin {
 	id = 312;
@@ -18,45 +18,48 @@ export class Func312 implements IFuncOrigin {
 			type: 'text',
 			default: '1134,590,1225,645',
 			value: null,
-		}, {
-			name: 'exit',
-			desc: '达到时间后退出(需要ocr)',
-			type: 'switch',
-			default: false,
-			value: null,
-		}, {
-			name: 'time',
-			desc: '目标时间（输入数字，逗号分隔）',
-			type: 'text',
-			default: '1,20',
-			value: null,
 		}]
 	}]
 	operator: IFuncOperatorOrigin[] = [{
-		desc: [// 当前成绩
-			1280, 720,
-			[
-				[left, 73, 98, 0xdabe87],
-				[left, 95, 106, 0xe9d196],
-				[left, 117, 104, 0xdec38b],
-				[left, 144, 97, 0xe5cc92],
-				[left, 46, 28, 0xd8b38b],
-				[left, 178, 24, 0xd2b189],
-			]
-		],
+		desc: '战斗界面',
 		oper: [
 			[center, 1280, 720, 750, 420, 1279, 719, -1], // 右下角范围
 			[center, 1280, 720, 1166, 48, 1233, 81, -1], // 时间范围
 			[left, 1280, 720, 22, 19, 52, 47, 500], // 左上角返回
 			[center, 1280, 720, 683, 401, 795, 442, 500], // 确认
 		]
+	}, { // 1 体力不足
+		desc: [
+			1280, 720,
+			[
+				[left, 260, 545, 0xeecfa0],
+				[center, 468, 543, 0xedcfa4],
+				[center, 539, 549, 0xe8c894],
+				[center, 713, 546, 0xe6c692],
+				[center, 922, 543, 0xefd1a3],
+				[right, 998, 548, 0xe8c793],
+			]
+		],
+		oper: [
+			[center, 1280, 720, 1065, 252, 1151, 425, 1000],
+		]
+	}, { // 2 界面识别(测试中)
+		desc: [
+			1280, 720,
+			[
+				[right, 1245, 22, 0x654339],
+				[right, 1244, 58, 0x5b433a],
+				[right, 1240, 58, 0x6a4b3f],
+				[right, 1240, 22, 0x6a473b],
+			]
+		],
 	}];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
 		const thisConf = thisScript.scheme.config['312'];
 		let curCnt = 0;
 		const maxCount = 5;
 		while ((thisScript.findMultiColor('活动说明的感叹号') || thisScript.findMultiColor('体力图标') ||
-      thisScript.findMultiColor('右下角锁定阵容'))) {
+			thisScript.findMultiColor('右下角锁定阵容'))) {
 			curCnt++;
 			if (curCnt >= maxCount) {
 				thisScript.myToast(`连续执行${maxCount}次挑战后未开始，脚本自动停止`);
@@ -87,36 +90,18 @@ export class Func312 implements IFuncOrigin {
 			thisScript.keepScreen();
 		}
 
-		if (thisConf.exit && thisScript.oper({
-			name: '当前成绩',
-			operator: [{ desc: thisOperator[0].desc }]
-		}) && thisScript.getOcrDetector()) {
-			const time = String(thisConf.time).split(',');
-			const result = thisScript.findText('.+', 0, thisOperator[0].oper[1], '包含');
-			if (result.length === 0) {
-				console.log('未识别到任何字样');
-				return false;
-			} else {
-				const realTime = String(result[0].label).split(':');
-				if (Number.isNaN(realTime[0]) && Number.isNaN(realTime[1])) {
-					console.log('非数字，等待5秒继续检测');
-					sleep(5000);
-				} else if (Number(realTime[0]) == Number(time[0]) && Number(realTime[1]) <= Number(time[1]) || Number(realTime[0]) < Number(time[0])) {
-					return thisScript.oper({
-						id: 312,
-						name: '退出',
-						operator: [{
-							oper: [thisOperator[0].oper[2], thisOperator[0].oper[3]]
-						}]
-					}, 0)
-				} else {
-					sleep(5000);
-				}
-			}
-		}
-
 		if (curCnt) {
 			return true;
+		}
+		if (thisScript.oper({
+			id: 312,
+			name: '体力不足',
+			operator: [thisOperator[1]]
+		})) {
+			thisScript.doPush(thisScript, { text: '体力不足，请查看。', before() { thisScript.myToast('脚本即将停止，正在上传数据'); } });
+			thisScript.stop();
+			sleep(3000);
+			return;
 		}
 		return false;
 	}

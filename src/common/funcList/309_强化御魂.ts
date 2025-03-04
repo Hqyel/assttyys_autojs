@@ -17,7 +17,7 @@ export class Func309 implements IFuncOrigin {
 				[center, 892, 620, 0xc3c3c3],
 				[right, 1014, 650, 0xb8b8b8],
 				[center, 720, 638, 0x392b1e],
-				[left, 120, 230, 0xe5642b],
+				[left, 121, 218, 0xe4642a],
 				[left, 225, 236, 0xe6662c],
 			]
 		],
@@ -59,11 +59,11 @@ export class Func309 implements IFuncOrigin {
 			1280, 720,
 			[
 				[right, 1189, 398, 0xf75a4e],
-				[right, 1186, 412, 0xfb594f],
 				[right, 1194, 410, 0xff5e50],
-				[right, 1209, 410, 0xfe5d50],
 				[right, 1218, 400, 0xff5e50],
 				[right, 1218, 418, 0xff5c50],
+				[right, 1188, 399, 0xff5d51],
+				[right, 1221, 411, 0xff5e50],
 			]
 		],
 		oper: [
@@ -75,10 +75,10 @@ export class Func309 implements IFuncOrigin {
 			[
 				[right, 1192, 139, 0xc7b79e],
 				[right, 1220, 158, 0xc7b79e],
-				[right, 1188, 606, 0xe3ba82],
 				[right, 1240, 655, 0xe2af74],
 				[right, 1212, 626, 0x271913],
 				[right, 1215, 608, 0xecc38b],
+				[right, 1175, 616, 0xdfb27c],
 			]
 		],
 		oper: [
@@ -104,12 +104,12 @@ export class Func309 implements IFuncOrigin {
 		desc: [
 			1280, 720,
 			[
-				[center, 479, 137, 0x110d09],
-				[center, 507, 166, 0x130d09],
-				[center, 520, 134, 0xd6a559],
-				[center, 562, 134, 0xd8a95b],
-				[center, 562, 170, 0xdfb467],
-				[center, 520, 168, 0xc49b53],
+				[center, 569, 135, 0xcaa058],
+				[center, 611, 136, 0xc19854],
+				[center, 611, 169, 0xcaa259],
+				[center, 570, 168, 0xc39a53],
+				[center, 899, 613, 0xf0dca5],
+				[center, 917, 653, 0xedcb96],
 			]
 		],
 		oper: [
@@ -121,18 +121,44 @@ export class Func309 implements IFuncOrigin {
 		desc: [
 			1280, 720,
 			[
-				[center, 419, 120, 0xe8e8ea],
-				[center, 419, 128, 0xe6e6e8],
-				[center, 429, 118, 0xc8c4c5],
-				[center, 425, 122, 0xe8e8ea],
-				[center, 431, 127, 0xe5e4e6],
-				[center, 427, 131, 0xd3d1d2],
-				[center, 423, 91, 0x4156d7],
-				[center, 439, 91, 0x4c5ad7],
+				[center, 419, 120, 0xe9e9eb],
+				[center, 419, 128, 0xe3e2e4],
+				[center, 429, 118, 0xa19999],
+				[center, 425, 122, 0xe9e9eb],
+				[center, 427, 131, 0xd2d0d1],
+				[center, 423, 91, 0x415bd4],
+				[center, 439, 91, 0x4b56d2],
 			]
 		],
 		oper: [
 			[center, 1280, 720, 28, 18, 71, 56, 500]// 返回
+		]
+	}, { // 8 +9计算强化
+		desc: [
+			1280, 720,
+			[
+				[center, 520, 136, 0xc39a55],
+				[center, 561, 137, 0xbc9552],
+				[center, 561, 169, 0xcaa259],
+				[center, 521, 168, 0xbf9751],
+				[center, 900, 614, 0xf0dca5],
+				[center, 918, 658, 0xe7b980],
+			]
+		],
+		oper: [
+			[center, 1280, 720, 876, 615, 935, 664, 500], // 计算
+			[center, 1280, 720, 876, 615, 935, 664, 2500], // 强化
+		]
+	}, { // 9 结束
+		desc: [
+			1280, 720,
+			[
+				[left, 314, 400, 0xfcf051],
+				[center, 334, 373, 0xfff15d],
+				[left, 265, 262, 0x3f2b29],
+				[center, 397, 263, 0x3d2a29],
+				[center, 332, 508, 0xaa4b32],
+			]
 		]
 	}
 	]
@@ -149,7 +175,7 @@ export class Func309 implements IFuncOrigin {
 		if (thisScript.oper({
 			id: 309,
 			name: '强化御魂_金币不足',
-			operator: [thisOperator[2], thisOperator[5]]
+			operator: [thisOperator[2], thisOperator[5], thisOperator[6], thisOperator[8]]
 		})) {
 			thisScript.global.upYuHun = true;
 			return true;
@@ -157,8 +183,9 @@ export class Func309 implements IFuncOrigin {
 		if (thisScript.oper({
 			id: 309,
 			name: '强化御魂',
-			operator: [thisOperator[7], thisOperator[1], thisOperator[3],
-				thisOperator[4], thisOperator[6]]
+			operator: [thisOperator[7], thisOperator[1], thisOperator[3]
+				, thisOperator[4]
+			]
 		})) {
 			thisScript.global.upYuHun = false;
 			return true;
@@ -167,7 +194,16 @@ export class Func309 implements IFuncOrigin {
 		if (thisScript.global.upYuHun && thisScript.oper({
 			id: 309,
 			name: '强化御魂_金币不足',
-			operator: [thisOperator[2], thisOperator[5]]
+			operator: [thisOperator[2], thisOperator[5], thisOperator[6], thisOperator[8]]
+		})) {
+			thisScript.doPush(thisScript, { text: `[${thisScript.schemeHistory.map(item => item.schemeName).join('、')}]已停止，请查看。`, before() { thisScript.myToast('脚本即将停止，正在上传数据'); } });
+			thisScript.stop();
+			return true;
+		}
+		if (thisScript.oper({
+			id: 309,
+			name: '强化御魂_结束',
+			operator: [thisOperator[9]]
 		})) {
 			thisScript.doPush(thisScript, { text: `[${thisScript.schemeHistory.map(item => item.schemeName).join('、')}]已停止，请查看。`, before() { thisScript.myToast('脚本即将停止，正在上传数据'); } });
 			thisScript.stop();
