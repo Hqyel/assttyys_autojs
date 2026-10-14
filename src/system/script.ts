@@ -544,8 +544,8 @@ export class Script {
 				swipeOper[0],
 				swipeOper[1],
 				[500, 650],
-				600,
-				0
+				1400,
+				1
 			);
 		}
 		this.global.courtyardViewNormalizeTime = new Date().getTime();
@@ -553,7 +553,7 @@ export class Script {
 	}
 
 	/**
-	 * 先在当前视角查找庭院入口，失败时归位视角并重试一次。
+	 * 先在当前视角查找庭院入口，失败时在稳定视角分段重试。
 	 * @param findPoint 查找探索或町中入口的方法
 	 */
 	findCourtyardPoint(findPoint: () => Point): Point {
@@ -563,7 +563,22 @@ export class Script {
 
 		this.keepScreen(false);
 		point = findPoint();
-		return point;
+		if (point) return point;
+
+		const swipeOper = this.helperBridge.regionClickTrans([
+			[1, 1280, 720, 300, 500, 320, 540, 0],
+			[1, 1280, 720, 850, 500, 870, 540, 0]
+		]);
+		console.log('庭院右端未识别，回扫到稳定视角后重试');
+		this.regionSwipe(
+			swipeOper[0],
+			swipeOper[1],
+			[500, 650],
+			1400,
+			1
+		);
+		this.keepScreen(false);
+		return findPoint();
 	}
 
 	/**

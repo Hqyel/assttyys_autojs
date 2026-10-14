@@ -724,6 +724,21 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 869, 380, 0x969ea6],
 					[center, 871, 384, 0xbabbaf],
 				]
+			],
+			[   // 狐栖归处默认视角
+				1280, 720,
+				[
+					[center, 1001, 354, 0x5f6070],
+					[center, 1009, 350, 0xffffff],
+					[center, 1022, 354, 0xbbced8],
+					[center, 1008, 359, 0x747a8a],
+					[center, 1005, 365, 0xffffff],
+					[center, 1000, 370, 0x848894],
+					[center, 1008, 371, 0xadb6be],
+					[center, 1012, 381, 0x8ea4bf],
+					[center, 1018, 382, 0xb0c8e3],
+					[center, 1005, 390, 0xd0dee6],
+				]
 			]
 		]
 	},
