@@ -371,7 +371,8 @@ export class Script {
 		}
 
 		if (!desc.length) return [];
-		if (Array.isArray(desc[0][0])) {
+		// Rhino中的Java数组不满足Array.isArray，需要根据最内层值判断维度。
+		if (typeof desc[0][0] !== 'number') {
 			return desc as IMultiDetectColorDesc[];
 		}
 		return [desc as IMultiDetectColorDesc];
