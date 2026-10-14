@@ -713,6 +713,34 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 729, 239, 0xa0a28f],
 				]
 			],
+			[   // 云景阆苑右端
+				1280, 720,
+				[
+					[center, 590, 203, 0x5f534e],
+					[center, 582, 205, 0x625652],
+					[center, 586, 207, 0x605852],
+					[center, 581, 211, 0x625750],
+					[center, 590, 215, 0x59574e],
+					[center, 588, 220, 0x5a5952],
+					[center, 590, 223, 0x625650],
+					[center, 583, 230, 0x675e56],
+					[center, 588, 234, 0x645a54],
+				]
+			],
+			[   // 云景阆苑左端
+				1280, 720,
+				[
+					[center, 828, 203, 0x645650],
+					[center, 821, 205, 0x625650],
+					[center, 818, 209, 0x5f554e],
+					[center, 822, 211, 0x635852],
+					[center, 827, 215, 0x636258],
+					[center, 825, 220, 0x5f5d56],
+					[center, 828, 223, 0x645652],
+					[center, 827, 228, 0x615952],
+					[center, 824, 233, 0x7c6f66],
+				]
+			],
 			[   // 狐栖归处
 				1280, 720,
 				[
@@ -1070,9 +1098,202 @@ const multiFindColors: IMultiFindColorsOrigin = {
 		]
 	},
 	'庭院_云景阆苑_探索灯笼': {
-		region: [center, 1280, 720, 520, 110, 640, 200],
+		region: [center, 1280, 720, 240, 120, 800, 190],
 		similar: 95,
 		desc: [
+			// 不受背景影响的“探索”字形，覆盖左右两端摆动姿态。
+			[1280, 720,
+				[
+					[center, 564, 147, 0x6f5c44],
+					[center, 575, 154, 0x6f5c44],
+					[center, 574, 144, 0x6f5c44],
+					[center, 565, 156, 0x6f5c44],
+					[center, 569, 163, 0x6f5c44],
+					[center, 569, 176, 0x6f5c44],
+					[center, 564, 168, 0x6f5c44],
+					[center, 575, 166, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 565, 140, 0x6f5c44],
+					[center, 571, 146, 0x6f5c44],
+					[center, 575, 139, 0x6f5c44],
+					[center, 564, 148, 0x6f5c44],
+					[center, 571, 158, 0x6f5c44],
+					[center, 571, 171, 0x6f5c44],
+					[center, 566, 164, 0x6f5c44],
+					[center, 577, 161, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 283, 141, 0x6f5c44],
+					[center, 288, 148, 0x6f5c44],
+					[center, 292, 141, 0x6f5c44],
+					[center, 281, 152, 0x6f5c44],
+					[center, 285, 160, 0x6f5c44],
+					[center, 284, 173, 0x6f5c44],
+					[center, 291, 164, 0x6f5c44],
+					[center, 280, 164, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 567, 144, 0x6f5c44],
+					[center, 578, 150, 0x6f5c44],
+					[center, 576, 140, 0x6f5c44],
+					[center, 566, 151, 0x6f5c44],
+					[center, 574, 160, 0x6f5c44],
+					[center, 576, 172, 0x6f5c44],
+					[center, 569, 166, 0x6f5c44],
+					[center, 580, 162, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 567, 145, 0x6f5c44],
+					[center, 578, 151, 0x6f5c44],
+					[center, 576, 141, 0x6f5c44],
+					[center, 566, 152, 0x6f5c44],
+					[center, 574, 161, 0x6f5c44],
+					[center, 576, 174, 0x6f5c44],
+					[center, 570, 167, 0x6f5c44],
+					[center, 578, 167, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 726, 141, 0x6f5c44],
+					[center, 731, 148, 0x6f5c44],
+					[center, 723, 153, 0x6f5c44],
+					[center, 736, 142, 0x6f5c44],
+					[center, 724, 167, 0x6f5c44],
+					[center, 733, 164, 0x6f5c44],
+					[center, 726, 159, 0x6f5c44],
+					[center, 729, 172, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 563, 140, 0x6f5c44],
+					[center, 568, 147, 0x6f5c44],
+					[center, 573, 140, 0x6f5c44],
+					[center, 561, 152, 0x6f5c44],
+					[center, 563, 166, 0x6f5c44],
+					[center, 571, 162, 0x6f5c44],
+					[center, 565, 158, 0x6f5c44],
+					[center, 568, 170, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 562, 144, 0x6f5c44],
+					[center, 571, 153, 0x6f5c44],
+					[center, 572, 142, 0x6f5c44],
+					[center, 560, 153, 0x6f5c44],
+					[center, 564, 161, 0x6f5c44],
+					[center, 562, 173, 0x6f5c44],
+					[center, 558, 165, 0x6f5c44],
+					[center, 570, 165, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 563, 143, 0x6f5c44],
+					[center, 567, 149, 0x6f5c44],
+					[center, 573, 143, 0x6f5c44],
+					[center, 559, 150, 0x6f5c44],
+					[center, 562, 168, 0x6f5c44],
+					[center, 570, 164, 0x6f5c44],
+					[center, 564, 160, 0x6f5c44],
+					[center, 563, 174, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 562, 146, 0x6f5c44],
+					[center, 570, 150, 0x6f5c44],
+					[center, 562, 155, 0x6f5c44],
+					[center, 574, 144, 0x6f5c44],
+					[center, 567, 164, 0x6f5c44],
+					[center, 566, 175, 0x6f5c44],
+					[center, 562, 168, 0x6f5c44],
+					[center, 570, 170, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 726, 142, 0x6f5c44],
+					[center, 733, 146, 0x6f5c44],
+					[center, 738, 139, 0x6f5c44],
+					[center, 727, 151, 0x6f5c44],
+					[center, 731, 158, 0x6f5c44],
+					[center, 731, 171, 0x6f5c44],
+					[center, 738, 161, 0x6f5c44],
+					[center, 726, 163, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 729, 144, 0x6f5c44],
+					[center, 735, 151, 0x6f5c44],
+					[center, 739, 143, 0x6f5c44],
+					[center, 727, 153, 0x6f5c44],
+					[center, 733, 170, 0x6f5c44],
+					[center, 740, 164, 0x6f5c44],
+					[center, 740, 173, 0x6f5c44],
+					[center, 732, 163, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 286, 147, 0x6f5c44],
+					[center, 298, 154, 0x6f5c44],
+					[center, 296, 143, 0x6f5c44],
+					[center, 290, 153, 0x6f5c44],
+					[center, 292, 170, 0x6f5c44],
+					[center, 299, 165, 0x6f5c44],
+					[center, 292, 162, 0x6f5c44],
+					[center, 298, 173, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 283, 141, 0x6f5c44],
+					[center, 288, 148, 0x6f5c44],
+					[center, 280, 149, 0x6f5c44],
+					[center, 293, 142, 0x6f5c44],
+					[center, 285, 160, 0x6f5c44],
+					[center, 285, 173, 0x6f5c44],
+					[center, 292, 164, 0x6f5c44],
+					[center, 280, 165, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 286, 140, 0x6f5c44],
+					[center, 293, 145, 0x6f5c44],
+					[center, 287, 152, 0x6f5c44],
+					[center, 295, 138, 0x6f5c44],
+					[center, 293, 159, 0x6f5c44],
+					[center, 300, 169, 0x6f5c44],
+					[center, 300, 161, 0x6f5c44],
+					[center, 293, 167, 0x6f5c44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 566, 144, 0x6f5c44],
+					[center, 573, 149, 0x6f5c44],
+					[center, 565, 153, 0x6f5c44],
+					[center, 576, 142, 0x6f5c44],
+					[center, 573, 162, 0x6f5c44],
+					[center, 574, 174, 0x6f5c44],
+					[center, 568, 168, 0x6f5c44],
+					[center, 579, 165, 0x6f5c44],
+				]
+			],
 			// ADB画面中采集的摆动姿态，只匹配黄色探索灯笼。
 			[1280, 720,
 				[
