@@ -34,6 +34,9 @@ export class Func029 implements IFuncOrigin {
 			point = thisScript.findMultiColor('庭院_茨心乐园_探索灯笼');
 		}
 		if (!point) {
+			point = thisScript.findMultiColor('庭院_云景阆苑_探索灯笼');
+		}
+		if (!point) {
 			const foxLanternPoints = thisScript.findMultiColorEx(
 				'庭院_狐栖归处_功能灯笼'
 			).sort((a, b) => a.x - b.x);

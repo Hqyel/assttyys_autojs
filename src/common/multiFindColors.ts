@@ -700,6 +700,18 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 845, 385, 0xebe8de],
 					[center, 830, 390, 0xccb794],
 				]
+			],
+			[   // 云景阆苑
+				1280, 720,
+				[
+					[center, 735, 230, 0x635752],
+					[center, 738, 221, 0x675d56],
+					[center, 738, 224, 0x635751],
+					[center, 732, 227, 0x5e564f],
+					[center, 741, 227, 0x645a55],
+					[center, 738, 233, 0x969187],
+					[center, 729, 239, 0xa0a28f],
+				]
 			]
 		]
 	},
@@ -1026,6 +1038,167 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 610, 193, 0xed964c],
 					[center, 581, 225, 0xef6643],
 					[center, 614, 225, 0xf3ab4e],
+				]
+			]
+		]
+	},
+	'庭院_云景阆苑_探索灯笼': {
+		region: [center, 1280, 720, 520, 110, 640, 200],
+		similar: 95,
+		desc: [
+			// ADB画面中采集的摆动姿态，只匹配黄色探索灯笼。
+			[1280, 720,
+				[
+					[center, 552, 147, 0xfadd64],
+					[center, 588, 147, 0xf4af33],
+					[center, 555, 135, 0xffeb40],
+					[center, 585, 135, 0xd0d7b2],
+					[center, 552, 167, 0xf9c545],
+					[center, 588, 167, 0xe0e4c2],
+					[center, 570, 180, 0xfee9a1],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 553, 147, 0xf5bc2f],
+					[center, 589, 147, 0xf9cf62],
+					[center, 556, 135, 0xfa9d00],
+					[center, 586, 135, 0xf8b80e],
+					[center, 553, 167, 0xdee4cf],
+					[center, 589, 167, 0xfcebaf],
+					[center, 571, 180, 0xffffc5],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 552, 147, 0xfaf29c],
+					[center, 588, 147, 0xf9d26f],
+					[center, 555, 135, 0xffee3f],
+					[center, 585, 135, 0xffd516],
+					[center, 552, 167, 0xdee4d1],
+					[center, 588, 167, 0xe0e4c2],
+					[center, 570, 180, 0xfef989],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 552, 147, 0xfaf19a],
+					[center, 588, 147, 0xf19a13],
+					[center, 555, 135, 0xfaae03],
+					[center, 585, 135, 0xfea500],
+					[center, 552, 167, 0xf9f6c7],
+					[center, 588, 167, 0xe0e4c2],
+					[center, 570, 180, 0xffffd1],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 553, 147, 0xfadf77],
+					[center, 589, 147, 0xf9d160],
+					[center, 556, 135, 0xffda00],
+					[center, 586, 135, 0xffde2c],
+					[center, 553, 167, 0xdee4cf],
+					[center, 589, 167, 0xf5be0e],
+					[center, 571, 180, 0xfeee93],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 552, 147, 0xfcd753],
+					[center, 588, 147, 0xf9d168],
+					[center, 555, 135, 0xfbc62e],
+					[center, 585, 135, 0xd0d7b2],
+					[center, 552, 167, 0xffc623],
+					[center, 588, 167, 0xe0e4c2],
+					[center, 570, 180, 0xfee8a3],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 553, 147, 0xf8cf68],
+					[center, 589, 147, 0xf9d160],
+					[center, 556, 135, 0xc7d2b2],
+					[center, 586, 135, 0xffdd24],
+					[center, 553, 167, 0xdee4cf],
+					[center, 589, 167, 0xffee6f],
+					[center, 571, 180, 0xfff3a2],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 552, 147, 0xfce984],
+					[center, 588, 147, 0xf9cd5b],
+					[center, 555, 135, 0xffe942],
+					[center, 585, 135, 0xfddb15],
+					[center, 552, 167, 0xfdf392],
+					[center, 588, 167, 0xe0e4c2],
+					[center, 570, 180, 0xf1d160],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 553, 147, 0xfae073],
+					[center, 589, 147, 0xf9ca52],
+					[center, 556, 135, 0xfaa000],
+					[center, 586, 135, 0xfea400],
+					[center, 553, 167, 0xdee4cf],
+					[center, 589, 167, 0xdfe4c2],
+					[center, 571, 180, 0xffffd3],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 553, 147, 0xfae17c],
+					[center, 589, 147, 0xf9d16b],
+					[center, 556, 135, 0xfcbd09],
+					[center, 586, 135, 0xffdf27],
+					[center, 553, 167, 0xdee4cf],
+					[center, 589, 167, 0xfbeda5],
+					[center, 571, 180, 0xfef49e],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 552, 147, 0xfbd95b],
+					[center, 588, 147, 0xfad26b],
+					[center, 555, 135, 0xfec017],
+					[center, 585, 135, 0xd0d7b2],
+					[center, 552, 167, 0xfef28f],
+					[center, 588, 167, 0xe0e4c2],
+					[center, 570, 180, 0xffecad],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 553, 147, 0xf8ce66],
+					[center, 589, 147, 0xf9d160],
+					[center, 556, 135, 0xc7d2b2],
+					[center, 586, 135, 0xffdf27],
+					[center, 553, 167, 0xdee4cf],
+					[center, 589, 167, 0xfad835],
+					[center, 571, 180, 0xfef29b],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 552, 147, 0xfbdd64],
+					[center, 588, 147, 0xf6bd48],
+					[center, 555, 135, 0xffeb42],
+					[center, 585, 135, 0xd0d7b2],
+					[center, 552, 167, 0xfade84],
+					[center, 588, 167, 0xe0e4c2],
+					[center, 570, 180, 0xffe89e],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 553, 147, 0xfae380],
+					[center, 589, 147, 0xf9cf63],
+					[center, 556, 135, 0xfaa90b],
+					[center, 586, 135, 0xfbb409],
+					[center, 553, 167, 0xdee4cf],
+					[center, 589, 167, 0xfeedb7],
+					[center, 571, 180, 0xfffecf],
 				]
 			]
 		]
