@@ -688,6 +688,18 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 709, 307, 0xa59e9d],
 					[center, 697, 257, 0xaaa290],
 				]
+			],
+			[   // 茨心乐园
+				1280, 720,
+				[
+					[center, 840, 330, 0xebe8d8],
+					[center, 835, 320, 0xdea265],
+					[center, 850, 325, 0xe9e7d6],
+					[center, 845, 360, 0x6e5c44],
+					[center, 850, 365, 0xeae8de],
+					[center, 845, 385, 0xebe8de],
+					[center, 830, 390, 0xccb794],
+				]
 			]
 		]
 	},
@@ -897,6 +909,123 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 1034, 235, 0xe87d56],
 					[center, 1014, 275, 0xecb89d],
 					[center, 1019, 230, 0xdb6d4a],
+				]
+			]
+		]
+	},
+	'庭院_茨心乐园_探索灯笼': {
+		region: [center, 1280, 720, 520, 175, 680, 255],
+		similar: 97,
+		desc: [
+			// ADB画面中采集的摆动姿态，只匹配橙红色探索灯笼。
+			[1280, 720,
+				[
+					[center, 577, 208, 0xe88847],
+					[center, 617, 208, 0xef9a48],
+					[center, 597, 186, 0xe8974a],
+					[center, 584, 193, 0xe88f49],
+					[center, 610, 193, 0xed974d],
+					[center, 581, 225, 0xf08850],
+					[center, 614, 225, 0xf4b14f],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 585, 208, 0xe68746],
+					[center, 625, 208, 0xf69c4e],
+					[center, 605, 186, 0xe8984a],
+					[center, 592, 193, 0xf29e4e],
+					[center, 618, 193, 0xed954c],
+					[center, 589, 225, 0xf08551],
+					[center, 622, 225, 0xf4b051],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 577, 208, 0xe98749],
+					[center, 617, 208, 0xe77942],
+					[center, 597, 186, 0x6f5c44],
+					[center, 584, 193, 0xe88e4a],
+					[center, 610, 193, 0xee964a],
+					[center, 581, 225, 0xf58d47],
+					[center, 614, 225, 0xf4ac57],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 585, 208, 0xe78143],
+					[center, 625, 208, 0xf19e4b],
+					[center, 605, 186, 0xea984b],
+					[center, 592, 193, 0xe79147],
+					[center, 618, 193, 0xed954a],
+					[center, 589, 225, 0xee854e],
+					[center, 622, 225, 0xf39a44],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 579, 208, 0xe87443],
+					[center, 619, 208, 0xf39c4c],
+					[center, 599, 186, 0x6f5c44],
+					[center, 586, 193, 0xe88d48],
+					[center, 612, 193, 0xed954c],
+					[center, 583, 225, 0xf1784a],
+					[center, 616, 225, 0xf3ae50],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 581, 208, 0xe67f42],
+					[center, 621, 208, 0xee994a],
+					[center, 601, 186, 0xea9948],
+					[center, 588, 193, 0xe89046],
+					[center, 614, 193, 0xed974d],
+					[center, 585, 225, 0xee874e],
+					[center, 618, 225, 0xf4b14f],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 583, 208, 0xe67640],
+					[center, 623, 208, 0xf4a44c],
+					[center, 603, 186, 0xe9964b],
+					[center, 590, 193, 0xe88f49],
+					[center, 616, 193, 0xed954c],
+					[center, 587, 225, 0xf27f4e],
+					[center, 620, 225, 0xf4b151],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 578, 208, 0xe88a47],
+					[center, 618, 208, 0xee9a49],
+					[center, 598, 186, 0xee9d40],
+					[center, 585, 193, 0xe79049],
+					[center, 611, 193, 0xed974d],
+					[center, 582, 225, 0xf0894f],
+					[center, 615, 225, 0xf3ad4f],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 585, 208, 0xdd763e],
+					[center, 625, 208, 0xf59d4e],
+					[center, 605, 186, 0xe8964a],
+					[center, 592, 193, 0xec8542],
+					[center, 618, 193, 0xed954c],
+					[center, 589, 225, 0xf08551],
+					[center, 622, 225, 0xf4b251],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 577, 208, 0xe98749],
+					[center, 617, 208, 0xea7c44],
+					[center, 597, 186, 0x6f5c44],
+					[center, 584, 193, 0xe88e49],
+					[center, 610, 193, 0xed964c],
+					[center, 581, 225, 0xef6643],
+					[center, 614, 225, 0xf3ab4e],
 				]
 			]
 		]
