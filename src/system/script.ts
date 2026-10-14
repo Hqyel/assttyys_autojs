@@ -525,7 +525,46 @@ export class Script {
 		return ret2;
 	}
 
+	/**
+	 * 将庭院视角移动到右端。同一时段只执行一次，避免未知主题反复拖屏。
+	 * @returns 是否执行了归位
+	 */
+	normalizeCourtyardView(): boolean {
+		const currentTime = new Date().getTime();
+		const lastTime = this.global.courtyardViewNormalizeTime || 0;
+		if ((currentTime - lastTime) < 5000) return false;
 
+		const swipeOper = this.helperBridge.regionClickTrans([
+			[1, 1280, 720, 930, 490, 1000, 540, 0],
+			[1, 1280, 720, 280, 490, 350, 540, 0]
+		]);
+		console.log('庭院入口未识别，将视角移动到右端后重试');
+		for (let i = 0; i < 2; i++) {
+			this.regionSwipe(
+				swipeOper[0],
+				swipeOper[1],
+				[500, 650],
+				600,
+				0
+			);
+		}
+		this.global.courtyardViewNormalizeTime = new Date().getTime();
+		return true;
+	}
+
+	/**
+	 * 先在当前视角查找庭院入口，失败时归位视角并重试一次。
+	 * @param findPoint 查找探索或町中入口的方法
+	 */
+	findCourtyardPoint(findPoint: () => Point): Point {
+		let point = findPoint();
+		if (point) return point;
+		if (!this.normalizeCourtyardView()) return null;
+
+		this.keepScreen(false);
+		point = findPoint();
+		return point;
+	}
 
 	/**
 	 * 执行多点找色，直到成功为止，返回多点找色坐标

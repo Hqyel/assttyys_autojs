@@ -12,6 +12,7 @@ export type globalRootType = {
 	notifyTime: number,
 	back: boolean, // 返回庭院的开关,true为开启,false为关闭.默认为:true(开启)
 	back_time: number, // 记录返回庭院的点击次数
+	courtyardViewNormalizeTime: number, // 上次将庭院视角归位到右端的时间
 	tp_swipe_times: number,
 	tsAttackSwhipeNum: number,
 	dgCurNum: number,
@@ -165,6 +166,7 @@ export const globalRoot: globalRootType = {
 	runningTime: 0,
 	pauseTime: 0,
 	notifyTime: 0,
+	courtyardViewNormalizeTime: 0,
 	tp_swipe_times: 0,
 	tsAttackSwhipeNum: undefined,
 	dgCurNum: 0,
