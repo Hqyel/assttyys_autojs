@@ -546,6 +546,18 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[right, 1220, 600, 0x331a12],
 				[right, 1188, 645, 0x792413],
 			]
+		],
+		// 菜单主题与庭院皮肤独立，按主题追加候选比色。
+		variants: [
+			[1280, 720,
+				[
+					[right, 1208, 637, 0x663835],
+					[right, 1189, 668, 0x56423b],
+					[right, 1178, 707, 0xaacddd],
+					[right, 1220, 600, 0xb1c2d1],
+					[right, 1188, 645, 0x4e4139],
+				]
+			]
 		]
 	},
 	'页面是否为庭院_菜单已展开_只支持默认庭院皮肤与默认装饰': {
@@ -558,6 +570,18 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[right, 1220, 25, 0xd3ae84],
 			]
 		],
+		// 菜单主题与庭院皮肤独立，按主题追加候选比色。
+		variants: [
+			[1280, 720,
+				[
+					[center, 366, 56, 0xf9ce97],
+					[right, 1154, 28, 0xd7b288],
+					[right, 1220, 25, 0xd4ae84],
+					[right, 902, 636, 0x3e2c2c],
+					[right, 1001, 624, 0x4e575d],
+				]
+			]
+		]
 	},
 	'页面是否为庭院_菜单已展开_另一种图标_御祝图标_只支持默认庭院皮肤与默认装饰': {
 		desc: [1280, 720,

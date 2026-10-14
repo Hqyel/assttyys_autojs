@@ -1,4 +1,5 @@
 import { Script } from '@/system/script';
+import { IMultiDetectColorDesc } from './IMultiColor';
 export interface IFuncConfigOrigin {
 	desc: string;
 	config: Array<{
@@ -21,7 +22,7 @@ export interface IFuncOperatorOrigin {
 }
 
 export interface IFuncOperator {
-	desc?: [number, number, number, number][] | string;
+	desc?: IMultiDetectColorDesc | IMultiDetectColorDesc[] | string;
 	oper?: [number, number, number, number, number][];
 	operStepRandom?: [number, number, number, number, number, number, number, number, number][][];
 	retest?: number;

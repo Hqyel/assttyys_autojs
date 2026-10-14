@@ -18,20 +18,28 @@ export interface IMultiFindColors {
 	}
 }
 
+export type IMultiDetectColorDescOrigin = [
+	number,
+	number,
+	[number, number, number, number][]
+];
+
+export type IMultiDetectColorDesc = [number, number, number, number][];
+
 export interface IMultiDetectColorsOrigin {
 	[key: string]: {
 		// similar?: number;  目前暂时用不上
-
-		// desc不像多点找色做成集合，只保留一个，毕竟针对不同界面的处理方式肯定是不一样的
-		desc: [number, number,
-			[number, number, number, number][]
-		]
+		// 同一界面的不同皮肤或主题使用variants按“或”关系补充。
+		desc: IMultiDetectColorDescOrigin;
+		variants?: IMultiDetectColorDescOrigin[];
 	}
 }
 
 export interface IMultiDetectColors {
 	[key: string]: {
 		// similar?: number;  目前暂时用不上
-		desc: [number, number, number, number][]
+		// variants保留各部位独立主题的运行时比色数据。
+		desc: IMultiDetectColorDesc;
+		variants?: IMultiDetectColorDesc[];
 	}
 }

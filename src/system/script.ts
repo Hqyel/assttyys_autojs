@@ -14,9 +14,13 @@ import { getWidthPixels, getHeightPixels } from '@auto.pro/core';
 import schemeDialog from './schemeDialog';
 import drawFloaty from '@/system/drawFloaty';
 import { myToast, doPush, questionSearch, search, formatTime, formatRunTime } from '@/common/toolAuto';
-import { IFunc, IFuncOrigin } from '@/interface/IFunc';
+import { IFunc, IFuncOperator, IFuncOrigin } from '@/interface/IFunc';
 import { IScheme } from '@/interface/IScheme';
-import { IMultiDetectColors, IMultiFindColors } from '@/interface/IMultiColor';
+import {
+	IMultiDetectColorDesc,
+	IMultiDetectColors,
+	IMultiFindColors
+} from '@/interface/IMultiColor';
 import { globalRoot, globalRootType } from '@/system/GlobalStore/index';
 import { superGlobalRoot, superGlobalRootType } from '@/system/GlobalStore/index';
 import { sharedData } from '@/system/Schedule/index';
@@ -272,7 +276,12 @@ export class Script {
 					if (operator[k].desc) {
 						if (typeof operator[k].desc === 'string') {
 							try {
-								operator[k].desc = this.multiDetectColors[operator[k].desc as string].desc;
+								const detectColor = this.multiDetectColors[
+									operator[k].desc as string
+								];
+								operator[k].desc = detectColor.variants?.length
+									? [detectColor.desc, ...detectColor.variants]
+									: detectColor.desc;
 							} catch (e) {
 								console.error(`${operator[k].desc}未在multiDetectColors定义`);
 								throw e;
@@ -331,12 +340,41 @@ export class Script {
 	initMultiDetectColors() {
 		const thisMultiDetectColor = {};
 		for (const key in multiDetectColors) {
-			const { desc } = multiDetectColors[key];
+			const { desc, variants } = multiDetectColors[key];
 			thisMultiDetectColor[key] = {
 				desc: helperBridge.helper.GetCmpColorArray(desc[0], desc[1], desc[2])
 			};
+			if (variants?.length) {
+				thisMultiDetectColor[key].variants = variants.map(item => {
+					return helperBridge.helper.GetCmpColorArray(
+						item[0],
+						item[1],
+						item[2]
+					);
+				});
+			}
 		}
 		this.multiDetectColors = thisMultiDetectColor;
+	}
+
+	getMultiDetectDescList(
+		desc: IFuncOperator['desc']
+	): IMultiDetectColorDesc[] {
+		if (!desc) return [];
+
+		if (typeof desc === 'string') {
+			const detectColor = this.multiDetectColors[desc];
+			if (!detectColor) {
+				throw new Error(`${desc}未在multiDetectColors定义`);
+			}
+			return [detectColor.desc, ...(detectColor.variants || [])];
+		}
+
+		if (!desc.length) return [];
+		if (Array.isArray(desc[0][0])) {
+			return desc as IMultiDetectColorDesc[];
+		}
+		return [desc as IMultiDetectColorDesc];
 	}
 
 	/**
@@ -793,23 +831,23 @@ export class Script {
 		} else {
 			for (let id = 0; id < operator.length; id++) {
 				const item = operator[id];
-				let rs;
-				if (item.desc && item.desc.length) {
-					if (typeof item.desc === 'string') {
-						rs = helperBridge.helper.CompareColorEx(this.multiDetectColors[item.desc].desc, this.scheme.commonConfig.colorSimilar, false);
-					} else {
-						rs = helperBridge.helper.CompareColorEx(item.desc, this.scheme.commonConfig.colorSimilar, false);
+				const descList = this.getMultiDetectDescList(item.desc);
+				let matchedDesc: IMultiDetectColorDesc = null;
+				let rs = descList.length === 0;
+				for (const desc of descList) {
+					rs = helperBridge.helper.CompareColorEx(
+						desc,
+						this.scheme.commonConfig.colorSimilar,
+						false
+					);
+					if (rs) {
+						matchedDesc = desc;
+						break;
 					}
-				} else {
-					rs = true;
 				}
 				if (rs) {
-					if (drawFloaty.instacne && item.desc && currFunc.id) {
-						let thisDesc: any = item.desc;
-						if (typeof item.desc === 'string') {
-							thisDesc = this.multiDetectColors[item.desc as string].desc;
-						}
-						const toDraw = [...thisDesc.map(kk => {
+					if (drawFloaty.instacne && matchedDesc && currFunc.id) {
+						const toDraw = [...matchedDesc.map(kk => {
 							return {
 								color: 'green',
 								region: [kk[0] - 5, kk[1] - 5, kk[0] + 5, kk[1] + 5]
@@ -863,22 +901,22 @@ export class Script {
 		for (let id = 0; id < operator.length; id++) {
 			const item = operator[id];
 			if (item.desc) {
-				let res = null;
-				if (typeof item.desc === 'string') {
-					res = helperBridge.helper.CompareColorEx(this.multiDetectColors[item.desc].desc, commonConfig.colorSimilar, false);
+				const descList = this.getMultiDetectDescList(item.desc);
+				for (const desc of descList) {
+					let res = helperBridge.helper.CompareColorEx(
+						desc,
+						commonConfig.colorSimilar,
+						false
+					);
+					if (desc[0][0] === -1) res = true;
 					if (res) {
-						console.log(`desc_sucess：[string] currFunc.name:${currFunc.name} currFunc.id:${currFunc.id} id:${id}`);
-					}
-				} else if (item.desc.length > 3) {
-					res = helperBridge.helper.CompareColorEx(item.desc, commonConfig.colorSimilar, false);
-					if (res) {
-						console.log(`desc_sucess：[array] currFunc.name:${currFunc.name} currFunc.id:${currFunc.id} id:${id}`);
-					}
-					if (item.desc[0][0] === -1) {
-						res = true;
+						console.log(
+							`desc_sucess：currFunc.name:${currFunc.name} `
+							+ `currFunc.id:${currFunc.id} id:${id}`
+						);
+						return true;
 					}
 				}
-				if (res) return true;
 			}
 		}
 		return false;

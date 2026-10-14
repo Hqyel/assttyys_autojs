@@ -783,6 +783,124 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			],
 		]
 	},
+	'庭院_狐栖归处_功能灯笼': {
+		region: [center, 1280, 720, 0, 180, 1175, 285],
+		similar: 97,
+		desc: [
+			// ADB画面中采集的摆动姿态。
+			[1280, 720,
+				[
+					[center, 725, 228, 0xd77057],
+					[center, 728, 265, 0xf5ad8a],
+					[center, 729, 238, 0xdd7155],
+					[center, 726, 255, 0xf3c9b2],
+					[center, 740, 228, 0xd76542],
+					[center, 747, 234, 0xda6443],
+					[center, 739, 268, 0xf5ac84],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 738, 216, 0xbdaa85],
+					[center, 745, 267, 0xf5ab88],
+					[center, 738, 258, 0xf2caaf],
+					[center, 748, 229, 0xd96442],
+					[center, 737, 240, 0xdf7356],
+					[center, 763, 260, 0xf6b988],
+					[center, 734, 231, 0xdd754f],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 725, 230, 0xd56d55],
+					[center, 740, 229, 0xd66542],
+					[center, 743, 269, 0xf5ad83],
+					[center, 734, 268, 0xf5ab88],
+					[center, 729, 258, 0xf3c9b1],
+					[center, 752, 236, 0xdb6a46],
+					[center, 722, 273, 0xefba9d],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 581, 232, 0xd66f55],
+					[center, 578, 264, 0xd3bd6e],
+					[center, 610, 236, 0xdf734f],
+					[center, 588, 255, 0xf3ccb1],
+					[center, 603, 266, 0xf5af87],
+					[center, 590, 266, 0xf5a983],
+					[center, 592, 231, 0xdb6d4d],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 738, 216, 0xbdaa85],
+					[center, 734, 257, 0xf2c8ad],
+					[center, 734, 239, 0xdf7154],
+					[center, 748, 267, 0xf5ae86],
+					[center, 735, 229, 0xdc714b],
+					[center, 758, 238, 0xe27450],
+					[center, 727, 245, 0xe4997c],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 884, 216, 0xbdaa85],
+					[center, 897, 254, 0xf3ccae],
+					[center, 902, 229, 0xd96543],
+					[center, 896, 236, 0xdd7354],
+					[center, 904, 266, 0xf4a986],
+					[center, 917, 231, 0xdb6c46],
+					[center, 888, 274, 0xf2bc9e],
+				]
+			],
+			// 原始截图中采集的摆动姿态。
+			[1280, 720,
+				[
+					[center, 582, 231, 0xd87357],
+					[center, 602, 231, 0xe46b44],
+					[center, 588, 255, 0xfcd3b2],
+					[center, 591, 272, 0xf0af8d],
+					[center, 612, 265, 0xf5b084],
+					[center, 600, 268, 0xf4ac84],
+					[center, 592, 231, 0xe57249],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 605, 229, 0xca5941],
+					[center, 601, 281, 0xdfce7f],
+					[center, 607, 257, 0xf8d2b8],
+					[center, 621, 229, 0xe06d45],
+					[center, 612, 269, 0xf2b193],
+					[center, 632, 236, 0xe57449],
+					[center, 612, 237, 0xea7f59],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 858, 216, 0xdac9ad],
+					[center, 846, 281, 0xdfcb72],
+					[center, 858, 259, 0xf6d3b8],
+					[center, 873, 232, 0xe57450],
+					[center, 858, 273, 0xeeb291],
+					[center, 848, 266, 0xefbd99],
+					[center, 853, 231, 0xd77961],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 1003, 229, 0xdfb6a5],
+					[center, 1004, 276, 0xe8beaa],
+					[center, 1014, 261, 0xefcdb9],
+					[center, 1011, 236, 0xdd7d5d],
+					[center, 1034, 235, 0xe87d56],
+					[center, 1014, 275, 0xecb89d],
+					[center, 1019, 230, 0xdb6d4a],
+				]
+			]
+		]
+	},
 	'探索_宝箱': {
 		region: [left, 1280, 720, 17, 603, 861, 685],
 		desc: [
