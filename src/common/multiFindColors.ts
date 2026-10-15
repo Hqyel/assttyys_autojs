@@ -718,6 +718,7 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			[   // 治兵武道右端重取色
 				1280, 720,
 				[
+					[center, 636, 181, 0x2d414e],
 					[center, 618, 176, 0xf5f5df],
 					[center, 620, 178, 0xffffe3],
 					[center, 619, 181, 0xffffef],
