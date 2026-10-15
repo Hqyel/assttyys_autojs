@@ -593,7 +593,7 @@ export class Script {
 	 * 获取设置中选择的庭院皮肤，选择「自动识别」或未设置时返回null
 	 */
 	getCourtyardSkin(): ICourtyardSkin {
-		const skinName = this.storeCommon.get('settings', {}).courtyard_skin;
+		const skinName = storeCommon.get('settings', {}).courtyard_skin;
 		if (!skinName || skinName === COURTYARD_SKIN_AUTO) return null;
 		for (const skin of courtyardSkinList) {
 			if (skin.name === skinName) return skin;
