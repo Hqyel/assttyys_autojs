@@ -585,9 +585,16 @@ export class Script {
 	 * 查找庭院町中入口，并在失败时归位庭院视角。
 	 */
 	findCourtyardTownPoint(): Point {
-		return this.findCourtyardPoint(() => {
+		const findPoint = () => {
 			const point = this.findMultiColor('庭院_町中竖牌')
-				|| this.findMultiColor('庭院_织梦莲庭_町中竖牌');
+				|| this.findMultiColor('庭院_织梦莲庭_町中竖牌')
+				|| this.findMultiColor(
+					'庭院_暖池青苑_町中竖牌',
+					undefined,
+					false,
+					false,
+					false
+				);
 			if (point) return point;
 
 			const yuanhaiPoint = this.findMultiColor(
@@ -599,7 +606,38 @@ export class Script {
 				x: yuanhaiPoint.x + 10,
 				y: yuanhaiPoint.y - 10
 			};
-		});
+		};
+		let point = this.findCourtyardPoint(findPoint);
+		if (point) return point;
+
+		this.keepScreen(false);
+		const warmCourtyard = this.findMultiColor(
+			'庭院_暖池青苑_探索灯笼',
+			undefined,
+			false,
+			true,
+			false
+		);
+		if (!warmCourtyard) return null;
+
+		const swipeOper = this.helperBridge.regionClickTrans([
+			[1, 1280, 720, 800, 280, 830, 320, 0],
+			[1, 1280, 720, 970, 280, 1000, 320, 0]
+		]);
+		console.log('暖池青苑町中入口可能被遮挡，横移视角后重试');
+		for (let i = 0; i < 8; i++) {
+			this.regionSwipe(
+				swipeOper[0],
+				swipeOper[1],
+				[500, 650],
+				900,
+				1
+			);
+			this.keepScreen(false);
+			point = findPoint();
+			if (point) return point;
+		}
+		return null;
 	}
 
 	/**

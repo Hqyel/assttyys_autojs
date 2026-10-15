@@ -1072,6 +1072,25 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]
 	},
+	'庭院_暖池青苑_町中竖牌': {
+		// 人物可能遮挡竖牌，仅在横移后竖牌露出时识别。
+		region: [center, 1280, 720, 350, 330, 850, 470],
+		similar: 96,
+		desc: [
+			[1280, 720,
+				[
+					[center, 654, 400, 0x827c78],
+					[center, 660, 420, 0x241c04],
+					[center, 664, 392, 0x34343a],
+					[center, 660, 432, 0x302a1e],
+					[center, 640, 434, 0xa7a296],
+					[center, 686, 408, 0x7c766d],
+					[center, 632, 402, 0xa89b98],
+					[center, 652, 388, 0xb2aeb9],
+				]
+			]
+		]
+	},
 	'庭院_探索灯笼': {
 		region: [center, 1280, 720, 0, 83, 1006, 284],
 		desc: [
@@ -2309,6 +2328,133 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 518, 198, 0x6f4f28],
 					[center, 525, 179, 0x3c3a2d],
 					[center, 522, 156, 0x3c3a2d],
+				]
+			]
+		]
+	},
+	'庭院_暖池青苑_探索灯笼': {
+		// 灯笼持续摆动，使用三种视角下的多帧灯体高光与印纹组合。
+		region: [center, 1280, 720, 300, 120, 700, 270],
+		similar: 96,
+		desc: [
+			[1280, 720,
+				[
+					[center, 550, 180, 0xfef3b8],
+					[center, 560, 170, 0xfad7a2],
+					[center, 570, 190, 0xffe9a8],
+					[center, 580, 180, 0xe8be98],
+					[center, 570, 220, 0xfde4ac],
+					[center, 560, 210, 0xfcffc6],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 465, 180, 0xfdf0ad],
+					[center, 475, 170, 0xf6ce95],
+					[center, 485, 190, 0xf8d09a],
+					[center, 495, 180, 0xbd8156],
+					[center, 485, 220, 0xf0d2a5],
+					[center, 475, 210, 0xfffcbe],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 550, 180, 0xf4f0a9],
+					[center, 560, 170, 0xfddb9b],
+					[center, 570, 190, 0xfde7a4],
+					[center, 580, 180, 0xeec08b],
+					[center, 570, 220, 0xfde4ac],
+					[center, 560, 210, 0xfcffc8],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 550, 180, 0xfdfbc1],
+					[center, 560, 170, 0xf9dea2],
+					[center, 570, 190, 0xfeefaa],
+					[center, 580, 180, 0xebc295],
+					[center, 570, 220, 0xf8dfa5],
+					[center, 560, 210, 0xfefec6],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 465, 180, 0xfbeda5],
+					[center, 475, 170, 0xf5cd97],
+					[center, 485, 190, 0xf4c895],
+					[center, 495, 180, 0xbe8051],
+					[center, 485, 220, 0xefcea6],
+					[center, 475, 210, 0xfdf9b6],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 550, 180, 0xfffdc1],
+					[center, 560, 170, 0xffe9b1],
+					[center, 570, 190, 0xfff3ab],
+					[center, 580, 180, 0xf0c28d],
+					[center, 570, 220, 0xffe1a9],
+					[center, 560, 210, 0xfefec4],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 550, 180, 0xfff6be],
+					[center, 560, 170, 0x60462d],
+					[center, 570, 190, 0xfff0a9],
+					[center, 580, 180, 0xe6bd93],
+					[center, 570, 220, 0xfee2ab],
+					[center, 560, 210, 0xfefec6],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 550, 180, 0xf3edbd],
+					[center, 560, 170, 0xfae6ab],
+					[center, 570, 190, 0xfff4af],
+					[center, 580, 180, 0xf5d53e],
+					[center, 570, 220, 0xfde0a7],
+					[center, 560, 210, 0xfcffc6],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 465, 180, 0xfef6b4],
+					[center, 475, 170, 0xfcd596],
+					[center, 485, 190, 0xfad29c],
+					[center, 495, 180, 0xae7f56],
+					[center, 485, 220, 0xf5d1a6],
+					[center, 475, 210, 0xfcffbf],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 420, 180, 0xffffc3],
+					[center, 430, 170, 0xeed08c],
+					[center, 440, 190, 0xfff3ab],
+					[center, 450, 180, 0xefc393],
+					[center, 440, 220, 0xfde0a7],
+					[center, 430, 210, 0xfcffc6],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 420, 180, 0xfffbb7],
+					[center, 430, 170, 0xffdbb2],
+					[center, 440, 190, 0xffeeaa],
+					[center, 450, 180, 0xf4c196],
+					[center, 440, 220, 0xffecaf],
+					[center, 430, 210, 0xfbffca],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 420, 180, 0xf9f5ae],
+					[center, 430, 170, 0xfbe097],
+					[center, 440, 190, 0xffefa8],
+					[center, 450, 180, 0xf1c299],
+					[center, 440, 220, 0xf7e4a6],
+					[center, 430, 210, 0xfcffc8],
 				]
 			]
 		]
