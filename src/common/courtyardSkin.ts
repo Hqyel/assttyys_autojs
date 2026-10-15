@@ -3,7 +3,7 @@
  *
  * 设置中选择具体皮肤时，仅使用该皮肤的找色规则，避免不同皮肤的取色互相误识别；
  * 选择「自动识别」时按 autoExplore / autoTown 的顺序依次尝试所有皮肤的规则。
- * 新增皮肤时：在 multiFindColors 中添加找色规则，再在 courtyardSkinList 与自动识别顺序中登记。
+ * 新增皮肤时：在 multiFindColors 与 rules 中登记；需要自动识别时再加入自动识别顺序。
  */
 
 export interface ICourtyardRule {
@@ -85,6 +85,10 @@ const rules = {
 	'枫色秋庭': {
 		explore: { key: '庭院_枫色秋庭_探索灯笼', misaligned: false, clickOffset: [-15, 20, 15, 50] },
 		town: { key: '庭院_枫色秋庭_町中竖牌', misaligned: false },
+	},
+	'暖翠春庭': {
+		explore: { key: '庭院_暖翠春庭_探索灯笼' },
+		town: { key: '庭院_暖翠春庭_町中竖牌', misaligned: false },
 	},
 } satisfies Record<string, { explore: ICourtyardRule, town: ICourtyardRule }>;
 
