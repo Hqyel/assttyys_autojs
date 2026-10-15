@@ -29,6 +29,7 @@ export class Func029 implements IFuncOrigin {
 		});
 		if (!isCourtyard) return false;
 
+		let isQiongyeCourtyard = false;
 		const point = thisScript.findCourtyardPoint(() => {
 			let courtyardPoint = thisScript.findMultiColor('庭院_探索灯笼');
 			if (!courtyardPoint) {
@@ -65,6 +66,7 @@ export class Func029 implements IFuncOrigin {
 				courtyardPoint = thisScript.findMultiColor(
 					'庭院_琼夜淬光_探索灯笼'
 				);
+				isQiongyeCourtyard = !!courtyardPoint;
 			}
 			if (!courtyardPoint) {
 				const foxLanternPoints = thisScript.findMultiColorEx(
@@ -76,7 +78,13 @@ export class Func029 implements IFuncOrigin {
 		});
 		if (!point) return false;
 
-		const oper = [
+		const oper = isQiongyeCourtyard ? [[
+			point.x + 12,
+			point.y - 10,
+			point.x + 24,
+			point.y + 2,
+			thisOperator[0].oper[0][4]
+		]] : [
 			[
 				point.x,
 				point.y,
