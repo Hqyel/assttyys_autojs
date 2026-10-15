@@ -586,9 +586,19 @@ export class Script {
 	 */
 	findCourtyardTownPoint(): Point {
 		return this.findCourtyardPoint(() => {
-			return this.findMultiColor('庭院_町中竖牌')
-				|| this.findMultiColor('庭院_织梦莲庭_町中竖牌')
-				|| this.findMultiColor('庭院_远海航船_町中竖牌');
+			const point = this.findMultiColor('庭院_町中竖牌')
+				|| this.findMultiColor('庭院_织梦莲庭_町中竖牌');
+			if (point) return point;
+
+			const yuanhaiPoint = this.findMultiColor(
+				'庭院_远海航船_町中竖牌'
+			);
+			if (!yuanhaiPoint) return null;
+
+			return {
+				x: yuanhaiPoint.x + 10,
+				y: yuanhaiPoint.y - 10
+			};
 		});
 	}
 
