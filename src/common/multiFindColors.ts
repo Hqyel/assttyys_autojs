@@ -667,7 +667,7 @@ const multiFindColors: IMultiFindColorsOrigin = {
 	},
 	'庭院_町中竖牌': {
 		// 真实入口不会出现在最右侧功能栏，排除墙体上的跨主题误匹配。
-		region: [center, 1280, 720, 0, 83, 1100, 412],
+		region: [center, 1280, 720, 0, 83, 1160, 412],
 		desc: [
 			[1280, 720,
 				[
@@ -820,6 +820,45 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 855, 255, 0x735946],
 					[center, 847, 247, 0x74543e],
 					[center, 853, 270, 0x785d46],
+				]
+			],
+			[   // 琼夜淬光右端及回扫视角
+				1280, 720,
+				[
+					[center, 453, 355, 0x556372],
+					[center, 477, 338, 0x587180],
+					[center, 449, 333, 0x657783],
+					[center, 468, 352, 0x646f7a],
+					[center, 463, 335, 0x556976],
+					[center, 448, 367, 0x323e4a],
+					[center, 455, 343, 0x3e454e],
+					[center, 456, 334, 0x62717c],
+				]
+			],
+			[   // 琼夜淬光左端遮挡视角
+				1280, 720,
+				[
+					[center, 1102, 352, 0x57697c],
+					[center, 1131, 339, 0x566e7c],
+					[center, 1112, 335, 0x576c7e],
+					[center, 1116, 352, 0x6a7680],
+					[center, 1102, 333, 0x5c717e],
+					[center, 1121, 339, 0x4f6672],
+					[center, 1103, 342, 0x3d444c],
+					[center, 1126, 337, 0x5f7783],
+				]
+			],
+			[   // 琼夜淬光初始视角
+				1280, 720,
+				[
+					[center, 776, 356, 0x3b4d62],
+					[center, 798, 337, 0x5b7383],
+					[center, 769, 381, 0x6e7c80],
+					[center, 769, 333, 0x637480],
+					[center, 792, 352, 0x67737e],
+					[center, 783, 336, 0x5b6974],
+					[center, 769, 367, 0x223746],
+					[center, 769, 346, 0x23323a],
 				]
 			],
 			[   // 云景阆苑
@@ -1931,6 +1970,21 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 460, 278, 0x634f3d],
 					[center, 447, 269, 0x66523f],
 					[center, 456, 270, 0x66523f],
+				]
+			]
+		]
+	},
+	'庭院_琼夜淬光_探索灯笼': {
+		region: [center, 1280, 720, 250, 150, 1160, 320],
+		similar: 96,
+		desc: [
+			// 使用稳定字形，避开扇面摆动与顶部发光动画。
+			[1280, 720,
+				[
+					[center, 1083, 232, 0x353946],
+					[center, 1128, 249, 0x1d4150],
+					[center, 1111, 226, 0x112330],
+					[center, 1068, 249, 0x1d4150],
 				]
 			]
 		]
