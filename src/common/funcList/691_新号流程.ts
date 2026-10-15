@@ -1454,9 +1454,7 @@ export class Func691 implements IFuncOrigin {
 				name: '庭院判断',
 				operator: [{ desc: thisOperator[31].desc }]
 			})) {
-				const point = thisScript.findCourtyardPoint(() => {
-					return thisScript.findMultiColor('庭院_町中竖牌');
-				});
+				const point = thisScript.findCourtyardTownPoint();
 				if (point) {
 					const oper = [
 						[point.x, point.y, point.x + 10, point.y + 10, 1000]

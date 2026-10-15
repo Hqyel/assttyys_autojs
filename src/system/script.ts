@@ -582,6 +582,16 @@ export class Script {
 	}
 
 	/**
+	 * 查找庭院町中入口，并在失败时归位庭院视角。
+	 */
+	findCourtyardTownPoint(): Point {
+		return this.findCourtyardPoint(() => {
+			return this.findMultiColor('庭院_町中竖牌')
+				|| this.findMultiColor('庭院_织梦莲庭_町中竖牌');
+		});
+	}
+
+	/**
 	 * 执行多点找色，直到成功为止，返回多点找色坐标
 	 * @param {String} key src\common\multiColors.js的key
 	 * @param {Integer} timeout 超时时间(ms)
