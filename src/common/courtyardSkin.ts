@@ -2,7 +2,7 @@
  * 庭院皮肤入口识别配置
  *
  * 设置中选择具体皮肤时，仅使用该皮肤的找色规则，避免不同皮肤的取色互相误识别；
- * 选择「自动识别」时按 autoExplore / autoTown 的顺序依次尝试所有皮肤的规则。
+ * 选择「自动识别」时按 autoExplore / autoTown 的顺序依次尝试候选皮肤的规则。
  * 新增皮肤时：在 multiFindColors 与 rules 中登记；需要自动识别时再加入自动识别顺序。
  */
 
@@ -89,6 +89,13 @@ const rules = {
 	'暖翠春庭': {
 		explore: { key: '庭院_暖翠春庭_探索灯笼' },
 		town: { key: '庭院_暖翠春庭_町中竖牌', misaligned: false },
+	},
+	'雪月华庭': {
+		explore: {
+			key: '庭院_雪月华庭_探索灯笼',
+			clickOffset: [-15, -5, 15, 45],
+		},
+		town: { key: '庭院_雪月华庭_町中竖牌', misaligned: false },
 	},
 } satisfies Record<string, { explore: ICourtyardRule, town: ICourtyardRule }>;
 
