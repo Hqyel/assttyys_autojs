@@ -755,6 +755,32 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 743, 332, 0x3c2c2c],
 				]
 			],
+			[   // 缘结之庭右端
+				1280, 720,
+				[
+					[center, 614, 370, 0x423642],
+					[center, 606, 347, 0x9b6874],
+					[center, 619, 355, 0x745d62],
+					[center, 614, 382, 0x6e4120],
+					[center, 615, 347, 0x5f2231],
+					[center, 610, 355, 0xa7473f],
+					[center, 608, 376, 0x6c3946],
+					[center, 620, 376, 0x975218],
+				]
+			],
+			[   // 缘结之庭初始视角
+				1280, 720,
+				[
+					[center, 704, 370, 0x624e44],
+					[center, 711, 347, 0x815c66],
+					[center, 695, 354, 0x99794c],
+					[center, 703, 383, 0x8f563b],
+					[center, 709, 359, 0x6a5756],
+					[center, 697, 376, 0x99637c],
+					[center, 702, 348, 0x551e1e],
+					[center, 709, 377, 0x653427],
+				]
+			],
 			[   // 云景阆苑
 				1280, 720,
 				[
@@ -1755,6 +1781,73 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 190, 166, 0x231819],
 					[center, 194, 170, 0x231819],
 					[center, 199, 173, 0x24191a],
+				]
+			]
+		]
+	},
+	'庭院_缘结之庭_探索灯笼': {
+		region: [center, 1280, 720, 300, 85, 750, 215],
+		similar: 97,
+		desc: [
+			// 使用“探索”字形，覆盖初始视角和右端的摆动姿态。
+			[1280, 720,
+				[
+					[center, 563, 144, 0x3a3a3a],
+					[center, 551, 121, 0x3a3a3a],
+					[center, 550, 163, 0x3a3a3a],
+					[center, 569, 161, 0x3a3a3a],
+					[center, 568, 124, 0x3a3a3a],
+					[center, 550, 136, 0x3a3a3a],
+					[center, 559, 155, 0x3a3a3a],
+					[center, 561, 133, 0x3a3a3a],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 563, 143, 0x3a3a3a],
+					[center, 551, 118, 0x3a3a3a],
+					[center, 550, 162, 0x3a3a3a],
+					[center, 569, 122, 0x3a3a3a],
+					[center, 570, 160, 0x3a3a3a],
+					[center, 550, 134, 0x3a3a3a],
+					[center, 559, 154, 0x3a3a3a],
+					[center, 561, 131, 0x3a3a3a],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 562, 141, 0x3a3a3a],
+					[center, 551, 118, 0x3a3a3a],
+					[center, 555, 164, 0x3a3a3a],
+					[center, 568, 122, 0x3a3a3a],
+					[center, 568, 156, 0x3a3a3a],
+					[center, 550, 133, 0x3a3a3a],
+					[center, 557, 152, 0x3a3a3a],
+					[center, 561, 130, 0x3a3a3a],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 563, 145, 0x3a3a3a],
+					[center, 551, 124, 0x3a3a3a],
+					[center, 550, 164, 0x3a3a3a],
+					[center, 569, 163, 0x3a3a3a],
+					[center, 568, 127, 0x3a3a3a],
+					[center, 550, 139, 0x3a3a3a],
+					[center, 559, 156, 0x3a3a3a],
+					[center, 559, 133, 0x3a3a3a],
+				]
+			],
+			[1280, 720,
+				[
+					[center, 464, 143, 0x3a3a3a],
+					[center, 448, 164, 0x3a3a3a],
+					[center, 448, 123, 0x3a3a3a],
+					[center, 468, 162, 0x3a3a3a],
+					[center, 465, 125, 0x3a3a3a],
+					[center, 448, 140, 0x3a3a3a],
+					[center, 457, 155, 0x3a3a3a],
+					[center, 456, 131, 0x3a3a3a],
 				]
 			]
 		]
