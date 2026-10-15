@@ -54,6 +54,11 @@ export class Func029 implements IFuncOrigin {
 			}
 			if (!courtyardPoint) {
 				courtyardPoint = thisScript.findMultiColor(
+					'庭院_远海航船_探索灯笼'
+				);
+			}
+			if (!courtyardPoint) {
+				courtyardPoint = thisScript.findMultiColor(
 					'庭院_缘结之庭_探索灯笼'
 				);
 			}
