@@ -740,6 +740,7 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 567, 337, 0x3c2c2c],
 					[center, 567, 332, 0x3c2c2c],
 					[center, 564, 331, 0x3c2c2c],
+					[center, 575, 363, 0xb5c3db],
 				]
 			],
 			[   // 望月幽庭回扫视角
@@ -753,6 +754,7 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 743, 334, 0x3c2c2c],
 					[center, 733, 335, 0x3e2e2e],
 					[center, 743, 332, 0x3c2c2c],
+					[center, 723, 400, 0xc1c9df],
 				]
 			],
 			[   // 缘结之庭右端
