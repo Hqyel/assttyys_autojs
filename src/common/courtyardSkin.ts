@@ -97,6 +97,13 @@ const rules = {
 		},
 		town: { key: '庭院_雪月华庭_町中竖牌', misaligned: false },
 	},
+	'盛夏幽庭': {
+		explore: {
+			key: '庭院_盛夏幽庭_探索灯笼',
+			clickOffset: [-10, -5, 20, 50],
+		},
+		town: { key: '庭院_盛夏幽庭_町中竖牌', misaligned: false },
+	},
 } satisfies Record<string, { explore: ICourtyardRule, town: ICourtyardRule }>;
 
 export const courtyardSkinList: ICourtyardSkin[] = (Object.keys(rules) as (keyof typeof rules)[]).map(name => ({
