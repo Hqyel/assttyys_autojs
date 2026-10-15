@@ -13,7 +13,6 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[right, 1240, 702, 0xcead83],
 				[right, 1182, 586, 0xf7e6c3],
 				[center, 360, 699, 0x241818],
-				[left, 32, 23, 0xdbb48b],
 				[right, 1122, 698, 0xddbb8f],
 			]
 		]
@@ -148,6 +147,19 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[right, 1270, 700, 0x241919],
 				[right, 1266, 545, 0x573f26],
 			]
+		],
+		// 战斗主题会改变界面边框，使用战斗中始终存在的顶部与底部框架。
+		variants: [
+			[1280, 720,
+				[
+					[left, 46, 38, 0xaddefe],
+					[left, 175, 30, 0xa9d9fb],
+					[center, 760, 698, 0x9fbfdb],
+					[center, 781, 698, 0x9ab9da],
+					[center, 703, 697, 0x859ca5],
+					[center, 717, 715, 0x6683ac],
+				]
+			]
 		]
 	},
 	'战斗界面_手动状态': {
@@ -179,12 +191,14 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 	'战斗界面_手动状态_凛霜寒雪': {
 		desc: [1280, 720,
 			[
-				[left, 34, 23, 0xb9def6],
+				[left, 34, 23, 0xb9def7],
 				[left, 106, 24, 0xa6d2f2],
-				[right, 1270, 700, 0x769bc2],
-				[left, 48, 670, 0x2e639a],
-				[left, 82, 669, 0x4977a7],
-				[left, 48, 661, 0xbfd0e0],
+				[right, 1270, 700, 0x789bc3],
+				[left, 51, 661, 0xffffff],
+				[left, 48, 668, 0xfafbfd],
+				[left, 50, 650, 0xf9fafc],
+				[left, 54, 656, 0x16518e],
+				[left, 43, 661, 0x275e96],
 			]
 		],
 	},
@@ -859,5 +873,16 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 	}
 };
 
+// 手动状态的主题样式按“或”关系合并，供所有战斗功能统一识别。
+multiDetectColors['战斗界面_手动状态'].variants = [
+	multiDetectColors['战斗界面_手动状态_凛霜寒雪'].desc,
+	multiDetectColors['战斗界面_手动状态_春缕含青'].desc,
+	multiDetectColors['战斗界面_手动状态_蝶寻花踪'].desc,
+	multiDetectColors['战斗界面_手动状态_雅乐之邦'].desc,
+	multiDetectColors['战斗界面_手动状态_莲华圣域'].desc,
+	multiDetectColors['战斗界面_手动状态_笼梦之境'].desc,
+	multiDetectColors['战斗界面_手动状态_辰烁奇夜'].desc,
+	multiDetectColors['战斗界面_手动状态_流焰蝶舞'].desc,
+];
 
 export default multiDetectColors;
