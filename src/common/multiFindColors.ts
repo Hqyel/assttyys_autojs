@@ -4697,6 +4697,44 @@ const multiFindColors: IMultiFindColorsOrigin = {
 		],],
 		similar: 93
 	},
+	'庭院_暖池青苑_町中入口': {
+		// 限定在暖池右侧木屋旁的圆形守字牌，避免匹配到其他庭院装饰。
+		region: [center, 1280, 720, 250, 300, 1160, 520],
+		similar: 96,
+		desc: [
+			[1280, 720,
+				[
+					[center, 860, 400, 0x94886f],
+					[center, 870, 390, 0x231918],
+					[center, 850, 390, 0x8d8470],
+					[center, 850, 410, 0x6f5b54],
+					[center, 860, 420, 0x292831],
+					[center, 840, 405, 0x151214],
+					[center, 880, 405, 0x866136],
+					[center, 852, 380, 0xdbd7cc],
+				]
+			]
+		]
+	},
+	'庭院_暖池青苑_探索灯笼': {
+		// 以暖池青苑左侧米黄色探索灯笼上的字形和高光作为特征。
+		region: [center, 1280, 720, 200, 100, 1000, 300],
+		similar: 96,
+		desc: [
+			[1280, 720,
+				[
+					[center, 420, 165, 0x434240],
+					[center, 430, 170, 0xffdfa7],
+					[center, 412, 178, 0xffefaf],
+					[center, 429, 184, 0xffffbf],
+					[center, 415, 195, 0x575044],
+					[center, 425, 205, 0x6a5d46],
+					[center, 445, 205, 0xfff1bb],
+					[center, 425, 215, 0xffffc3],
+				]
+			]
+		]
+	},
 	// '': {
 	// 	region: [left, 1280, 720, 0, 0, 1280, 720],
 	// 	desc: [[

@@ -586,7 +586,9 @@ export class Script {
 	 */
 	findCourtyardTownPoint(): Point {
 		return this.findCourtyardPoint(() => {
-			const point = this.findMultiColor('庭院_町中竖牌')
+			const point = this.findMultiColor(
+				'庭院_暖池青苑_町中入口'
+			) || this.findMultiColor('庭院_町中竖牌')
 				|| this.findMultiColor('庭院_织梦莲庭_町中竖牌');
 			if (point) return point;
 

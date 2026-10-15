@@ -31,7 +31,12 @@ export class Func029 implements IFuncOrigin {
 
 		let isQiongyeCourtyard = false;
 		const point = thisScript.findCourtyardPoint(() => {
-			let courtyardPoint = thisScript.findMultiColor('庭院_探索灯笼');
+			let courtyardPoint = thisScript.findMultiColor(
+				'庭院_暖池青苑_探索灯笼'
+			);
+			if (!courtyardPoint) {
+				courtyardPoint = thisScript.findMultiColor('庭院_探索灯笼');
+			}
 			if (!courtyardPoint) {
 				courtyardPoint = thisScript.findMultiColor(
 					'庭院_茨心乐园_探索灯笼'
