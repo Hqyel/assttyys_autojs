@@ -666,7 +666,8 @@ const multiFindColors: IMultiFindColorsOrigin = {
 		]
 	},
 	'庭院_町中竖牌': {
-		region: [center, 1280, 720, 0, 83, 1279, 412],
+		// 真实入口不会出现在最右侧功能栏，排除墙体上的跨主题误匹配。
+		region: [center, 1280, 720, 0, 83, 1100, 412],
 		desc: [
 			[1280, 720,
 				[
@@ -699,6 +700,32 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 850, 365, 0xeae8de],
 					[center, 845, 385, 0xebe8de],
 					[center, 830, 390, 0xccb794],
+				]
+			],
+			[   // 治兵武道默认视角
+				1280, 720,
+				[
+					[center, 714, 170, 0xe6cd50],
+					[center, 715, 170, 0xe6cd50],
+					[center, 716, 170, 0xe6cd50],
+					[center, 709, 174, 0x314657],
+					[center, 712, 174, 0x334453],
+					[center, 714, 180, 0x314550],
+					[center, 716, 184, 0x314653],
+					[center, 712, 178, 0xf6c554],
+				]
+			],
+			[   // 治兵武道右端重取色
+				1280, 720,
+				[
+					[center, 618, 176, 0xf5f5df],
+					[center, 620, 178, 0xffffe3],
+					[center, 619, 181, 0xffffef],
+					[center, 614, 170, 0xe5cd4e],
+					[center, 620, 170, 0xe5cd4e],
+					[center, 608, 177, 0xd39d46],
+					[center, 610, 180, 0x304552],
+					[center, 615, 180, 0x304450],
 				]
 			],
 			[   // 云景阆苑
@@ -739,32 +766,6 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[center, 828, 223, 0x645652],
 					[center, 827, 228, 0x615952],
 					[center, 824, 233, 0x7c6f66],
-				]
-			],
-			[   // 治兵武道默认视角
-				1280, 720,
-				[
-					[center, 714, 170, 0xe6cd50],
-					[center, 715, 170, 0xe6cd50],
-					[center, 716, 170, 0xe6cd50],
-					[center, 709, 174, 0x314657],
-					[center, 712, 174, 0x334453],
-					[center, 714, 180, 0x314550],
-					[center, 716, 184, 0x314653],
-					[center, 712, 178, 0xf6c554],
-				]
-			],
-			[   // 治兵武道右端
-				1280, 720,
-				[
-					[center, 618, 176, 0xf7f7e0],
-					[center, 620, 178, 0xffffe4],
-					[center, 619, 181, 0xfffff2],
-					[center, 614, 170, 0xe6cd50],
-					[center, 620, 170, 0xe6cd50],
-					[center, 608, 177, 0xd49e46],
-					[center, 610, 180, 0x314654],
-					[center, 615, 180, 0x314550],
 				]
 			],
 			[   // 狐栖归处
