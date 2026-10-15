@@ -28,6 +28,14 @@ import schedule, { Job } from '@/system/Schedule';
 import { MyFloaty } from '@/system/MyFloaty';
 import ncnnBgyx from '@/system/ncnn/ncnnBgyx';
 import { commonConfigVal } from '@/common/commonConfig';
+import {
+	autoExplore,
+	autoTown,
+	COURTYARD_SKIN_AUTO,
+	courtyardSkinList,
+	ICourtyardRule,
+	ICourtyardSkin
+} from '@/common/courtyardSkin';
 
 /**
  * 脚本对象，一个程序只能有一个
@@ -582,33 +590,83 @@ export class Script {
 	}
 
 	/**
+	 * 获取设置中选择的庭院皮肤，选择「自动识别」或未设置时返回null
+	 */
+	getCourtyardSkin(): ICourtyardSkin {
+		const skinName = this.storeCommon.get('settings', {}).courtyard_skin;
+		if (!skinName || skinName === COURTYARD_SKIN_AUTO) return null;
+		for (const skin of courtyardSkinList) {
+			if (skin.name === skinName) return skin;
+		}
+		return null;
+	}
+
+	/**
+	 * 按庭院入口规则执行多点找色
+	 */
+	findCourtyardRule(rule: ICourtyardRule): Point {
+		let key = rule.key;
+		if (rule.groups) {
+			key = `${rule.key}[${rule.groups.join(',')}]`;
+			if (!this.multiFindColors[key]) {
+				const origin = this.multiFindColors[rule.key];
+				this.multiFindColors[key] = {
+					region: origin.region,
+					desc: rule.groups.map(i => origin.desc[i]),
+					similar: origin.similar
+				};
+			}
+		}
+		if (rule.leftmost) {
+			return this.findMultiColorEx(key).sort((a, b) => a.x - b.x)[0] || null;
+		}
+		return this.findMultiColor(key, undefined, false, false, rule.misaligned);
+	}
+
+	/**
+	 * 依次按规则查找庭院入口，返回识别点与对应的点击偏移
+	 */
+	findCourtyardRules(rules: ICourtyardRule[]): { point: Point, clickOffset: number[] } {
+		for (const rule of rules) {
+			const point = this.findCourtyardRule(rule);
+			if (point) return { point, clickOffset: rule.clickOffset || null };
+		}
+		return null;
+	}
+
+	/**
+	 * 查找庭院探索入口，并在失败时归位庭院视角。
+	 * clickOffset为null时由调用方使用默认点击区域。
+	 */
+	findCourtyardExploreEntry(): { point: Point, clickOffset: number[] } {
+		const skin = this.getCourtyardSkin();
+		const rules = skin ? skin.explore : autoExplore;
+		let entry = null;
+		this.findCourtyardPoint(() => {
+			entry = this.findCourtyardRules(rules);
+			return entry && entry.point;
+		});
+		return entry;
+	}
+
+	/**
 	 * 查找庭院町中入口，并在失败时归位庭院视角。
 	 */
 	findCourtyardTownPoint(): Point {
+		const skin = this.getCourtyardSkin();
+		const rules = skin ? skin.town : autoTown;
 		const findPoint = () => {
-			const point = this.findMultiColor('庭院_町中竖牌')
-				|| this.findMultiColor('庭院_织梦莲庭_町中竖牌')
-				|| this.findMultiColor(
-					'庭院_暖池青苑_町中竖牌',
-					undefined,
-					false,
-					false,
-					false
-				);
-			if (point) return point;
-
-			const yuanhaiPoint = this.findMultiColor(
-				'庭院_远海航船_町中竖牌'
-			);
-			if (!yuanhaiPoint) return null;
-
+			const entry = this.findCourtyardRules(rules);
+			if (!entry) return null;
+			if (!entry.clickOffset) return entry.point;
 			return {
-				x: yuanhaiPoint.x + 10,
-				y: yuanhaiPoint.y - 10
+				x: entry.point.x + entry.clickOffset[0],
+				y: entry.point.y + entry.clickOffset[1]
 			};
 		};
 		let point = this.findCourtyardPoint(findPoint);
 		if (point) return point;
+		if (skin && !skin.townHiddenSwipe) return null;
 
 		this.keepScreen(false);
 		const warmCourtyard = this.findMultiColor(

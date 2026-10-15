@@ -12,6 +12,7 @@ import { yunxiOcr } from '@/system/Ocr/YunxiOcr';
 import { myShell } from '@/system/MyAutomator';
 import pushClients from '@/system/PushClient/index';
 import { AbstractPushClient } from '../PushClient/AbstractPushClient';
+import { COURTYARD_SKIN_AUTO, courtyardSkinNames } from '@/common/courtyardSkin';
 
 
 export default function webviewSettigns() {
@@ -78,6 +79,10 @@ export default function webviewSettigns() {
 
 	if (typeof initStoreSettings.kill_related_app_mode === 'undefined') {
 		initStoreSettings.kill_related_app_mode = 'root';
+	}
+
+	if (courtyardSkinNames.indexOf(initStoreSettings.courtyard_skin) === -1) {
+		initStoreSettings.courtyard_skin = COURTYARD_SKIN_AUTO;
 	}
 
 	// if (isDebugPlayerRunning() && initStoreSettings.remote_log_url === 'undefined') {
@@ -227,6 +232,13 @@ export default function webviewSettigns() {
 			stype: 'list',
 			data: ['root', 'android api'],
 			value: storeSettings.kill_related_app_mode
+		}, {
+			desc: '庭院皮肤(需与游戏内一致)',
+			name: 'courtyard_skin',
+			type: 'assttyys_setting',
+			stype: 'list',
+			data: courtyardSkinNames,
+			value: storeSettings.courtyard_skin
 		}];
 
 		ret.push({

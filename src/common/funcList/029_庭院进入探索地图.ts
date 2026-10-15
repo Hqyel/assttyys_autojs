@@ -29,90 +29,24 @@ export class Func029 implements IFuncOrigin {
 		});
 		if (!isCourtyard) return false;
 
-		let isQiongyeCourtyard = false;
-		const point = thisScript.findCourtyardPoint(() => {
-			let courtyardPoint = thisScript.findMultiColor('庭院_探索灯笼');
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_茨心乐园_探索灯笼'
-				);
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_云景阆苑_探索灯笼'
-				);
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_治兵武道_探索灯笼'
-				);
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_望月幽庭_探索灯笼'
-				);
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_远海航船_探索灯笼'
-				);
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_缘结之庭_探索灯笼'
-				);
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_笔墨山河_探索灯笼'
-				);
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_琼夜淬光_探索灯笼'
-				);
-				isQiongyeCourtyard = !!courtyardPoint;
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_织梦莲庭_探索灯笼'
-				);
-			}
-			if (!courtyardPoint) {
-				courtyardPoint = thisScript.findMultiColor(
-					'庭院_暖池青苑_探索灯笼',
-					undefined,
-					false,
-					false,
-					false
-				);
-			}
-			if (!courtyardPoint) {
-				const foxLanternPoints = thisScript.findMultiColorEx(
-					'庭院_狐栖归处_功能灯笼'
-				).sort((a, b) => a.x - b.x);
-				courtyardPoint = foxLanternPoints[0];
-			}
-			return courtyardPoint;
-		});
-		if (!point) return false;
+		// 识别规则见 src/common/courtyardSkin.ts，设置中选择庭院皮肤后仅使用对应皮肤的规则
+		const entry = thisScript.findCourtyardExploreEntry();
+		if (!entry) return false;
 
-		const oper = isQiongyeCourtyard ? [[
-			point.x + 12,
-			point.y - 10,
-			point.x + 24,
-			point.y + 2,
-			thisOperator[0].oper[0][4]
-		]] : [
-			[
-				point.x,
-				point.y,
-				point.x + thisOperator[0].oper[0][2],
-				point.y + thisOperator[0].oper[0][3],
-				thisOperator[0].oper[0][4]
-			]
+		const point = entry.point;
+		const offset = entry.clickOffset || [
+			0,
+			0,
+			thisOperator[0].oper[0][2],
+			thisOperator[0].oper[0][3]
 		];
-		thisScript.regionClick(oper);
+		thisScript.regionClick([[
+			point.x + offset[0],
+			point.y + offset[1],
+			point.x + offset[2],
+			point.y + offset[3],
+			thisOperator[0].oper[0][4]
+		]]);
 		return true;
 	}
 }

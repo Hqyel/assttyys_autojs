@@ -2459,6 +2459,222 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]
 	},
+	'庭院_枫色秋庭_町中竖牌': {
+		// 竖牌不摆动，按竖牌所在横坐标分段取色，锚点为“町”字笔画。
+		region: [center, 1280, 720, 560, 260, 1140, 340],
+		similar: 96,
+		desc: [
+			[1280, 720, // 竖牌位于x≈605
+				[
+					[center, 634, 291, 0x3c3c3c],
+					[center, 619, 293, 0x51504e],
+					[center, 626, 291, 0x454444],
+					[center, 627, 327, 0x3a352d],
+					[center, 623, 287, 0xb7afbb],
+					[center, 614, 279, 0xb3a9a3],
+					[center, 634, 287, 0xafabb3],
+					[center, 639, 279, 0xb3aba7],
+				]
+			],
+			[1280, 720, // 竖牌位于x≈719
+				[
+					[center, 767, 292, 0x2d2c2d],
+					[center, 770, 299, 0x2e2b26],
+					[center, 760, 295, 0x2c2a27],
+					[center, 754, 290, 0xb3afb3],
+					[center, 761, 287, 0xb7afbb],
+					[center, 768, 287, 0xb5adb7],
+					[center, 746, 290, 0xb1b1af],
+				]
+			],
+			[1280, 720, // 竖牌位于x≈840
+				[
+					[center, 869, 291, 0x3c3c3c],
+					[center, 859, 291, 0x3e3e3f],
+					[center, 861, 328, 0x47433b],
+					[center, 870, 298, 0x343330],
+					[center, 857, 287, 0xb7afbb],
+					[center, 864, 285, 0xb5adb7],
+					[center, 877, 279, 0xb3a9a3],
+					[center, 883, 291, 0xb0aaae],
+				]
+			],
+			[1280, 720, // 竖牌位于x≈880
+				[
+					[center, 910, 291, 0x292929],
+					[center, 893, 293, 0x4e4d4c],
+					[center, 900, 291, 0x444446],
+					[center, 901, 328, 0x47433b],
+					[center, 897, 287, 0xb7afbb],
+					[center, 904, 285, 0xb5adb7],
+					[center, 884, 290, 0xb0b0ae],
+					[center, 890, 279, 0xb3aba3],
+				]
+			],
+			[1280, 720, // 竖牌位于x≈937
+				[
+					[center, 958, 292, 0x2c2c2d],
+					[center, 950, 295, 0x2b2926],
+					[center, 952, 328, 0x47433b],
+					[center, 960, 303, 0x302d27],
+					[center, 949, 287, 0xb7afbb],
+					[center, 956, 287, 0xb5adb7],
+					[center, 935, 290, 0xb0afad],
+					[center, 942, 279, 0xb5aba7],
+				]
+			],
+			[1280, 720, // 竖牌位于x≈1009
+				[
+					[center, 1053, 292, 0x3f3e3e],
+					[center, 1052, 326, 0x39342c],
+					[center, 1061, 295, 0x333230],
+					[center, 1045, 294, 0x343332],
+					[center, 1043, 290, 0xb3afb3],
+					[center, 1050, 287, 0xb7afbb],
+					[center, 1057, 287, 0xb5adb7],
+					[center, 1069, 279, 0xb3a9a3],
+				]
+			],
+			[1280, 720, // 竖牌位于x≈1060
+				[
+					[center, 1080, 292, 0x2c2c2d],
+					[center, 1067, 293, 0x535352],
+					[center, 1074, 328, 0x46423b],
+					[center, 1083, 299, 0x2b2a27],
+					[center, 1065, 290, 0xb3afb3],
+					[center, 1072, 287, 0xb7afbb],
+					[center, 1079, 287, 0xb5adb7],
+					[center, 1057, 290, 0xb1b1af],
+				]
+			],
+			[1280, 720, // 竖牌位于x≈1097
+				[
+					[center, 1128, 291, 0x222222],
+					[center, 1120, 293, 0x313030],
+					[center, 1113, 298, 0x5a5652],
+					[center, 1126, 302, 0x35322c],
+					[center, 1109, 290, 0xb3afb3],
+					[center, 1116, 287, 0xb7afbb],
+					[center, 1123, 287, 0xb5adb7],
+					[center, 1102, 290, 0xb1b0ae],
+				]
+			]
+		]
+	},
+	'庭院_枫色秋庭_探索灯笼': {
+		// 灯笼随庭院平移产生透视变化，按所在横坐标分段取色，锚点为“探”字底部笔画。
+		region: [center, 1280, 720, 150, 90, 1160, 210],
+		similar: 96,
+		desc: [
+			[1280, 720, // 灯笼位于x≈233
+				[
+					[center, 261, 118, 0x424140],
+					[center, 249, 119, 0x414040],
+					[center, 255, 141, 0x4e4a42],
+					[center, 251, 143, 0xffffc3],
+					[center, 261, 166, 0xffffcf],
+					[center, 266, 155, 0xffffd3],
+					[center, 265, 137, 0xffffbb],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈400
+				[
+					[center, 426, 121, 0x464440],
+					[center, 414, 119, 0x424140],
+					[center, 420, 166, 0xffffcf],
+					[center, 430, 175, 0xffffbf],
+					[center, 439, 151, 0xffffc3],
+					[center, 413, 143, 0xffffc3],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈570
+				[
+					[center, 601, 124, 0x464440],
+					[center, 589, 122, 0x434240],
+					[center, 590, 171, 0xffffc7],
+					[center, 588, 146, 0xffffc7],
+					[center, 603, 177, 0xffffbf],
+					[center, 565, 163, 0xf7e3bf],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈630
+				[
+					[center, 655, 125, 0x444240],
+					[center, 647, 120, 0x424140],
+					[center, 661, 120, 0x424140],
+					[center, 643, 126, 0x434240],
+					[center, 646, 146, 0xffffc3],
+					[center, 651, 181, 0xffffaf],
+					[center, 623, 178, 0xf7e3c3],
+					[center, 624, 171, 0xf5e1bf],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈712
+				[
+					[center, 742, 121, 0x424140],
+					[center, 730, 122, 0x424140],
+					[center, 729, 145, 0xffffc3],
+					[center, 721, 156, 0xfffdbb],
+					[center, 723, 170, 0xfffdb7],
+					[center, 727, 131, 0xffe3a7],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈765
+				[
+					[center, 764, 123, 0x454340],
+					[center, 752, 120, 0x434240],
+					[center, 749, 145, 0xffffc7],
+					[center, 749, 170, 0xffffc7],
+					[center, 755, 134, 0xfff3af],
+					[center, 739, 157, 0xffffbb],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈850
+				[
+					[center, 850, 125, 0x434240],
+					[center, 834, 123, 0x434240],
+					[center, 843, 142, 0x4f4b42],
+					[center, 832, 146, 0xffffc3],
+					[center, 836, 169, 0xffffcf],
+					[center, 843, 180, 0xffffb3],
+					[center, 836, 134, 0xffefaf],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈945
+				[
+					[center, 941, 119, 0x424140],
+					[center, 928, 119, 0x434240],
+					[center, 945, 144, 0x4d4942],
+					[center, 930, 158, 0xffffcf],
+					[center, 920, 172, 0xffffbb],
+					[center, 925, 144, 0xffffc7],
+					[center, 929, 131, 0xffefaf],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈1050
+				[
+					[center, 1084, 123, 0x424140],
+					[center, 1072, 124, 0x434240],
+					[center, 1081, 144, 0x4e4a42],
+					[center, 1068, 148, 0xffffc7],
+					[center, 1081, 174, 0xffffc7],
+					[center, 1063, 134, 0xffe1a7],
+					[center, 1070, 182, 0xffffb3],
+				]
+			],
+			[1280, 720, // 灯笼位于x≈1095
+				[
+					[center, 1124, 123, 0x424140],
+					[center, 1112, 125, 0x454340],
+					[center, 1129, 149, 0x4d4942],
+					[center, 1108, 148, 0xffffc7],
+					[center, 1111, 172, 0xffffcf],
+					[center, 1098, 172, 0xffffbb],
+					[center, 1120, 137, 0xfff3b3],
+				]
+			]
+		]
+	},
 	'探索_宝箱': {
 		region: [left, 1280, 720, 17, 603, 861, 685],
 		desc: [
