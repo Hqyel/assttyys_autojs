@@ -150,6 +150,7 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 		],
 		// 战斗主题会改变界面边框，使用战斗中始终存在的顶部与底部框架。
 		variants: [
+			// 凛霜寒雪
 			[1280, 720,
 				[
 					[left, 46, 38, 0xaddefe],
@@ -158,6 +159,17 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 					[center, 781, 698, 0x9ab9da],
 					[center, 703, 697, 0x859ca5],
 					[center, 717, 715, 0x6683ac],
+				]
+			],
+			// 笼梦之境
+			[1280, 720,
+				[
+					[left, 36, 24, 0x94ccff],
+					[left, 107, 24, 0x98cfff],
+					[left, 70, 664, 0x274973],
+					[left, 84, 658, 0xe0f5fe],
+					[right, 1164, 600, 0x9ecff0],
+					[center, 972, 702, 0xbbc7e1],
 				]
 			]
 		]
@@ -253,12 +265,13 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 	'战斗界面_手动状态_笼梦之境': {
 		desc: [1280, 720,
 			[
-				[left, 36, 24, 0x93ccff],
+				[left, 36, 24, 0x94ccff],
 				[left, 107, 24, 0x98cfff],
-				[left, 47, 661, 0xd5ebf6],
-				[left, 77, 657, 0xd9eff9],
-				[left, 117, 614, 0xd9eef9],
-				[left, 16, 701, 0x3f6984],
+				[left, 48, 662, 0xddf2fc],
+				[left, 48, 668, 0xdcf2fb],
+				[left, 50, 650, 0xdbf0fa],
+				[left, 54, 656, 0x2a4c75],
+				[left, 42, 670, 0x316292],
 			]
 		],
 	},
