@@ -36,6 +36,10 @@ import {
 	ICourtyardRule,
 	ICourtyardSkin
 } from '@/common/courtyardSkin';
+import {
+	BarrierSkinName,
+	NormalizeBarrierSkinName
+} from '@/common/barrierSkin';
 
 /**
  * 脚本对象，一个程序只能有一个
@@ -599,6 +603,13 @@ export class Script {
 			if (skin.name === skinName) return skin;
 		}
 		return null;
+	}
+
+	/** 只读取手动选择的己方结界皮肤，不识别画面或遍历候选皮肤。 */
+	getBarrierSkinName(): BarrierSkinName {
+		return NormalizeBarrierSkinName(
+			storeCommon.get('settings', {}).barrier_skin
+		);
 	}
 
 	/**

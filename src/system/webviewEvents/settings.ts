@@ -13,6 +13,10 @@ import { myShell } from '@/system/MyAutomator';
 import pushClients from '@/system/PushClient/index';
 import { AbstractPushClient } from '../PushClient/AbstractPushClient';
 import { COURTYARD_SKIN_AUTO, courtyardSkinNames } from '@/common/courtyardSkin';
+import {
+	barrierSkinNames,
+	NormalizeBarrierSkinName
+} from '@/common/barrierSkin';
 
 
 export default function webviewSettigns() {
@@ -84,6 +88,9 @@ export default function webviewSettigns() {
 	if (courtyardSkinNames.indexOf(initStoreSettings.courtyard_skin) === -1) {
 		initStoreSettings.courtyard_skin = COURTYARD_SKIN_AUTO;
 	}
+	initStoreSettings.barrier_skin = NormalizeBarrierSkinName(
+		initStoreSettings.barrier_skin
+	);
 
 	// if (isDebugPlayerRunning() && initStoreSettings.remote_log_url === 'undefined') {
 	// 	initStoreSettings.remote_log_url = '';
@@ -239,6 +246,13 @@ export default function webviewSettigns() {
 			stype: 'list',
 			data: courtyardSkinNames,
 			value: storeSettings.courtyard_skin
+		}, {
+			desc: '结界皮肤(需与游戏内一致，非鲤鱼旗)',
+			name: 'barrier_skin',
+			type: 'assttyys_setting',
+			stype: 'list',
+			data: barrierSkinNames,
+			value: storeSettings.barrier_skin
 		}];
 
 		ret.push({
@@ -435,6 +449,8 @@ export default function webviewSettigns() {
 			}
 			if (item.name === 'tapType') {
 				helperBridge.automator.setTapType(item.value);
+			} else if (item.name === 'barrier_skin') {
+				storeSettings.barrier_skin = NormalizeBarrierSkinName(item.value);
 			} else if (item.name === 'floaty_debugger_draw') {
 				if (item.enabled) {
 					drawFloaty.init();
