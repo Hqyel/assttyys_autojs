@@ -8,7 +8,7 @@ import { IMultiDetectColorDescOrigin } from '@/interface/IMultiColor';
 /* eslint-disable indent */
 export const BARRIER_SKIN_DEFAULT = '默认结界';
 
-const skinNames = [BARRIER_SKIN_DEFAULT, '苍境云台'] as const;
+const skinNames = [BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域'] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
 
@@ -52,6 +52,36 @@ const card: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 925, 326, 949, 380, 1000]
 ];
 
+const gaotianHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 375, 453, 0x050505],
+  [center, 638, 453, 0xddc5af],
+  [center, 908, 456, 0xe3cdbf]
+]];
+const gaotianStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...gaotianHome[2],
+  [right, 1010, 539, 0x972e18],
+  [right, 1011, 569, 0x0f0d0a]
+]];
+const gaotianExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...gaotianHome[2],
+  [right, 1101, 541, 0x6aa3da],
+  [right, 1103, 577, 0x12100c]
+]];
+// 只取奖励气泡内沿，不依赖结界卡种类及金色光晕。
+const gaotianReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...gaotianHome[2],
+  [center, 915, 333, 0x12100c],
+  [center, 886, 363, 0x12100c],
+  [center, 943, 366, 0x110f0b]
+]];
+const gaotianTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 635, 449, 658, 517, 1000]
+];
+const gaotianCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 905, 453, 924, 517, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -80,6 +110,32 @@ const profiles: Partial<Record<BarrierSkinName,
     // 旧版自定义寄养方案由999进入结界，998继续育成、换卡和寄养。
     998: { 10: { desc: home, oper: [...training, ...card] } },
     503: { 11: { desc: home } }
+  },
+  '高天圣域': {
+    700: {
+      8: { desc: gaotianStamina, oper: [
+        [right, 1280, 720, 997, 527, 1025, 559, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: gaotianExperience, oper: [
+        [right, 1280, 720, 1089, 530, 1117, 565, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: gaotianHome, oper: gaotianTraining }
+    },
+    701: {
+      0: { desc: gaotianHome, oper: [...gaotianTraining, ...gaotianCard] },
+      1: { desc: gaotianReward, oper: [
+        [center, 1280, 720, 899, 348, 928, 381, 1000]
+      ] },
+      12: { desc: gaotianHome, oper: gaotianTraining }
+    },
+    702: { 0: { desc: gaotianHome, oper: gaotianTraining } },
+    998: { 10: { desc: gaotianHome,
+      oper: [...gaotianTraining, ...gaotianCard] } },
+    503: { 11: { desc: gaotianHome } }
   }
 };
 
