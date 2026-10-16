@@ -875,6 +875,13 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[left, 155, 24, 0x8a8889],
 				[left, 183, 35, 0x302d2a],
 			]
+		], [1280, 720,
+			[
+				[left, 35, 40, 0xfdfddd],
+				[left, 110, 40, 0xa8a6a9],
+				[left, 150, 40, 0x8e8c8d],
+				[left, 175, 39, 0xc1bfc3],
+			]
 		]]
 	},
 	'式神录_列表界面': {
@@ -900,6 +907,14 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[left, 483, 98, 0x856441],
 				[left, 308, 93, 0x654a2d],
 			]
+		], [1280, 720,
+			[
+				[left, 110, 40, 0xa8a6a9],
+				[left, 150, 40, 0x8e8c8d],
+				[left, 120, 96, 0x0f4c46],
+				[left, 300, 96, 0x23483f],
+				[left, 484, 96, 0xe3efad],
+			]
 		]]
 	},
 	'式神录_预设未展开': {
@@ -919,6 +934,14 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[left, 252, 90, 0x724b2d],
 				[left, 363, 110, 0x74613f],
 				[left, 431, 110, 0x77623f],
+			]
+		], [1280, 720,
+			[
+				[left, 110, 40, 0xa8a6a9],
+				[left, 150, 40, 0x8e8c8d],
+				[left, 120, 96, 0x0f4c46],
+				[left, 400, 110, 0x4e8c71],
+				[left, 450, 110, 0x4d9177],
 			]
 		]]
 	},
@@ -942,6 +965,14 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[left, 770, 104, 0xf6d9b0],
 				[left, 984, 72, 0x623f24],
 			]
+		], [1280, 720,
+			[
+				[left, 110, 40, 0xa8a6a9],
+				[left, 150, 40, 0x8e8c8d],
+				[left, 395, 81, 0x91c075],
+				[left, 450, 110, 0xa1cd75],
+				[left, 780, 102, 0xedf7d1],
+			]
 		]]
 	},
 	'式神录_详情未展开': {
@@ -960,6 +991,14 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[left, 363, 110, 0x74613f],
 				[left, 431, 110, 0x77623f],
 			]
+		], [1280, 720,
+			[
+				[left, 110, 40, 0xa8a6a9],
+				[left, 150, 40, 0x8e8c8d],
+				[left, 120, 96, 0x0f4c46],
+				[left, 400, 110, 0x4e8c71],
+				[left, 450, 110, 0x4d9177],
+			]
 		]]
 	},
 	'式神录_御魂入口': {
@@ -977,6 +1016,14 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[right, 1226, 281, 0xdfa16b],
 				[right, 1204, 268, 0x8f643f],
 			]
+		], [1280, 720,
+			[
+				[left, 110, 40, 0xa8a6a9],
+				[left, 150, 40, 0x8e8c8d],
+				[right, 1204, 250, 0x305946],
+				[right, 1220, 240, 0x285546],
+				[right, 1220, 270, 0x3c7a62],
+			]
 		]]
 	},
 	'式神录_御魂面板': {
@@ -993,6 +1040,14 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[right, 1230, 249, 0xfff0b7],
 				[right, 1226, 281, 0xfff0b7],
 				[right, 1204, 268, 0xcc955c],
+			]
+		], [1280, 720,
+			[
+				[left, 110, 40, 0xa8a6a9],
+				[left, 150, 40, 0x8e8c8d],
+				[right, 1206, 215, 0xf1ffa9],
+				[right, 1224, 215, 0x4e7929],
+				[right, 1215, 250, 0xeff89e],
 			]
 		]]
 	},
@@ -1017,6 +1072,15 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[right, 1035, 646, 0x6e341e],
 				[right, 1035, 149, 0x33271c],
 			]
+		], [1280, 720,
+			[
+				[left, 110, 40, 0xa8a6a9],
+				[left, 150, 40, 0x8e8c8d],
+				[left, 450, 110, 0xa1cd75],
+				[left, 780, 102, 0xedf7d1],
+				[right, 1062, 598, 0x629167],
+				[right, 1062, 134, 0x508559],
+			]
 		]]
 	},
 	// 霞染游鱼的预设布局单独识别，避免改变旧主题的点击坐标。
@@ -1030,6 +1094,24 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[left, 984, 72, 0x623f24],
 			]
 		]
+	},
+	'式神录_预设未展开_穹宇垂帘': {
+		desc: [1280, 720, [
+			[left, 110, 40, 0xa8a6a9],
+			[left, 150, 40, 0x8e8c8d],
+			[left, 120, 96, 0x0f4c46],
+			[left, 400, 110, 0x4e8c71],
+			[left, 450, 110, 0x4d9177],
+		]]
+	},
+	'式神录_预设已展开_穹宇垂帘': {
+		desc: [1280, 720, [
+			[left, 110, 40, 0xa8a6a9],
+			[left, 150, 40, 0x8e8c8d],
+			[left, 395, 81, 0x91c075],
+			[left, 450, 110, 0xa1cd75],
+			[left, 780, 102, 0xedf7d1],
+		]]
 	},
 	'结界卡超上限提示': {
 		desc: [

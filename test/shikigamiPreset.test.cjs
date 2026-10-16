@@ -16,7 +16,7 @@ vm.runInNewContext(compiled +
   exports: exportsObject, console
 });
 const getOperation = exportsObject.getPresetOperation;
-const operators = Array.from({ length: 11 }, () => ({ oper: [] }));
+const operators = Array.from({ length: 12 }, () => ({ oper: [] }));
 operators[8].oper = [[1, 2, 3, 4, 500]];
 function fixture(modern = true, points = [
   { x: 988, y: 500 }, { x: 988, y: 172 }, { x: 988, y: 336 }
@@ -67,3 +67,20 @@ assert.equal(instance.operatorFunc(failed, operators), false);
 assert.equal(failed.global.change_shikigami_state, 'change_team_default_1');
 assert.equal(failed.clicks.length, 0);
 console.log('PASS: old layout, rows 1-4, cached confirmation, failed lookup');
+
+// 穹宇垂帘必须选择自己的图标特征，不能复用霞染游鱼取色。
+const curtain = fixture(true, [
+  { x: 1015, y: 487 }, { x: 1015, y: 159 }, { x: 1015, y: 323 }
+]);
+curtain.oper = operation => operation.operator[0].desc ===
+  '式神录_预设已展开_穹宇垂帘';
+curtain.findMultiColorEx = key => {
+  assert.equal(key, '式神录_队伍应用按钮_穹宇垂帘');
+  return [{ x: 1015, y: 487 }, { x: 1015, y: 159 }, { x: 1015, y: 323 }];
+};
+assert.equal(getOperation(curtain, operators, 1)[1], 321);
+assert.equal(curtain.swipes.length, 4);
+const opening = new exportsObject.Func510().operator[11];
+assert.equal(opening.desc, '式神录_预设未展开_穹宇垂帘');
+assert.ok(opening.oper[0][3] >= 386, 'must not hit the search button');
+console.log('PASS: curtain profile and shifted preset entry');

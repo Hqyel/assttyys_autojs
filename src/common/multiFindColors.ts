@@ -4409,6 +4409,18 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]]
 	},
+	'式神录_队伍应用按钮_穹宇垂帘': {
+		region: [right, 1280, 720, 990, 130, 1040, 610],
+		similar: 95,
+		desc: [[1280, 720, [
+			[right, 1015, 159, 0xf4e9c8],
+			[right, 1007, 149, 0xdddeb2],
+			[right, 1022, 151, 0xded1ac],
+			[right, 1009, 153, 0xf4e8c7],
+			[right, 1007, 165, 0xe2d1b1],
+			[right, 1022, 165, 0xe9debd],
+		]]]
+	},
 	'式神录_当前选中队伍预设': {
 		region: [center, 1280, 720, 522, 146, 1024, 622],
 		desc: [

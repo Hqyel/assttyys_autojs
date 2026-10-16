@@ -5,11 +5,23 @@ const left = 0;
 const center = 1;
 const right = 2;
 
+/* eslint-disable indent */
+function getPresetButtonKey(thisScript: Script): string | null {
+  for (const theme of ['霞染游鱼', '穹宇垂帘']) {
+    if (thisScript.oper({
+      name: `检测${theme}预设布局`,
+      operator: [{ desc: `式神录_预设已展开_${theme}` }]
+    })) {
+      return `式神录_队伍应用按钮_${theme}`;
+    }
+  }
+  return null;
+}
+
 /**
- * 霞染游鱼的队伍行距为164像素，按实际应用图标定位。
+ * 三行布局的队伍行距为164像素，按各主题的实际应用图标定位。
  * 第四行先滚入可见区；第二次确认复用同一点，避免重复滚动。
  */
-/* eslint-disable indent */
 function getPresetOperation(
   thisScript: Script,
   thisOperator: IFuncOperator[],
@@ -19,11 +31,8 @@ function getPresetOperation(
     return null;
   }
 
-  const modern = thisScript.oper({
-    name: '检测霞染游鱼预设布局',
-    operator: [{ desc: '式神录_预设已展开_霞染游鱼' }]
-  });
-  if (!modern) return thisOperator[8].oper[presetIndex];
+  const buttonKey = getPresetButtonKey(thisScript);
+  if (!buttonKey) return thisOperator[8].oper[presetIndex];
 
   let point = thisScript.global.change_shikigami_target_point;
   if (!thisScript.global.change_shikigami_state.endsWith('_2') || !point) {
@@ -41,7 +50,7 @@ function getPresetOperation(
     }
     thisScript.keepScreen(false);
     const points = thisScript.findMultiColorEx(
-      '式神录_队伍应用按钮_霞染游鱼'
+      buttonKey
     ).sort((a, b) => a.y - b.y);
     point = points[presetIndex === 3 ? 2 : presetIndex];
     if (!point) return null;
@@ -212,6 +221,9 @@ export class Func510 implements IFuncOrigin {
 				[center, 1280, 720, 423, 407, 446, 430, 1000],
 				[center, 1280, 720, 430, 492, 543, 533, 1000],
 			]
+		}, { // 11 穹宇垂帘的预设按钮右移，优先使用专用点击区域。
+			desc: '式神录_预设未展开_穹宇垂帘',
+			oper: [[left, 1280, 720, 393, 83, 446, 110, 1200]]
 		}];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
 		const thisConf = thisScript.scheme.config['510'];
@@ -235,7 +247,7 @@ export class Func510 implements IFuncOrigin {
 
 			if (thisScript.oper({
 				name: '式神录展开 预设 侧栏',
-				operator: [thisOperator[1]]
+				operator: [thisOperator[11], thisOperator[1]]
 			})) {
 				return true;
 			}
@@ -434,14 +446,10 @@ export class Func510 implements IFuncOrigin {
 								1000
 							];
 							console.log('队伍预设目标坐标为:', toClick.toString(), p);
-							if (thisScript.oper({
-								name: '检测霞染游鱼预设布局',
-								operator: [{
-									desc: '式神录_预设已展开_霞染游鱼'
-								}]
-							})) {
+							const buttonKey = getPresetButtonKey(thisScript);
+							if (buttonKey) {
 								const points = thisScript.findMultiColorEx(
-									'式神录_队伍应用按钮_霞染游鱼'
+									buttonKey
 								);
 								const point = points.sort((a, b) => {
 									return Math.abs(a.y - p.y) - Math.abs(b.y - p.y);
@@ -458,10 +466,7 @@ export class Func510 implements IFuncOrigin {
 							sleep(1200)
 						}
 					} else if (thisScript.global.change_shikigami_state.includes('change_team_default')) {
-						const modern = thisScript.oper({
-							name: '检测霞染游鱼预设布局',
-							operator: [{ desc: '式神录_预设已展开_霞染游鱼' }]
-						});
+						const modern = getPresetButtonKey(thisScript);
 						const point = modern ?
 							thisScript.global.change_shikigami_target_point :
 							thisScript.findMultiColor('式神录_当前选中队伍预设');
