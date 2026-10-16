@@ -182,6 +182,17 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 					[left, 70, 664, 0x9d424b],
 					[left, 84, 658, 0xffede3],
 				]
+			],
+			// 蝶寻花踪：选取两种战斗模式共有的按钮与右侧边框。
+			[1280, 720,
+				[
+					[left, 33, 25, 0xfff0c2],
+					[left, 106, 23, 0xfdf2cd],
+					[right, 1270, 132, 0xe8c0cf],
+					[left, 117, 614, 0xfbe7dd],
+					[left, 70, 664, 0x9d424b],
+					[left, 84, 658, 0xffede3],
+				]
 			]
 		]
 	},
@@ -240,12 +251,13 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 	'战斗界面_手动状态_蝶寻花踪': {
 		desc: [1280, 720,
 			[
-				[left, 46, 671, 0xfde9e0],
-				[left, 117, 614, 0xfbe6dd],
-				[left, 78, 651, 0xf9e3da],
 				[left, 33, 25, 0xfff0c2],
 				[left, 106, 23, 0xfdf2cd],
-				[left, 92, 707, 0x306465],
+				[left, 48, 662, 0xfeeae1],
+				[left, 48, 668, 0xfdeae0],
+				[left, 50, 650, 0xfce8df],
+				[left, 54, 656, 0x9f454e],
+				[left, 42, 670, 0xa6686d],
 			]
 		],
 	},
