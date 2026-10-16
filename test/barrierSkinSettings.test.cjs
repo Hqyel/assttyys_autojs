@@ -20,7 +20,7 @@ function load(file, context = {}) {
 }
 const skin = load('src/common/barrierSkin.ts');
 const expectedSkins = [
-  '默认结界', '苍境云台', '高天圣域', '云旷江清', '奇想蜃城'
+  '默认结界', '苍境云台', '高天圣域', '云旷江清', '奇想蜃城', '月海游星'
 ];
 assert.deepEqual(Array.from(skin.barrierSkinNames), expectedSkins);
 for (const invalid of [undefined, null, '', '自动识别', '未知皮肤', 1, {}]) {
@@ -30,6 +30,7 @@ assert.equal(skin.NormalizeBarrierSkinName('苍境云台'), '苍境云台');
 assert.equal(skin.NormalizeBarrierSkinName('高天圣域'), '高天圣域');
 assert.equal(skin.NormalizeBarrierSkinName('云旷江清'), '云旷江清');
 assert.equal(skin.NormalizeBarrierSkinName('奇想蜃城'), '奇想蜃城');
+assert.equal(skin.NormalizeBarrierSkinName('月海游星'), '月海游星');
 
 function fixture(settings = {}) {
   let persisted = { ...settings };
@@ -116,7 +117,7 @@ vm.runInNewContext(compile('export class Reader {' + getter.getText(ast) + '}'),
   storeCommon: legacy.storeCommon
 });
 assert.equal(new directExports.Reader().getBarrierSkinName(), '苍境云台');
-for (const name of ['高天圣域', '云旷江清', '奇想蜃城']) {
+for (const name of ['高天圣域', '云旷江清', '奇想蜃城', '月海游星']) {
   legacy.save(name);
   assert.equal(new directExports.Reader().getBarrierSkinName(), name);
   assert.equal(fixture(legacy.read()).list()

@@ -9,7 +9,8 @@ import { IMultiDetectColorDescOrigin } from '@/interface/IMultiColor';
 export const BARRIER_SKIN_DEFAULT = '默认结界';
 
 const skinNames = [
-  BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城'
+  BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城',
+  '月海游星'
 ] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
@@ -143,6 +144,35 @@ const qixiangCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 853, 454, 872, 520, 1000]
 ];
 
+const yuehaiHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 345, 390, 0xcfb18b],
+  [center, 632, 391, 0xd3b793],
+  [center, 917, 394, 0xbf9556]
+]];
+const yuehaiStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yuehaiHome[2],
+  [right, 1030, 474, 0xcf5f25],
+  [right, 1028, 493, 0x84321b]
+]];
+const yuehaiExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yuehaiHome[2],
+  [right, 1077, 465, 0x6ba6de],
+  [right, 1081, 485, 0x9fbde6]
+]];
+const yuehaiReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yuehaiHome[2],
+  [center, 930, 259, 0x12100c],
+  [center, 902, 288, 0x12100c],
+  [center, 958, 289, 0x110f0b]
+]];
+const yuehaiTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 632, 392, 654, 467, 1000]
+];
+const yuehaiCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 920, 395, 941, 468, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -250,6 +280,33 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: qixiangHome,
       oper: [...qixiangTraining, ...qixiangCard] } },
     503: { 11: { desc: qixiangHome } }
+  },
+  '月海游星': {
+    700: {
+      8: { desc: yuehaiStamina, oper: [
+        [right, 1280, 720, 1015, 458, 1041, 488, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: yuehaiExperience, oper: [
+        // 经验气泡取右侧热区，避免与体力食盒入口重叠。
+        [right, 1280, 720, 1090, 462, 1099, 486, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: yuehaiHome, oper: yuehaiTraining }
+    },
+    701: {
+      0: { desc: yuehaiHome, oper: [...yuehaiTraining, ...yuehaiCard] },
+      1: { desc: yuehaiReward, oper: [
+        [center, 1280, 720, 916, 275, 945, 308, 1000]
+      ] },
+      12: { desc: yuehaiHome, oper: yuehaiTraining }
+    },
+    702: { 0: { desc: yuehaiHome, oper: yuehaiTraining } },
+    998: { 10: { desc: yuehaiHome,
+      oper: [...yuehaiTraining, ...yuehaiCard] } },
+    503: { 11: { desc: yuehaiHome } }
   }
 };
 
