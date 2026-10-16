@@ -10,7 +10,7 @@ export const BARRIER_SKIN_DEFAULT = '默认结界';
 
 const skinNames = [
   BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城',
-  '月海游星'
+  '月海游星', '浮梦之乡'
 ] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
@@ -173,6 +173,35 @@ const yuehaiCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 920, 395, 941, 468, 1000]
 ];
 
+const fumengHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 407, 486, 0xd9bfa7],
+  [center, 638, 483, 0xbd9156],
+  [center, 874, 485, 0xcdaf8f]
+]];
+const fumengStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...fumengHome[2],
+  [right, 1000, 570, 0xda5121],
+  [right, 999, 589, 0x83321a]
+]];
+const fumengExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...fumengHome[2],
+  [right, 1080, 560, 0x2b6ea2],
+  [right, 1084, 583, 0xadc8ea]
+]];
+const fumengReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...fumengHome[2],
+  [center, 884, 371, 0x12100c],
+  [center, 855, 400, 0x12100c],
+  [center, 910, 402, 0x110f0b]
+]];
+const fumengTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 639, 482, 658, 545, 1000]
+];
+const fumengCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 874, 484, 890, 544, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -307,6 +336,32 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: yuehaiHome,
       oper: [...yuehaiTraining, ...yuehaiCard] } },
     503: { 11: { desc: yuehaiHome } }
+  },
+  '浮梦之乡': {
+    700: {
+      8: { desc: fumengStamina, oper: [
+        [right, 1280, 720, 987, 551, 1011, 583, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: fumengExperience, oper: [
+        [right, 1280, 720, 1090, 560, 1099, 586, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: fumengHome, oper: fumengTraining }
+    },
+    701: {
+      0: { desc: fumengHome, oper: [...fumengTraining, ...fumengCard] },
+      1: { desc: fumengReward, oper: [
+        [center, 1280, 720, 869, 385, 897, 417, 1000]
+      ] },
+      12: { desc: fumengHome, oper: fumengTraining }
+    },
+    702: { 0: { desc: fumengHome, oper: fumengTraining } },
+    998: { 10: { desc: fumengHome,
+      oper: [...fumengTraining, ...fumengCard] } },
+    503: { 11: { desc: fumengHome } }
   }
 };
 
