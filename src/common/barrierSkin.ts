@@ -10,7 +10,7 @@ export const BARRIER_SKIN_DEFAULT = '默认结界';
 
 const skinNames = [
   BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城',
-  '月海游星', '浮梦之乡'
+  '月海游星', '浮梦之乡', '四时一隅'
 ] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
@@ -202,6 +202,36 @@ const fumengCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 874, 484, 890, 544, 1000]
 ];
 
+const shishiHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 416, 434, 0xcfb18f],
+  // 左上方偶有粉色光效，取牌面右侧的稳定点。
+  [center, 634, 447, 0xdfc9bb],
+  [center, 830, 436, 0xe1cbbf]
+]];
+const shishiStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...shishiHome[2],
+  [right, 946, 487, 0xdf6a2a],
+  [right, 949, 501, 0x88341c]
+]];
+const shishiExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...shishiHome[2],
+  [right, 988, 477, 0x32648c],
+  [right, 992, 499, 0x93b0d5]
+]];
+const shishiReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...shishiHome[2],
+  [center, 837, 325, 0x12100c],
+  [center, 809, 354, 0x12100c],
+  [center, 864, 354, 0x10100b]
+]];
+const shishiTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 623, 435, 639, 487, 1000]
+];
+const shishiCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 830, 435, 842, 488, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -362,6 +392,33 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: fumengHome,
       oper: [...fumengTraining, ...fumengCard] } },
     503: { 11: { desc: fumengHome } }
+  },
+  '四时一隅': {
+    700: {
+      8: { desc: shishiStamina, oper: [
+        [right, 1280, 720, 934, 471, 957, 501, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: shishiExperience, oper: [
+        // 紧凑布局的气泡相邻，经验入口取右侧独立热区。
+        [right, 1280, 720, 1008, 476, 1018, 495, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: shishiHome, oper: shishiTraining }
+    },
+    701: {
+      0: { desc: shishiHome, oper: [...shishiTraining, ...shishiCard] },
+      1: { desc: shishiReward, oper: [
+        [center, 1280, 720, 824, 339, 850, 372, 1000]
+      ] },
+      12: { desc: shishiHome, oper: shishiTraining }
+    },
+    702: { 0: { desc: shishiHome, oper: shishiTraining } },
+    998: { 10: { desc: shishiHome,
+      oper: [...shishiTraining, ...shishiCard] } },
+    503: { 11: { desc: shishiHome } }
   }
 };
 
