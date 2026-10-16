@@ -5,6 +5,52 @@ const left = 0;
 const center = 1;
 const right = 2;
 
+/**
+ * 霞染游鱼的队伍行距为164像素，按实际应用图标定位。
+ * 第四行先滚入可见区；第二次确认复用同一点，避免重复滚动。
+ */
+/* eslint-disable indent */
+function getPresetOperation(
+  thisScript: Script,
+  thisOperator: IFuncOperator[],
+  presetIndex: number
+): number[] | null {
+  if (!Number.isInteger(presetIndex) || presetIndex < 0 || presetIndex > 3) {
+    return null;
+  }
+
+  const modern = thisScript.oper({
+    name: '检测霞染游鱼预设布局',
+    operator: [{ desc: '式神录_预设已展开_霞染游鱼' }]
+  });
+  if (!modern) return thisOperator[8].oper[presetIndex];
+
+  let point = thisScript.global.change_shikigami_target_point;
+  if (!thisScript.global.change_shikigami_state.endsWith('_2') || !point) {
+    const swipe = thisScript.helperBridge.regionClickTrans([
+      [center, 1280, 720, 760, 240, 780, 260, 0],
+      [center, 1280, 720, 760, 570, 780, 590, 0],
+      [center, 1280, 720, 760, 480, 780, 500, 0],
+      [center, 1280, 720, 760, 316, 780, 336, 0]
+    ]);
+    for (let i = 0; i < 4; i++) {
+      thisScript.regionBezierSwipe(swipe[0], swipe[1], [1200, 1400], 600);
+    }
+    if (presetIndex === 3) {
+      thisScript.regionBezierSwipe(swipe[2], swipe[3], [1400, 1400], 700);
+    }
+    thisScript.keepScreen(false);
+    const points = thisScript.findMultiColorEx(
+      '式神录_队伍应用按钮_霞染游鱼'
+    ).sort((a, b) => a.y - b.y);
+    point = points[presetIndex === 3 ? 2 : presetIndex];
+    if (!point) return null;
+    thisScript.global.change_shikigami_target_point = point;
+  }
+  return [point.x - 2, point.y - 2, point.x + 2, point.y + 2, 500];
+}
+/* eslint-enable indent */
+
 export class Func510 implements IFuncOrigin {
 	id = 510;
 	name = '更改式神录御魂';
@@ -56,46 +102,14 @@ export class Func510 implements IFuncOrigin {
 	}];
 	operator: IFuncOperatorOrigin[] = [
 		{   // 0 检测是否为式神录
-			desc: [
-				1280, 720,
-				[
-					[left, 34, 27, 0xf7ebae],
-					[left, 231, 10, 0x302118],
-					[left, 164, 38, 0x48332c],
-					[left, 252, 90, 0x594641],
-					[left, 307, 94, 0x604c48],
-					[center, 405, 97, 0x5c4a48],
-					[center, 483, 98, 0x5c4946],
-					[center, 493, 687, 0x43322a],
-					[left, 29, 673, 0x413028],
-				]
-			]
+			desc: '式神录_列表界面'
 		}, {  // 1 式神录未展开 预设 侧栏
-			desc: [
-				1280, 720,
-				[
-					[left, 308, 93, 0x604c48],
-					[left, 251, 95, 0x594541],
-					[center, 415, 88, 0x634e4a],
-					[left, 31, 680, 0x47342e],
-				]
-			],
+			desc: '式神录_预设未展开',
 			oper: [
 				[right, 1280, 720, 340, 77, 413, 106, 1200]	// 点击预设
 			]
 		}, {  // 2 式神录已展开 预设 侧栏
-			desc:
-				[
-					1280, 720,
-					[
-						[left, 182, 79, 0x614c44],
-						[left, 254, 82, 0x614b42],
-						[left, 276, 85, 0x66514c],
-						[center, 338, 85, 0x967958],
-						[center, 418, 84, 0x95795b],
-						[right, 984, 72, 0x72502e],
-					]
-				],
+			desc: '式神录_预设已展开',
 			oper: [
 				[right, 1280, 720, 1128, 239, 1206, 282, -1],     //  预设分组 置顶开始滑动开始位置
 				[right, 1280, 720, 1126, 544, 1222, 597, -1],      //  预设分组 置顶开始滑动结束位置
@@ -201,6 +215,9 @@ export class Func510 implements IFuncOrigin {
 		}];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
 		const thisConf = thisScript.scheme.config['510'];
+		if (thisScript.global.change_shikigami_state === 'flushed') {
+			thisScript.global.change_shikigami_target_point = null;
+		}
 		if (thisScript.oper({
 			id: 510,
 			name: '检测_弹窗',
@@ -270,7 +287,10 @@ export class Func510 implements IFuncOrigin {
 						} else {
 							trueDefaultNum = Number(thisScript.global.preset_once_defaultNum) - 1;
 						}
-						const oper = thisOperator[8].oper[trueDefaultNum];
+						const oper = getPresetOperation(
+							thisScript, thisOperator, trueDefaultNum
+						);
+						if (!oper) return false;
 						//  需要点击两次
 						if (thisScript.global.change_shikigami_state === 'change_team_default_1') {
 							thisScript.global.change_shikigami_state = 'change_team_default_2';
@@ -296,7 +316,10 @@ export class Func510 implements IFuncOrigin {
 					} else if (thisScript.global.change_shikigami_state.includes('second_default')) {
 						console.log('式神录_当前选中队伍预设');
 						const trueDefaultNum = Number(thisConf.defaultNum2) - 1;
-						const oper = thisOperator[8].oper[trueDefaultNum];
+						const oper = getPresetOperation(
+							thisScript, thisOperator, trueDefaultNum
+						);
+						if (!oper) return false;
 						//  需要点击两次
 						if (thisScript.global.change_shikigami_state === 'second_default_1') {
 							thisScript.global.change_shikigami_state = 'second_default_2';
@@ -411,12 +434,37 @@ export class Func510 implements IFuncOrigin {
 								1000
 							];
 							console.log('队伍预设目标坐标为:', toClick.toString(), p);
+							if (thisScript.oper({
+								name: '检测霞染游鱼预设布局',
+								operator: [{
+									desc: '式神录_预设已展开_霞染游鱼'
+								}]
+							})) {
+								const points = thisScript.findMultiColorEx(
+									'式神录_队伍应用按钮_霞染游鱼'
+								);
+								const point = points.sort((a, b) => {
+									return Math.abs(a.y - p.y) - Math.abs(b.y - p.y);
+								})[0];
+								const rowLimit = thisScript.helperBridge
+									.getHelper(1280, 720).GetPoint(0, 40, left).y;
+								if (!point || Math.abs(point.y - p.y) > rowLimit) {
+									return false;
+								}
+								thisScript.global.change_shikigami_target_point = point;
+							}
 							thisScript.global.change_shikigami_state = 'change_team_default_1';
 							thisScript.regionClick([toClick]);
 							sleep(1200)
 						}
 					} else if (thisScript.global.change_shikigami_state.includes('change_team_default')) {
-						const point = thisScript.findMultiColor('式神录_当前选中队伍预设');
+						const modern = thisScript.oper({
+							name: '检测霞染游鱼预设布局',
+							operator: [{ desc: '式神录_预设已展开_霞染游鱼' }]
+						});
+						const point = modern ?
+							thisScript.global.change_shikigami_target_point :
+							thisScript.findMultiColor('式神录_当前选中队伍预设');
 
 						if (point) {
 							console.log('式神录_当前选中队伍预设');

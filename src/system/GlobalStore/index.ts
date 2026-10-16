@@ -44,6 +44,7 @@ export type globalRootType = {
 	change_shikigami_flag: boolean, //  更换式神
 	change_shikigami_state: 'flushed' | 'search_group' | 'search_default' | 'change_team_default_1' | 'change_team_default_2' | 'finish' | 'second_groud' | 'second_default_1' | 'second_default_2', //  跟换式神预设状态值
 	change_shikigami_list_swipe_times: number,
+	change_shikigami_target_point?: Point | null, // 幕间预设应用按钮缓存
 	change_shikigami_last_group_name: string,   //  式神录预设分组最后一项的名称
 	narrow_state: Record<string, boolean>,   //  狭间暗域状态
 	narrow_time: number, // 狭间暗域自定义3D人物走路时等待时间

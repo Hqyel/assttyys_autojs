@@ -4394,6 +4394,21 @@ const multiFindColors: IMultiFindColorsOrigin = {
 			]
 		]
 	},
+	// 匹配应用图标内部笔画，避开随行号改变亮度的圆形底色。
+	'式神录_队伍应用按钮_霞染游鱼': {
+		region: [right, 1280, 720, 965, 145, 1015, 630],
+		similar: 95,
+		desc: [[1280, 720,
+			[
+				[right, 988, 172, 0xffd7af],
+				[right, 984, 176, 0xefc7a2],
+				[right, 995, 176, 0xeecc99],
+				[right, 990, 167, 0x6c492f],
+				[right, 977, 183, 0xf2bc94],
+				[right, 993, 170, 0xfdc5a9],
+			]
+		]]
+	},
 	'式神录_当前选中队伍预设': {
 		region: [center, 1280, 720, 522, 146, 1024, 622],
 		desc: [
