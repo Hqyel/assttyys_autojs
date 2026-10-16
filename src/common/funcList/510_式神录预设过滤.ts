@@ -224,6 +224,9 @@ export class Func510 implements IFuncOrigin {
 		}, { // 11 穹宇垂帘的预设按钮右移，优先使用专用点击区域。
 			desc: '式神录_预设未展开_穹宇垂帘',
 			oper: [[left, 1280, 720, 393, 83, 446, 110, 1200]]
+		}, { // 12 契光水境的搜索与预设按钮紧邻，限定预设点击范围。
+			desc: '式神录_预设未展开_契光水境',
+			oper: [[left, 1280, 720, 371, 82, 443, 108, 1200]]
 		}];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
 		const thisConf = thisScript.scheme.config['510'];
@@ -247,7 +250,7 @@ export class Func510 implements IFuncOrigin {
 
 			if (thisScript.oper({
 				name: '式神录展开 预设 侧栏',
-				operator: [thisOperator[11], thisOperator[1]]
+				operator: [thisOperator[12], thisOperator[11], thisOperator[1]]
 			})) {
 				return true;
 			}

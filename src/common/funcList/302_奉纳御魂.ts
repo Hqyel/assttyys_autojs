@@ -215,6 +215,9 @@ export class Func302 implements IFuncOrigin {
 		oper: [
 			[center, 1280, 720, 867, 179, 933, 255, 1000]
 		]
+	}, { // 20 契光水境的详情箭头靠近右边缘。
+		desc: '式神录_详情未展开_契光水境',
+		oper: [[right, 1280, 720, 1240, 337, 1257, 381, 1000]]
 	}
 	];
 
@@ -295,7 +298,8 @@ export class Func302 implements IFuncOrigin {
 		}
 		if (thisScript.oper({
 			name: '进入奉纳',
-			operator: [thisOperator[15], thisOperator[16], thisOperator[17], thisOperator[18]
+			operator: [thisOperator[15], thisOperator[16], thisOperator[20],
+				thisOperator[17], thisOperator[18]
 				, thisOperator[19]]
 		})) {
 			return true;

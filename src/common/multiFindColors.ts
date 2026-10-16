@@ -4436,7 +4436,12 @@ const multiFindColors: IMultiFindColorsOrigin = {
 					[right, 918, 161, 0x846033],
 					[right, 860, 162, 0xe3bb71],
 				]
-			]
+			], [1280, 720, [
+				[right, 994, 165, 0xf4e9c8],
+				[center, 589, 155, 0xe7eef7],
+				[center, 688, 155, 0xe7eef7],
+				[center, 834, 155, 0xe7eef7],
+			]]
 		]
 	},
 	'红包_夜樱御祝': {

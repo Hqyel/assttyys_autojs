@@ -16,7 +16,7 @@ vm.runInNewContext(compiled +
   exports: exportsObject, console
 });
 const getOperation = exportsObject.getPresetOperation;
-const operators = Array.from({ length: 12 }, () => ({ oper: [] }));
+const operators = Array.from({ length: 13 }, () => ({ oper: [] }));
 operators[8].oper = [[1, 2, 3, 4, 500]];
 function fixture(modern = true, points = [
   { x: 988, y: 500 }, { x: 988, y: 172 }, { x: 988, y: 336 }
@@ -84,3 +84,30 @@ const opening = new exportsObject.Func510().operator[11];
 assert.equal(opening.desc, '式神录_预设未展开_穹宇垂帘');
 assert.ok(opening.oper[0][3] >= 386, 'must not hit the search button');
 console.log('PASS: curtain profile and shifted preset entry');
+
+// 契光水境是四行布局，沿用每行坐标，不能进入164像素滚动分支。
+const mirrorInstance = new exportsObject.Func510();
+const mirror = fixture(false);
+for (let i = 0; i < 4; i++) {
+  const result = getOperation(mirror, mirrorInstance.operator, i);
+  assert.equal(result, mirrorInstance.operator[8].oper[i]);
+  const x = 994;
+  const y = [165, 315, 466, 616][i];
+  assert.ok(result[3] <= x && x <= result[5]);
+  assert.ok(result[4] <= y && y <= result[6]);
+}
+assert.equal(mirror.swipes.length, 0);
+const mirrorEntry = mirrorInstance.operator[12];
+assert.equal(mirrorEntry.desc, '式神录_预设未展开_契光水境');
+assert.ok(mirrorEntry.oper[0][3] >= 363);
+const offeringSource = fs.readFileSync(path.join(root,
+  'src/common/funcList/302_奉纳御魂.ts'), 'utf8');
+const offeringExports = {};
+vm.runInNewContext(ts.transpileModule(offeringSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS }
+}).outputText, { exports: offeringExports, console });
+const detailEntry = new offeringExports.Func302().operator[20];
+assert.equal(detailEntry.desc, '式神录_详情未展开_契光水境');
+assert.ok(detailEntry.oper[0][3] >= 1240);
+assert.ok(detailEntry.oper[0][5] <= 1257);
+console.log('PASS: mirror rows 1-4, shifted preset and detail entries');
