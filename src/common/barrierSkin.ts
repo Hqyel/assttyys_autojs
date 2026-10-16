@@ -10,7 +10,8 @@ export const BARRIER_SKIN_DEFAULT = '默认结界';
 
 const skinNames = [
   BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城',
-  '月海游星', '浮梦之乡', '四时一隅', '胧梦之庭', '见世山廊', '高天隐月'
+  '月海游星', '浮梦之乡', '四时一隅', '胧梦之庭', '见世山廊', '高天隐月',
+  '雪峰祭台'
 ] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
@@ -321,6 +322,35 @@ const yinyueCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 910, 320, 926, 366, 1000]
 ];
 
+const xuefengHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 468, 353, 0xd3b99f],
+  [center, 662, 354, 0xd9c1ab],
+  [center, 851, 354, 0xd5bba3]
+]];
+const xuefengStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...xuefengHome[2],
+  [right, 970, 424, 0xdd5e26],
+  [right, 972, 439, 0x86331c]
+]];
+const xuefengExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...xuefengHome[2],
+  [right, 1021, 418, 0x73a7db],
+  [right, 1024, 442, 0x578cca]
+]];
+const xuefengReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...xuefengHome[2],
+  [center, 862, 240, 0x12100c],
+  [center, 834, 269, 0x12100c],
+  [center, 889, 270, 0x110f0b]
+]];
+const xuefengTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 661, 353, 678, 413, 1000]
+];
+const xuefengCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 851, 353, 865, 398, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -586,6 +616,32 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: yinyueHome,
       oper: [...yinyueTraining, ...yinyueCard] } },
     503: { 11: { desc: yinyueHome } }
+  },
+  '雪峰祭台': {
+    700: {
+      8: { desc: xuefengStamina, oper: [
+        [right, 1280, 720, 959, 407, 982, 435, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: xuefengExperience, oper: [
+        [right, 1280, 720, 1036, 418, 1045, 439, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: xuefengHome, oper: xuefengTraining }
+    },
+    701: {
+      0: { desc: xuefengHome, oper: [...xuefengTraining, ...xuefengCard] },
+      1: { desc: xuefengReward, oper: [
+        [center, 1280, 720, 848, 254, 876, 287, 1000]
+      ] },
+      12: { desc: xuefengHome, oper: xuefengTraining }
+    },
+    702: { 0: { desc: xuefengHome, oper: xuefengTraining } },
+    998: { 10: { desc: xuefengHome,
+      oper: [...xuefengTraining, ...xuefengCard] } },
+    503: { 11: { desc: xuefengHome } }
   }
 };
 

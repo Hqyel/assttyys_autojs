@@ -217,6 +217,8 @@ verifySkin('见世山廊', [617, 318, 629, 368, 1000],
   [795, 320, 806, 367, 1000], [904, 332, 926, 359, 1200]);
 verifySkin('高天隐月', [647, 314, 670, 394, 1000],
   [910, 320, 926, 366, 1000], [954, 405, 976, 434, 1200]);
+verifySkin('雪峰祭台', [661, 353, 678, 413, 1000],
+  [851, 353, 865, 398, 1000], [959, 407, 982, 435, 1200]);
 assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('奇想蜃城', 700)
   [9].oper[0]).slice(3), [982, 472, 994, 492, 1200],
   'experience entry must avoid the overlapping stamina hit area');
@@ -232,3 +234,5 @@ assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('见世山廊', 700)
   [9].oper[0]).slice(3), [978, 341, 989, 360, 1200]);
 assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('高天隐月', 700)
   [9].oper[0]).slice(3), [1050, 418, 1059, 439, 1200]);
+assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('雪峰祭台', 700)
+  [9].oper[0]).slice(3), [1036, 418, 1045, 439, 1200]);
