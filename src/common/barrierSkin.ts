@@ -10,7 +10,7 @@ export const BARRIER_SKIN_DEFAULT = '默认结界';
 
 const skinNames = [
   BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城',
-  '月海游星', '浮梦之乡', '四时一隅'
+  '月海游星', '浮梦之乡', '四时一隅', '胧梦之庭'
 ] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
@@ -232,6 +232,36 @@ const shishiCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 830, 435, 842, 488, 1000]
 ];
 
+const longmengHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 389, 433, 0xddc5b3],
+  [center, 643, 434, 0xdfc9b7],
+  [center, 871, 435, 0xdbc3ab]
+]];
+const longmengStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...longmengHome[2],
+  [right, 836, 504, 0xdf6a2a],
+  [right, 837, 520, 0x88341d]
+]];
+const longmengExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...longmengHome[2],
+  [right, 882, 496, 0x286697],
+  [right, 885, 519, 0x6997d3]
+]];
+const longmengReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...longmengHome[2],
+  [center, 881, 311, 0x12100c],
+  [center, 853, 340, 0x12100c],
+  [center, 908, 341, 0x110f0b]
+]];
+const longmengTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 640, 433, 659, 497, 1000]
+];
+// 牌面下方与食盒气泡接近，结界卡入口限定为上半部。
+const longmengCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 872, 434, 889, 452, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -419,6 +449,32 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: shishiHome,
       oper: [...shishiTraining, ...shishiCard] } },
     503: { 11: { desc: shishiHome } }
+  },
+  '胧梦之庭': {
+    700: {
+      8: { desc: longmengStamina, oper: [
+        [right, 1280, 720, 825, 490, 846, 518, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: longmengExperience, oper: [
+        [right, 1280, 720, 905, 498, 915, 516, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: longmengHome, oper: longmengTraining }
+    },
+    701: {
+      0: { desc: longmengHome, oper: [...longmengTraining, ...longmengCard] },
+      1: { desc: longmengReward, oper: [
+        [center, 1280, 720, 867, 326, 895, 358, 1000]
+      ] },
+      12: { desc: longmengHome, oper: longmengTraining }
+    },
+    702: { 0: { desc: longmengHome, oper: longmengTraining } },
+    998: { 10: { desc: longmengHome,
+      oper: [...longmengTraining, ...longmengCard] } },
+    503: { 11: { desc: longmengHome } }
   }
 };
 

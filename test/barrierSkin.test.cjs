@@ -211,6 +211,8 @@ verifySkin('浮梦之乡', [639, 482, 658, 545, 1000],
   [874, 484, 890, 544, 1000], [987, 551, 1011, 583, 1200]);
 verifySkin('四时一隅', [623, 435, 639, 487, 1000],
   [830, 435, 842, 488, 1000], [934, 471, 957, 501, 1200]);
+verifySkin('胧梦之庭', [640, 433, 659, 497, 1000],
+  [872, 434, 889, 452, 1000], [825, 490, 846, 518, 1200]);
 assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('奇想蜃城', 700)
   [9].oper[0]).slice(3), [982, 472, 994, 492, 1200],
   'experience entry must avoid the overlapping stamina hit area');
@@ -220,3 +222,5 @@ assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('浮梦之乡', 700)
   [9].oper[0]).slice(3), [1090, 560, 1099, 586, 1200]);
 assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('四时一隅', 700)
   [9].oper[0]).slice(3), [1008, 476, 1018, 495, 1200]);
+assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('胧梦之庭', 700)
+  [9].oper[0]).slice(3), [905, 498, 915, 516, 1200]);
