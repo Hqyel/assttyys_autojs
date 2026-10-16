@@ -171,6 +171,17 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 					[right, 1164, 600, 0x9ecff0],
 					[center, 972, 702, 0xbbc7e1],
 				]
+			],
+			// 雅乐之邦：顶部按钮、右侧边框与手动/自动按钮的共有部分。
+			[1280, 720,
+				[
+					[left, 34, 25, 0xecd89c],
+					[left, 107, 25, 0xeedaa0],
+					[right, 1266, 545, 0xdad084],
+					[left, 117, 614, 0xfbe7dd],
+					[left, 70, 664, 0x9d424b],
+					[left, 84, 658, 0xffede3],
+				]
 			]
 		]
 	},
@@ -242,11 +253,12 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 		desc: [1280, 720,
 			[
 				[left, 34, 25, 0xecd89c],
-				[left, 107, 25, 0xefdaa0],
-				[left, 46, 670, 0xfce8de],
-				[left, 25, 703, 0x426559],
-				[left, 117, 614, 0xfbe6dd],
-				[left, 63, 684, 0xcccca8],
+				[left, 107, 25, 0xeedaa0],
+				[left, 48, 662, 0xfeeae1],
+				[left, 48, 668, 0xfdeae0],
+				[left, 50, 650, 0xfce8df],
+				[left, 54, 656, 0x9f454e],
+				[left, 42, 670, 0xa16967],
 			]
 		],
 	},
