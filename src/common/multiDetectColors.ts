@@ -204,6 +204,17 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 					[left, 70, 664, 0x884e1f],
 					[left, 84, 658, 0xfffbe3],
 				]
+			],
+			// 祥夜幽芳：选取两种战斗模式共有的按钮与右侧边框。
+			[1280, 720,
+				[
+					[left, 34, 25, 0xc5c5fe],
+					[left, 107, 25, 0xd2d2f9],
+					[right, 1266, 545, 0x7e87b9],
+					[left, 117, 614, 0xf8f5e1],
+					[left, 70, 664, 0x4b4dad],
+					[left, 84, 658, 0xfffbe3],
+				]
 			]
 		]
 	},
@@ -282,6 +293,19 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[left, 50, 650, 0xfcf6de],
 				[left, 54, 656, 0x8a5122],
 				[left, 42, 670, 0xa46730],
+			]
+		],
+	},
+	'战斗界面_手动状态_祥夜幽芳': {
+		desc: [1280, 720,
+			[
+				[left, 34, 25, 0xc5c5fe],
+				[left, 107, 25, 0xd2d2f9],
+				[left, 48, 662, 0xfcf8e2],
+				[left, 48, 668, 0xfbf8e2],
+				[left, 50, 650, 0xfaf6e2],
+				[left, 54, 656, 0x4e50ae],
+				[left, 42, 670, 0x6e70b8],
 			]
 		],
 	},
@@ -940,6 +964,7 @@ multiDetectColors['战斗界面_手动状态'].variants = [
 	multiDetectColors['战斗界面_手动状态_春缕含青'].desc,
 	multiDetectColors['战斗界面_手动状态_蝶寻花踪'].desc,
 	multiDetectColors['战斗界面_手动状态_桂馥金秋'].desc,
+	multiDetectColors['战斗界面_手动状态_祥夜幽芳'].desc,
 	multiDetectColors['战斗界面_手动状态_雅乐之邦'].desc,
 	multiDetectColors['战斗界面_手动状态_莲华圣域'].desc,
 	multiDetectColors['战斗界面_手动状态_笼梦之境'].desc,
