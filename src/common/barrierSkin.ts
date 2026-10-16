@@ -77,6 +77,8 @@ const profiles: Partial<Record<BarrierSkinName,
     },
     // 702仅增加己方入口，调用方仍保留原有好友识别路径。
     702: { 0: { desc: home, oper: training } },
+    // 旧版自定义寄养方案由999进入结界，998继续育成、换卡和寄养。
+    998: { 10: { desc: home, oper: [...training, ...card] } },
     503: { 11: { desc: home } }
   }
 };

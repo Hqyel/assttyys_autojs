@@ -447,6 +447,7 @@ export class Func998 implements IFuncOrigin {
 		}
 	];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
+		thisOperator = thisScript.getBarrierOperators(998, thisOperator);
 		const thisconf = thisScript.scheme.config['998'];
 
 		if (

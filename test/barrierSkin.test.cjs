@@ -46,9 +46,11 @@ const funcs = {
   700: loadFunc(700, '进入结界并领取食盒'),
   701: loadFunc(701, '结界卡更换'),
   702: loadFunc(702, '式神寄养'),
-  503: loadFunc(503, '返回庭院界面')
+  503: loadFunc(503, '返回庭院界面'),
+  998: loadFunc(998, '式神寄养'),
+  999: loadFunc(999, '式神育成')
 };
-for (const id of [700, 701, 702, 503]) {
+for (const id of [700, 701, 702, 503, 998]) {
   const original = funcs[id].operator;
   const snapshot = JSON.stringify(original);
   assert.equal(reader.getBarrierOperators(id, original), original);
@@ -66,7 +68,9 @@ for (const id of [700, 701, 702, 503]) {
 }
 selected = '苍境云台';
 assert.equal(reader.getBarrierOperators(995, funcs[702].operator),
-  funcs[702].operator, 'friend and legacy flows must not be rewritten');
+  funcs[702].operator, 'friend flow must not be rewritten');
+assert.equal(reader.getBarrierOperators(999, funcs[999].operator),
+  funcs[999].operator, 'existing guild entry should be preserved');
 assert.equal(skin.GetBarrierSkinOverrides('不存在', 700), null);
 const own = reader.getBarrierOperators(700, funcs[700].operator);
 const cards = reader.getBarrierOperators(701, funcs[701].operator);
@@ -145,3 +149,48 @@ assert.equal(funcs[503].operatorFunc({
   }
 }, funcs[503].operator), true);
 console.log('PASS: actual 700/701/503 entry routing');
+
+// 用户01_寄养使用旧版999进入结界，998必须在三个阶段使用新入口。
+for (const state of ['change', 'jy_flag', 'change_enchantment']) {
+  const clicked = [];
+  let routed = false;
+  const script = {
+    ...baseScript,
+    global: { jy_change_shikigami: state },
+    scheme: { config: { 998: {} } },
+    oper(operation) {
+      if (state === 'change' &&
+          operation.name === '判断_是否为己方结界_点击式神育成') {
+        assert.equal(JSON.stringify(operation.operator[0].desc),
+          JSON.stringify(own[10].desc));
+        return true;
+      }
+      if (state === 'change' && operation.name === '点击式神育成') {
+        clicked.push(operation.operator[0].oper[0]);
+        return true;
+      }
+      if (state === 'jy_flag' && operation.name === '检测是否为式神寄养列表') {
+        assert.equal(JSON.stringify(operation.operator[0].desc),
+          JSON.stringify(own[10].desc));
+        assert.equal(operation.operator[1], funcs[998].operator[5]);
+        assert.equal(operation.operator[2], funcs[998].operator[6]);
+        clicked.push(operation.operator[0].oper[0]);
+        return true;
+      }
+      if (state === 'change_enchantment' && operation.name === '更换结界卡') {
+        assert.equal(JSON.stringify(operation.operator[0].desc),
+          JSON.stringify(own[10].desc));
+        clicked.push(operation.operator[0].oper[0]);
+        routed = true;
+        return true;
+      }
+      return false;
+    }
+  };
+  assert.equal(funcs[998].operatorFunc(script, funcs[998].operator), true);
+  assert.equal(clicked.length, 1);
+  assert.deepEqual(Array.from(clicked[0]), state === 'change_enchantment' ?
+    [925, 326, 949, 380, 1000] : [654, 324, 680, 378, 1000]);
+  assert.equal(routed, state === 'change_enchantment');
+}
+console.log('PASS: legacy 998 change/foster/card stages and unchanged 999 entry');
