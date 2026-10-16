@@ -10,7 +10,7 @@ export const BARRIER_SKIN_DEFAULT = '默认结界';
 
 const skinNames = [
   BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城',
-  '月海游星', '浮梦之乡', '四时一隅', '胧梦之庭', '见世山廊'
+  '月海游星', '浮梦之乡', '四时一隅', '胧梦之庭', '见世山廊', '高天隐月'
 ] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
@@ -291,6 +291,36 @@ const jianshiCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 795, 320, 806, 367, 1000]
 ];
 
+const yinyueHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 386, 314, 0xe1c9b3],
+  [center, 647, 315, 0xd7bd9f],
+  [center, 908, 316, 0xbd9354]
+]];
+const yinyueStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yinyueHome[2],
+  [right, 966, 419, 0xdb652d],
+  [right, 966, 435, 0x86321c]
+]];
+const yinyueExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yinyueHome[2],
+  [right, 1040, 418, 0x7dade0],
+  [right, 1043, 442, 0x628ecc]
+]];
+const yinyueReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yinyueHome[2],
+  [center, 928, 176, 0x12100c],
+  [center, 900, 206, 0x12100c],
+  [center, 955, 207, 0x110f0b]
+]];
+const yinyueTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 647, 314, 670, 394, 1000]
+];
+// 结界卡牌右下方靠近体力气泡，入口限定为牌面上半部。
+const yinyueCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 910, 320, 926, 366, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -530,6 +560,32 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: jianshiHome,
       oper: [...jianshiTraining, ...jianshiCard] } },
     503: { 11: { desc: jianshiHome } }
+  },
+  '高天隐月': {
+    700: {
+      8: { desc: yinyueStamina, oper: [
+        [right, 1280, 720, 954, 405, 976, 434, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: yinyueExperience, oper: [
+        [right, 1280, 720, 1050, 418, 1059, 439, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: yinyueHome, oper: yinyueTraining }
+    },
+    701: {
+      0: { desc: yinyueHome, oper: [...yinyueTraining, ...yinyueCard] },
+      1: { desc: yinyueReward, oper: [
+        [center, 1280, 720, 914, 190, 942, 223, 1000]
+      ] },
+      12: { desc: yinyueHome, oper: yinyueTraining }
+    },
+    702: { 0: { desc: yinyueHome, oper: yinyueTraining } },
+    998: { 10: { desc: yinyueHome,
+      oper: [...yinyueTraining, ...yinyueCard] } },
+    503: { 11: { desc: yinyueHome } }
   }
 };
 

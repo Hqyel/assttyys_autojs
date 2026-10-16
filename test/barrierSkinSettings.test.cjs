@@ -21,7 +21,7 @@ function load(file, context = {}) {
 const skin = load('src/common/barrierSkin.ts');
 const expectedSkins = [
   '默认结界', '苍境云台', '高天圣域', '云旷江清', '奇想蜃城', '月海游星',
-  '浮梦之乡', '四时一隅', '胧梦之庭', '见世山廊'
+  '浮梦之乡', '四时一隅', '胧梦之庭', '见世山廊', '高天隐月'
 ];
 assert.deepEqual(Array.from(skin.barrierSkinNames), expectedSkins);
 for (const invalid of [undefined, null, '', '自动识别', '未知皮肤', 1, {}]) {
@@ -36,6 +36,7 @@ assert.equal(skin.NormalizeBarrierSkinName('浮梦之乡'), '浮梦之乡');
 assert.equal(skin.NormalizeBarrierSkinName('四时一隅'), '四时一隅');
 assert.equal(skin.NormalizeBarrierSkinName('胧梦之庭'), '胧梦之庭');
 assert.equal(skin.NormalizeBarrierSkinName('见世山廊'), '见世山廊');
+assert.equal(skin.NormalizeBarrierSkinName('高天隐月'), '高天隐月');
 
 function fixture(settings = {}) {
   let persisted = { ...settings };
