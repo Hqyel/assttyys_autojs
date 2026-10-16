@@ -10,7 +10,7 @@ export const BARRIER_SKIN_DEFAULT = '默认结界';
 
 const skinNames = [
   BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城',
-  '月海游星', '浮梦之乡', '四时一隅', '胧梦之庭'
+  '月海游星', '浮梦之乡', '四时一隅', '胧梦之庭', '见世山廊'
 ] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
@@ -262,6 +262,35 @@ const longmengCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 872, 434, 889, 452, 1000]
 ];
 
+const jianshiHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 433, 318, 0xd9c1ab],
+  [center, 619, 318, 0xd7bda7],
+  [center, 795, 319, 0xb78962]
+]];
+const jianshiStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...jianshiHome[2],
+  [right, 915, 347, 0xd97327],
+  [right, 915, 363, 0x82311a]
+]];
+const jianshiExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...jianshiHome[2],
+  [right, 960, 338, 0x25628f],
+  [right, 964, 359, 0x6396d6]
+]];
+const jianshiReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...jianshiHome[2],
+  [center, 806, 180, 0x12100c],
+  [center, 778, 210, 0x12100c],
+  [center, 834, 211, 0x110f0b]
+]];
+const jianshiTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 617, 318, 629, 368, 1000]
+];
+const jianshiCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 795, 320, 806, 367, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -475,6 +504,32 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: longmengHome,
       oper: [...longmengTraining, ...longmengCard] } },
     503: { 11: { desc: longmengHome } }
+  },
+  '见世山廊': {
+    700: {
+      8: { desc: jianshiStamina, oper: [
+        [right, 1280, 720, 904, 332, 926, 359, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: jianshiExperience, oper: [
+        [right, 1280, 720, 978, 341, 989, 360, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: jianshiHome, oper: jianshiTraining }
+    },
+    701: {
+      0: { desc: jianshiHome, oper: [...jianshiTraining, ...jianshiCard] },
+      1: { desc: jianshiReward, oper: [
+        [center, 1280, 720, 793, 195, 819, 227, 1000]
+      ] },
+      12: { desc: jianshiHome, oper: jianshiTraining }
+    },
+    702: { 0: { desc: jianshiHome, oper: jianshiTraining } },
+    998: { 10: { desc: jianshiHome,
+      oper: [...jianshiTraining, ...jianshiCard] } },
+    503: { 11: { desc: jianshiHome } }
   }
 };
 
