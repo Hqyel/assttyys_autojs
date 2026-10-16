@@ -220,6 +220,13 @@ export class Func702 implements IFuncOrigin {
 		},
 	];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
+		const ownOperator = thisScript.getBarrierOperators(702, thisOperator);
+		if (ownOperator !== thisOperator && thisScript.oper({
+			id: 702,
+			name: '所选皮肤的己方结界_进入育成',
+			operator: [ownOperator[0]]
+		})) return true;
+		// 好友页面仍使用原规则，不套用自己的结界皮肤。
 		const thisconf = thisScript.scheme.config['702'];
 		if (thisScript.oper({
 			id: 702,

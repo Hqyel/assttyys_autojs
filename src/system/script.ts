@@ -38,6 +38,7 @@ import {
 } from '@/common/courtyardSkin';
 import {
 	BarrierSkinName,
+	GetBarrierSkinOverrides,
 	NormalizeBarrierSkinName
 } from '@/common/barrierSkin';
 
@@ -610,6 +611,33 @@ export class Script {
 		return NormalizeBarrierSkinName(
 			storeCommon.get('settings', {}).barrier_skin
 		);
+	}
+
+	/** 复制所选结界皮肤的覆盖项，不改写已转换或其他皮肤的操作。 */
+	getBarrierOperators(id: number, operators: IFuncOperator[]): IFuncOperator[] {
+		const overrides = GetBarrierSkinOverrides(this.getBarrierSkinName(), id);
+		if (!overrides) return operators;
+		const result = operators.slice();
+		for (const index of Object.keys(overrides)) {
+			const origin = overrides[index];
+			const item = { ...operators[index] };
+			if (origin.desc) {
+				if (typeof origin.desc === 'string') {
+					item.desc = origin.desc;
+				} else {
+					const [width, height, points] = origin.desc;
+					item.desc = this.helperBridge.getHelper(width, height)
+						.GetCmpColorArray(width, height, points);
+				}
+			}
+			if (origin.oper) {
+				item.oper = this.helperBridge.regionClickTrans(
+					origin.oper.map(row => [...row])
+				);
+			}
+			result[index] = item;
+		}
+		return result;
 	}
 
 	/**

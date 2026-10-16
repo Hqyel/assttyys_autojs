@@ -829,6 +829,7 @@ export class Func503 implements IFuncOrigin {
 		]
 	},];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
+		thisOperator = thisScript.getBarrierOperators(503, thisOperator);
 		const thisConf = thisScript.scheme.config['503'];
 		// 增加全局开关
 		if (thisScript.global.back_time > 10) {

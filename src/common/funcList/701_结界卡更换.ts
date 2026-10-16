@@ -255,6 +255,7 @@ export class Func701 implements IFuncOrigin {
 		}
 	];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
+		thisOperator = thisScript.getBarrierOperators(701, thisOperator);
 		const thisconf = thisScript.scheme.config['701'];
 		if (thisScript.oper({
 			id: 701,
