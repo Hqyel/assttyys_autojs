@@ -8,7 +8,9 @@ import { IMultiDetectColorDescOrigin } from '@/interface/IMultiColor';
 /* eslint-disable indent */
 export const BARRIER_SKIN_DEFAULT = '默认结界';
 
-const skinNames = [BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域'] as const;
+const skinNames = [
+  BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清'
+] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
 
@@ -82,6 +84,35 @@ const gaotianCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 905, 453, 924, 517, 1000]
 ];
 
+const yunkuangHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 318, 375, 0xdfc7b3],
+  [center, 627, 375, 0xdfc7af],
+  [center, 909, 375, 0xdfc7af]
+]];
+const yunkuangStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yunkuangHome[2],
+  [right, 1023, 456, 0xdc6626],
+  [right, 1024, 475, 0x85331b]
+]];
+const yunkuangExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yunkuangHome[2],
+  [right, 1070, 444, 0x2b72a6],
+  [right, 1079, 473, 0x9dbae2]
+]];
+const yunkuangReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...yunkuangHome[2],
+  [center, 918, 246, 0x12100c],
+  [center, 890, 277, 0x12100c],
+  [center, 944, 278, 0x13110c]
+]];
+const yunkuangTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 624, 373, 647, 445, 1000]
+];
+const yunkuangCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 905, 373, 926, 445, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -136,6 +167,32 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: gaotianHome,
       oper: [...gaotianTraining, ...gaotianCard] } },
     503: { 11: { desc: gaotianHome } }
+  },
+  '云旷江清': {
+    700: {
+      8: { desc: yunkuangStamina, oper: [
+        [right, 1280, 720, 1009, 438, 1035, 471, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: yunkuangExperience, oper: [
+        [right, 1280, 720, 1066, 438, 1087, 475, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: yunkuangHome, oper: yunkuangTraining }
+    },
+    701: {
+      0: { desc: yunkuangHome, oper: [...yunkuangTraining, ...yunkuangCard] },
+      1: { desc: yunkuangReward, oper: [
+        [center, 1280, 720, 902, 258, 931, 291, 1000]
+      ] },
+      12: { desc: yunkuangHome, oper: yunkuangTraining }
+    },
+    702: { 0: { desc: yunkuangHome, oper: yunkuangTraining } },
+    998: { 10: { desc: yunkuangHome,
+      oper: [...yunkuangTraining, ...yunkuangCard] } },
+    503: { 11: { desc: yunkuangHome } }
   }
 };
 
