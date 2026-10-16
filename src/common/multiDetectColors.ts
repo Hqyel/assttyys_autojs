@@ -215,6 +215,17 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 					[left, 70, 664, 0x4b4dad],
 					[left, 84, 658, 0xfffbe3],
 				]
+			],
+			// 春缕含青：选取两种战斗模式共有的按钮与右侧边框。
+			[1280, 720,
+				[
+					[left, 34, 25, 0xfee4ad],
+					[left, 107, 25, 0xffe9ba],
+					[right, 1270, 132, 0xd7c18c],
+					[left, 117, 614, 0xf9f4dc],
+					[left, 70, 664, 0x503f2c],
+					[left, 84, 658, 0xfffbe3],
+				]
 			]
 		]
 	},
@@ -261,12 +272,13 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 	'战斗界面_手动状态_春缕含青': {
 		desc: [1280, 720,
 			[
-				[left, 34, 23, 0xffe4ad],
-				[left, 106, 24, 0xffe8b9],
-				[right, 1270, 700, 0x5a4734],
-				[left, 48, 670, 0x655542],
-				[left, 82, 683, 0xc3b97d],
-				[left, 117, 614, 0xf8f4dc],
+				[left, 34, 25, 0xfee4ad],
+				[left, 107, 25, 0xffe9ba],
+				[left, 48, 662, 0xfcf8e0],
+				[left, 48, 668, 0xfcf7df],
+				[left, 50, 650, 0xfaf6de],
+				[left, 54, 656, 0x53422f],
+				[left, 42, 670, 0x776236],
 			]
 		],
 	},
