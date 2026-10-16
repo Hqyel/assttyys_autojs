@@ -9,7 +9,7 @@ import { IMultiDetectColorDescOrigin } from '@/interface/IMultiColor';
 export const BARRIER_SKIN_DEFAULT = '默认结界';
 
 const skinNames = [
-  BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清'
+  BARRIER_SKIN_DEFAULT, '苍境云台', '高天圣域', '云旷江清', '奇想蜃城'
 ] as const;
 export type BarrierSkinName = typeof skinNames[number];
 export const barrierSkinNames: string[] = [...skinNames];
@@ -113,6 +113,36 @@ const yunkuangCard: IFuncOperatorOrigin['oper'] = [
   [center, 1280, 720, 905, 373, 926, 445, 1000]
 ];
 
+// 牌面上沿受粉色光效干扰，育成和结界卡改取中段稳定点。
+const qixiangHome: IMultiDetectColorDescOrigin = [1280, 720, [
+  [left, 126, 35, 0xf9efac],
+  [center, 431, 458, 0xdfcabe],
+  [center, 642, 482, 0xd7bfb3],
+  [center, 869, 478, 0xd9c1b3]
+]];
+const qixiangStamina: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...qixiangHome[2],
+  [right, 923, 483, 0xdd652a],
+  [right, 921, 500, 0x85331b]
+]];
+const qixiangExperience: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...qixiangHome[2],
+  [right, 964, 494, 0x788fb0],
+  [right, 968, 504, 0x9eb9e0]
+]];
+const qixiangReward: IMultiDetectColorDescOrigin = [1280, 720, [
+  ...qixiangHome[2],
+  [center, 862, 335, 0x12100c],
+  [center, 834, 362, 0x12100c],
+  [center, 888, 364, 0x0f0e0a]
+]];
+const qixiangTraining: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 640, 454, 661, 520, 1000]
+];
+const qixiangCard: IFuncOperatorOrigin['oper'] = [
+  [center, 1280, 720, 853, 454, 872, 520, 1000]
+];
+
 const profiles: Partial<Record<BarrierSkinName,
   Record<number, BarrierOperatorOverrides>>> = {
   '苍境云台': {
@@ -193,6 +223,33 @@ const profiles: Partial<Record<BarrierSkinName,
     998: { 10: { desc: yunkuangHome,
       oper: [...yunkuangTraining, ...yunkuangCard] } },
     503: { 11: { desc: yunkuangHome } }
+  },
+  '奇想蜃城': {
+    700: {
+      8: { desc: qixiangStamina, oper: [
+        [right, 1280, 720, 910, 468, 934, 496, 1200],
+        [center, 1280, 720, 613, 535, 665, 566, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200],
+        [center, 1280, 720, 956, 151, 994, 179, 1200]
+      ] },
+      9: { desc: qixiangExperience, oper: [
+        // 两个气泡重叠，点击经验气泡右侧，避开体力食盒热区。
+        [right, 1280, 720, 982, 472, 994, 492, 1200],
+        [center, 1280, 720, 611, 476, 676, 519, 1200]
+      ] },
+      10: { desc: qixiangHome, oper: qixiangTraining }
+    },
+    701: {
+      0: { desc: qixiangHome, oper: [...qixiangTraining, ...qixiangCard] },
+      1: { desc: qixiangReward, oper: [
+        [center, 1280, 720, 849, 347, 876, 380, 1000]
+      ] },
+      12: { desc: qixiangHome, oper: qixiangTraining }
+    },
+    702: { 0: { desc: qixiangHome, oper: qixiangTraining } },
+    998: { 10: { desc: qixiangHome,
+      oper: [...qixiangTraining, ...qixiangCard] } },
+    503: { 11: { desc: qixiangHome } }
   }
 };
 

@@ -203,3 +203,8 @@ verifySkin('高天圣域', [635, 449, 658, 517, 1000],
   [905, 453, 924, 517, 1000], [997, 527, 1025, 559, 1200]);
 verifySkin('云旷江清', [624, 373, 647, 445, 1000],
   [905, 373, 926, 445, 1000], [1009, 438, 1035, 471, 1200]);
+verifySkin('奇想蜃城', [640, 454, 661, 520, 1000],
+  [853, 454, 872, 520, 1000], [910, 468, 934, 496, 1200]);
+assert.deepEqual(Array.from(skin.GetBarrierSkinOverrides('奇想蜃城', 700)
+  [9].oper[0]).slice(3), [982, 472, 994, 492, 1200],
+  'experience entry must avoid the overlapping stamina hit area');
