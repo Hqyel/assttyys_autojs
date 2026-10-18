@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - codex/courtyard-fox-home
       - zz_dev
       - kk_dev
       - hm_dev
