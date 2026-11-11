@@ -645,6 +645,20 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[right, 1223, 23, 0xd6ad86],
 				[center, 508, 35, 0x731c10],
 			]
+		],
+		// 新版顶部资源栏颜色变化，改用底部结界突破入口的静态图标。
+		variants: [
+			[1280, 720,
+				[
+					[left, 36, 36, 0xf5e2a2],
+					[left, 117, 26, 0xf9eeb7],
+					[right, 1164, 25, 0xd7b288],
+					[right, 1223, 23, 0xd4ae84],
+					[left, 280, 650, 0xe0b557],
+					[left, 290, 650, 0xe6d3d3],
+					[left, 300, 650, 0x7a0d0d],
+				]
+			]
 		]
 	},
 	'页面是否为庭院_菜单未展开_只支持默认庭院皮肤与默认装饰': {
