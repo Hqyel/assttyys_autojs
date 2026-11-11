@@ -646,18 +646,30 @@ const multiDetectColors: IMultiDetectColorsOrigin = {
 				[center, 508, 35, 0x731c10],
 			]
 		],
-		// 新版顶部资源栏颜色变化，改用底部结界突破入口的静态图标。
+		// 新版地图仅比对底部静态图标，避开顶部资源栏。
 		variants: [
 			[1280, 720,
 				[
-					[left, 36, 36, 0xf5e2a2],
-					[left, 117, 26, 0xf9eeb7],
-					[right, 1164, 25, 0xd7b288],
-					[right, 1223, 23, 0xd4ae84],
+					[left, 270, 640, 0xd2c2b5],
 					[left, 280, 650, 0xe0b557],
 					[left, 290, 650, 0xe6d3d3],
 					[left, 300, 650, 0x7a0d0d],
+					[left, 279, 670, 0x2a2725],
+					[left, 295, 674, 0xcfc7bf],
 				]
+			]
+		]
+	},
+	'探索地图_结界突破入口': {
+		// 独立识别入口，避免突破操作使用顶部资源栏的通用地图取色。
+		desc: [1280, 720,
+			[
+				[left, 270, 640, 0xd2c2b5],
+				[left, 280, 650, 0xe0b557],
+				[left, 290, 650, 0xe6d3d3],
+				[left, 300, 650, 0x7a0d0d],
+				[left, 279, 670, 0x2a2725],
+				[left, 295, 674, 0xcfc7bf],
 			]
 		]
 	},
