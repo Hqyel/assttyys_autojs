@@ -20,8 +20,16 @@ export class Func501 implements IFuncOrigin {
 		}],
 	}];
 	operator: IFuncOperatorOrigin[] = [{
-		// 0 探索地图打开buff界面
-		desc: '探索地图界面',
+		// 0 旧版探索地图；不能复用含新版候选的通用地图规则。
+		desc: [1280, 720,
+			[
+				[left, 36, 36, 0xf7e3a5],
+				[left, 117, 26, 0xf7efb5],
+				[right, 1164, 25, 0xd6b289],
+				[right, 1223, 23, 0xd6ad86],
+				[center, 508, 35, 0x731c10],
+			]
+		],
 		oper: [
 			[center, 1280, 720, 412, 32, 441, 62, 1500],
 		]
@@ -53,6 +61,22 @@ export class Func501 implements IFuncOrigin {
 		oper: [
 			[left, 1280, 720, 35, 27, 62, 55, 600] // [center, 1280, 720, 799, 38, 828, 76, 1500] 不管是队长还是队员，先退队伍在关闭buff
 		]
+	}, {
+		// 3 新版探索地图：加成入口已移动到左上角挑战券之前。
+		desc: [1280, 720,
+			[
+				[left, 244, 45, 0xfce8d0],
+				[left, 250, 42, 0x54524c],
+				[left, 255, 53, 0x333331],
+				[left, 264, 61, 0xfce8cf],
+				[left, 280, 650, 0xe0b557],
+				[left, 290, 650, 0xe6d3d3],
+				[left, 300, 650, 0x7a0d0d],
+			]
+		],
+		oper: [
+			[left, 1280, 720, 244, 36, 264, 62, 1500],
+		]
 	}];
 	operatorFunc(thisScript: Script, thisOperator: IFuncOperator[]): boolean {
 		const thisconf = thisScript.scheme.config['501'];
@@ -61,7 +85,7 @@ export class Func501 implements IFuncOrigin {
 		} else {
 			if (thisScript.oper({
 				name: '打开buff界面',
-				operator: thisOperator.slice(0)
+				operator: [thisOperator[3], ...thisOperator.slice(0, 3)]
 			})) {
 				return true;
 			}
